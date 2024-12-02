@@ -797,7 +797,7 @@ void Engine::Step(bool isActive)
 			info.SetCondition("system solar display");
 			info.SetString("system solar", to_string(displaySystemPower));
 		}
-		// Display combined Sold Wind for system
+		// Display combined Solar Wind for system
 		int displaySystemWind = (flagship->DisplaySystemWind() * 100); // Combined system Solar Wind multiplied to not display decimal stats
 		if(displaySystemWind >= 0.01 && flagship->Attributes().Get("ramscoop scan")) // Requires ramscoop scan to display
 		{
