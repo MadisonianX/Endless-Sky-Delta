@@ -258,7 +258,8 @@ outfitter "Common Outfits"
 	"Pilot's License"
 	"Laser Rifle"
 	"Fuel Bar Fixed Display"
-
+	"Astronomical Scanner"
+	
 outfitter "Ammo North"
 	"Meteor Missile"
 	"Torpedo"

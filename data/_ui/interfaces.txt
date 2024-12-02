@@ -769,6 +769,25 @@ interface "hud"
 		color "medium"
 		align left
 
+	# System Solar Power and Solar Wind display
+	visible if "system solar display"
+	sprite "ui/tactical/solar"
+		from -2205 70
+		align top left
+	string "system solar"
+		from -2188 79
+		color "medium"
+		align left
+
+	visible if "system wind display"
+	sprite "ui/tactical/wind"
+		from -2200 90
+		align top left
+	string "system wind"
+		from -2183 99
+		color "medium"
+		align left
+			
 	string "incoming"
 		from -70 320
 		color "medium"
