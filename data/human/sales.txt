@@ -308,7 +308,8 @@ outfitter "Deep Sky Basics"
 	"A370 Atomic Thruster"
 	"A375 Atomic Steering"
 	"AR120 Reverse Thruster"
-
+	"Astronomical Scanner"
+	
 outfitter "Deep Sky Advanced"
 	"Ramscoop"
 	"LP144a Battery Pack"
