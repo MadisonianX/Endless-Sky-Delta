@@ -84,6 +84,12 @@ tip "asteroid scan power:"
 tip "atmosphere scan:"
 	`This type of scanning cannot be performed by your ship, but this outfit might be useful for certain missions.`
 
+tip "solar scan:"
+	`Allows scanning of stellar objects to determine their precise power output for display on the HUD.`
+
+tip "ramscoop scan:"
+	`Allows scanning of stellar objects to determine their precise wind output for display on the HUD.`
+
 tip "bunks:"
 	`The number of people (passengers or crew) your ship can hold.`
 

@@ -350,6 +350,7 @@ outfitter "Deep Sky Advanced"
 	"In-flight Mass Display"
 	"Hyperjump Fuel Display"
 	"Fuel Bar Hyperjump Display"
+	"Astronomical Scanner"
 
 outfitter "Lovelace Basics"
 	"Anti-Missile Turret"
