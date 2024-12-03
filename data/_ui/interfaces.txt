@@ -769,25 +769,6 @@ interface "hud"
 		color "medium"
 		align left
 
-	# System Solar Power and Solar Wind display
-	visible if "system solar display"
-	sprite "ui/tactical/solar"
-		from -2205 70
-		align top left
-	string "system solar"
-		from -2188 79
-		color "medium"
-		align left
-
-	visible if "system wind display"
-	sprite "ui/tactical/wind"
-		from -2200 90
-		align top left
-	string "system wind"
-		from -2183 99
-		color "medium"
-		align left
-			
 	string "incoming"
 		from -70 320
 		color "medium"
@@ -795,7 +776,7 @@ interface "hud"
 
 
 
-	# Targets.
+	# System / Radar
 	anchor top left
 	visible if "red alert"
 	sprite "ui/red alert"
@@ -823,7 +804,26 @@ interface "hud"
 		color "medium"
 		width 135
 		truncate back
+
+	visible if "system solar display"
+	sprite "ui/tactical/solar"
+		from 252 67
+		align top left
+	string "system solar"
+		from 269 76
+		color "medium"
+		align left
+
+	visible if "system wind display"
+	sprite "ui/tactical/wind"
+		from 258 90
+		align top left
+	string "system wind"
+		from 275 99
+		color "medium"
+		align left
 	
+	# Targets
 	sprite "ui/target"
 		from 0 240
 		align top left
