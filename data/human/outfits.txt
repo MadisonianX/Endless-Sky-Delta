@@ -298,8 +298,8 @@ outfit "Astronomical Scanner"
 	"mass" 2
 	"outfit space" -2
 	"energy consumption" .1
-	"solar scan" 1
-	"ramscoop scan" 1
+	"solar power sensor" 1
+	"solar wind sensor" 1
 	description "An astronomical scanner provides data on the system's total solar power and wind output, allowing captains to see which systems are best for solar collection or ramscoop usage."
 
 
