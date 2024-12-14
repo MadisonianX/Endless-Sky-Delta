@@ -2885,6 +2885,13 @@ bool Ship::DisplayJumpFuelCost() const
 }
 
 
+// Calculate solar heat by ship mass
+double Ship::SolarHeatByMass() const
+{
+	double currentMass = Mass();
+	return 10 + (.01 * currentMass);
+}
+
 
 // Calculate the ship's current solar energy.
 double Ship::DisplaySolar() const
@@ -4455,7 +4462,7 @@ void Ship::DoGeneration()
 
 			double solarScaling = currentSystem->SolarPower() * scale;
 			energy += solarScaling * attributes.Get("solar collection");
-			heat += solarScaling * attributes.Get("solar heat");
+			heat += solarScaling * (attributes.Get("solar heat") + SolarHeatByMass());  // # Globably add solar heat to ships by mass using SolarHeatMass
 		}
 
 		double coolingEfficiency = CoolingEfficiency();
