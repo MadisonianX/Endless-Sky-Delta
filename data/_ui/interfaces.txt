@@ -53,6 +53,7 @@ color "logbook background" .125 .125 .125 1.
 color "logbook line" .2 .2 .2 1.
 color "message log background" .125 .125 .125 1.
 color "item selected" 0. 0. 0. .3
+color "blank" .0 .0 .0 0.
 
 # Colors used to draw certain HUD elements in-flight.
 color "shields" .43 .55 .85 .8
@@ -227,7 +228,7 @@ interface "map detail panel"
 interface "map planet card"
 	value "text start" 13
 	value "category size" 20
-	value "categories" 5
+	value "categories" 6
 	value "height padding" 30
 	value "width" 235
 	value "planet icon max size" 100

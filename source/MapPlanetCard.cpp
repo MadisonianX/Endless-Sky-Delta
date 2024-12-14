@@ -38,7 +38,9 @@ namespace {
 	bool hasGovernments = false;
 }
 
-
+namespace {
+	bool hasReputation = false;
+}
 
 MapPlanetCard::MapPlanetCard(const StellarObject &object, unsigned number, bool hasVisited,
 		const MapDetailPanel *parent)
@@ -49,13 +51,21 @@ MapPlanetCard::MapPlanetCard(const StellarObject &object, unsigned number, bool 
 	hasShipyard = planet->HasShipyard();
 	hasOutfitter = planet->HasOutfitter();
 	governmentName = planet->GetGovernment()->GetName();
+	hasRefuel = planet->GetPort().CanRecharge(Port::RechargeType::Fuel);
+	hasEnergy = planet->GetPort().CanRecharge(Port::RechargeType::Energy);
+	hasShields = planet->GetPort().CanRecharge(Port::RechargeType::Shields);
+	hasHull = planet->GetPort().CanRecharge(Port::RechargeType::Hull);
 	string systemGovernmentName = planet->GetSystem()->GetGovernment()->GetName();
-	if(governmentName != "Uninhabited" && governmentName != systemGovernmentName)
+
+// Government names
+	if(governmentName == "Uninhabited" || governmentName == systemGovernmentName )
 		hasGovernments = true;
 
-	if(!hasSpaceport)
-		reputationLabel = "No Spaceport";
-	else
+// Reputation labels
+	if(governmentName != "Uninhabited")
+		hasReputation = true;
+
+	if(governmentName != "Uninhabited")
 	{
 		switch(planet->GetFriendliness())
 		{
@@ -74,8 +84,21 @@ MapPlanetCard::MapPlanetCard(const StellarObject &object, unsigned number, bool 
 		}
 	}
 
-	sprite = object.GetSprite();
+// Spaceport labels //
 
+	// Inhabited with spaceport
+	if(hasShields || hasHull || hasEnergy || hasRefuel)
+		spaceportLabel = "Spaceport";
+
+	// Refueling only
+	if(hasRefuel && (!hasEnergy && !hasShields && !hasHull))
+		spaceportLabel = "Refueling Port";
+
+	// Inhabited but no spaceport
+	if((!hasEnergy && !hasShields && !hasHull && !hasRefuel) && governmentName != "Uninhabited")
+		spaceportLabel = "(No Spaceport)";
+
+	sprite = object.GetSprite();
 	const Interface *planetCardInterface = GameData::Interfaces().Get("map planet card");
 	const float planetIconMaxSize = static_cast<float>(planetCardInterface->GetValue("planet icon max size"));
 	spriteScale = min(.5f, min(planetIconMaxSize / sprite->Width(), planetIconMaxSize / sprite->Height()));
@@ -109,9 +132,9 @@ MapPlanetCard::ClickAction MapPlanetCard::Click(int x, int y, int clicks)
 			else
 				clickAction = ClickAction::SELECTED;
 
-			static const int SHOW[5] = {MapPanel::SHOW_GOVERNMENT, MapPanel::SHOW_REPUTATION,
-										MapPanel::SHOW_SHIPYARD, MapPanel::SHOW_OUTFITTER,
-										MapPanel::SHOW_VISITED};
+			static const int SHOW[6] = {MapPanel::SHOW_GOVERNMENT, MapPanel::SHOW_REPUTATION,
+										MapPanel::SHOW_DANGER, MapPanel::SHOW_OUTFITTER,
+										MapPanel::SHOW_SHIPYARD, MapPanel::SHOW_VISITED};
 			if(clickAction != ClickAction::SELECTED)
 			{
 				// If there are no governments shown, the first category is the reputation.
@@ -138,6 +161,7 @@ bool MapPlanetCard::DrawIfFits(const Point &uiPoint)
 	if(isShown)
 	{
 		const Font &font = FontSet::Get(14);
+		const Color &blank = *GameData::Colors().Get("blank");
 		const Color &faint = *GameData::Colors().Get("faint");
 		const Color &dim = *GameData::Colors().Get("dim");
 		const Color &medium = *GameData::Colors().Get("medium");
@@ -198,19 +222,22 @@ bool MapPlanetCard::DrawIfFits(const Point &uiPoint)
 		const double margin = mapInterface->GetValue("text margin");
 		if(hasGovernments && FitsCategory(categories))
 			font.Draw(governmentName, uiPoint + Point(margin, textStart + categorySize),
-				governmentName == "Uninhabited" ? faint : dim);
-		if(FitsCategory(4.))
+				governmentName == "Uninhabited" ? dim : dim);
+		if(FitsCategory(5.))
 			font.Draw(reputationLabel, uiPoint + Point(margin, textStart + categorySize * (1. + hasGovernments)),
-				hasSpaceport ? medium : faint);
+				hasReputation ? medium : blank);
+		if(FitsCategory(4.))
+			font.Draw(spaceportLabel, uiPoint + Point(margin, textStart + categorySize * (2. + hasGovernments)),
+				hasSpaceport ? medium : dim);
 		if(FitsCategory(3.))
-			font.Draw("Shipyard", uiPoint + Point(margin, textStart + categorySize * (2. + hasGovernments)),
-				hasShipyard ? medium : faint);
-		if(FitsCategory(2.))
 			font.Draw("Outfitter", uiPoint + Point(margin, textStart + categorySize * (3. + hasGovernments)),
-				hasOutfitter ? medium : faint);
+				hasOutfitter ? medium : blank);
+		if(FitsCategory(2.))
+			font.Draw("Shipyard", uiPoint + Point(margin, textStart + categorySize * (4. + hasGovernments)),
+				hasShipyard ? medium : blank);
 		if(FitsCategory(1.))
-			font.Draw(hasVisited ? "(has been visited)" : "(not yet visited)",
-				uiPoint + Point(margin, textStart + categorySize * (4. + hasGovernments)), dim);
+			font.Draw("(unvisited)", uiPoint + Point(margin, textStart + categorySize * (5. + hasGovernments)),
+				!hasVisited ? faint : blank);
 
 		// Draw the arrow pointing to the selected category.
 		if(FitsCategory(categories - (selectedCategory + 1.)))
