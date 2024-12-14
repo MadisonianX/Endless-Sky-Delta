@@ -81,6 +81,7 @@ private:
 
 	bool hasVisited;
 	bool hasSpaceport;
+	bool hasAbandonedSpaceport;
 	bool hasOutfitter;
 	bool hasShipyard;
 	bool hasRefuel;

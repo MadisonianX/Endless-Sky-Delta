@@ -48,6 +48,7 @@ MapPlanetCard::MapPlanetCard(const StellarObject &object, unsigned number, bool 
 {
 	planet = object.GetPlanet();
 	hasSpaceport = planet->HasServices();
+	hasAbandonedSpaceport = planet->GetPort().HasDescription();
 	hasShipyard = planet->HasShipyard();
 	hasOutfitter = planet->HasOutfitter();
 	governmentName = planet->GetGovernment()->GetName();
@@ -94,9 +95,23 @@ MapPlanetCard::MapPlanetCard(const StellarObject &object, unsigned number, bool 
 	if(hasRefuel && (!hasEnergy && !hasShields && !hasHull))
 		spaceportLabel = "Refueling Port";
 
+	// No refueling
+	if(!hasRefuel && hasEnergy)
+		spaceportLabel = "(No Fuel)";
+
+	// Energy only
+	if(hasEnergy && (!hasRefuel && !hasShields && !hasHull))
+		spaceportLabel = "(Energy only)";
+
 	// Inhabited but no spaceport
 	if((!hasEnergy && !hasShields && !hasHull && !hasRefuel) && governmentName != "Uninhabited")
 		spaceportLabel = "(No Spaceport)";
+
+	// Uninhabited spaceport with no recharges
+	if((!hasEnergy && !hasShields && !hasHull && !hasRefuel) && hasAbandonedSpaceport && governmentName == "Uninhabited")
+		spaceportLabel = "(Abandoned)";
+
+
 
 	sprite = object.GetSprite();
 	const Interface *planetCardInterface = GameData::Interfaces().Get("map planet card");
