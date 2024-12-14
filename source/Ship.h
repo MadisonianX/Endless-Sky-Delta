@@ -344,6 +344,7 @@ public:
 	bool DisplayScramFuelCost() const;
 	bool DisplayJumpFuelCost() const;
 	double DisplaySolar() const;
+	double GetWindScale() const;
 	double DisplayRamScoop() const;
 	// These are for the thruster activity bars
 	double DisplayThrust() const;

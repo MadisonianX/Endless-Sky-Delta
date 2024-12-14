@@ -2886,6 +2886,14 @@ bool Ship::DisplayJumpFuelCost() const
 
 
 
+// Create separate scale for solar wind that is higher near stars
+// but tapers off more quickly than solar power.
+double Ship::GetWindScale() const
+{
+	return .1 + 100 / (1 * position.Length() + .1);
+}
+
+
 // Calculate the ship's current solar energy.
 double Ship::DisplaySolar() const
 {
@@ -3260,14 +3268,16 @@ double Ship::TurnRate() const
 
 double Ship::TrueTurnRate() const
 {
-	return TurnRate() * 1. / (1. + slowness * .05);
+	double strength = fabs(Position().Unit().Dot(Facing().Unit())) * GetWindScale() / 2;
+	return (TurnRate() + (attributes.Get("sail turn") * strength / 60)) * 1. / (1. + slowness * .05);
 }
 
 
 
 double Ship::Acceleration() const
 {
-	double thrust = attributes.Get("thrust");
+	double strength = fabs(Position().Unit().Dot(Facing().Unit())) * GetWindScale() / 2;
+	double thrust = attributes.Get("thrust") + (attributes.Get("sail thrust") * strength);
 	return (thrust ? thrust : attributes.Get("afterburner thrust")) / InertialMass()
 		* (1. + attributes.Get("acceleration multiplier"));
 }
@@ -4936,6 +4946,11 @@ void Ship::DoMovement(bool &isUsingAfterburner)
 				disruption += scale * attributes.Get("turning disruption");
 
 				Turn(commands.Turn() * TurnRate() * slowMultiplier);
+				if(attributes.Get("sail turn"))
+				{
+					double strength = fabs(Position().Unit().Dot(Facing().Unit())) * GetWindScale() / 2;
+					angle += commands.Turn() * (attributes.Get("sail turn") * fabs(strength)) / InertialMass() * slowMultiplier;
+				}
 			}
 		}
 		double thrustCommand = commands.Thrust();
@@ -4998,6 +5013,11 @@ void Ship::DoMovement(bool &isUsingAfterburner)
 					disruption += scale * attributes.Get(isThrusting ? "thrusting disruption" : "reverse thrusting disruption");
 
 					acceleration += angle.Unit() * thrustCommand * (isThrusting ? Acceleration() : ReverseAcceleration());
+					if(attributes.Get("sail thrust"))
+					{
+						double strength = fabs(Position().Unit().Dot(Facing().Unit())) * GetWindScale() / 2;
+						acceleration += angle.Unit() * (thrustCommand * (strength * attributes.Get("sail thrust")) / InertialMass());
+					}
 				}
 			}
 		}
