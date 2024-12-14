@@ -797,14 +797,14 @@ void Engine::Step(bool isActive)
 		}
 		// Display combined Solar Power for system
 		int displaySystemPower = (flagship->DisplaySystemSolar() * 100); // Multiplied to better display decimal inputs
-		if(displaySystemPower >= 0.01 && flagship->Attributes().Get("solar scan"))
+		if(displaySystemPower >= 0.01 && flagship->Attributes().Get("solar power sensor"))
 		{
 			info.SetCondition("system solar display");
 			info.SetString("system solar", to_string(displaySystemPower));
 		}
 		// Display combined Solar Wind for system
 		int displaySystemWind = (flagship->DisplaySystemWind() * 100); // Multiplied to better display decimal inputs
-		if(displaySystemWind >= 0.01 && flagship->Attributes().Get("ramscoop scan"))
+		if(displaySystemWind >= 0.01 && flagship->Attributes().Get("solar wind sensor"))
 		{
 			info.SetCondition("system wind display");
 			info.SetString("system wind", to_string(displaySystemWind));
