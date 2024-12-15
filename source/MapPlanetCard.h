@@ -81,8 +81,13 @@ private:
 
 	bool hasVisited;
 	bool hasSpaceport;
+	bool hasAbandonedSpaceport;
 	bool hasOutfitter;
 	bool hasShipyard;
+	bool hasRefuel;
+	bool hasEnergy;
+	bool hasShields;
+	bool hasHull;
 
 	// The current starting y position.
 	double yCoordinate = 0.;
@@ -93,6 +98,8 @@ private:
 
 	std::string governmentName;
 	std::string reputationLabel;
+	std::string spaceportLabel;
+
 	const std::string &planetName;
 	// The currently select category (outfitter, shipyard, ...)
 	unsigned selectedCategory = 0;

@@ -101,6 +101,7 @@ void Port::Load(const DataNode &node)
 			hasNews = true;
 		else if(key == "description" && child.Size() >= 2)
 		{
+			hasDescription = true;
 			description.Load(child);
 
 			// If we have a description but no name then use the default spaceport name.
@@ -120,6 +121,8 @@ void Port::LoadDefaultSpaceport()
 	recharge = RechargeType::All;
 	services = ServicesType::All;
 	hasNews = true;
+	hasDescription = true;
+
 }
 
 
@@ -129,7 +132,8 @@ void Port::LoadUninhabitedSpaceport()
 	name = SPACEPORT;
 	recharge = RechargeType::All;
 	services = ServicesType::OffersMissions;
-	hasNews = true;
+	hasNews = false;
+	hasDescription = false;
 }
 
 
@@ -197,4 +201,9 @@ bool Port::HasService(int type) const
 bool Port::HasNews() const
 {
 	return hasNews;
+}
+
+bool Port::HasDescription() const
+{
+	return hasDescription;
 }

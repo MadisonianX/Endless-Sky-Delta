@@ -1501,10 +1501,11 @@ planet Europa
 	landscape land/snow15
 	description `Europa is distinctive within the solar system as having the smoothest surface of any known solid stellar object. It also famously has a water ocean beneath the surface that is the home of the first extraterrestrial life that humanity ever found. Bacteria and algea-like life forms, to be specific.`
 	description `	This moon also has the distinction of being the location of more crashed outpost ships than anywhere else in civilized space. To date, 17 attempts have been made to establish permanent outposts here, ranging from research to agricultural. None have managed to get past the initial setup before everyone perished and the equipment damaged beyond repair. So far all deaths & damage appear to be accidental, although the number of deaths in a single place defies statistical odds.`
-	spaceport `This spaceport is echoes with your footsteps. There is no-one around, and nothing of value remains here. Your suit reports that the atmosphere is breathable, but so thin that it would immediately leave you gasping for breath. It also advises that there are unknown contaminents that defy its capacity to analyze.`
 	government Uninhabited
 	bribe 0
 	security 0
+	port
+		description `This spaceport echoes with your footsteps. There is no one around, and nothing of value remains here. Your suit reports that the atmosphere is suitable for humans but so thin that it would immediately leave you gasping for breath. It also advises that there are unknown contaminants that defy its capacity to analyze.`
 
 planet Everhope
 	attributes hai station

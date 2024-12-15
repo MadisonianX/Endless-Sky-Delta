@@ -85,6 +85,7 @@ public:
 	bool HasService(int type) const;
 
 	bool HasNews() const;
+	bool HasDescription() const;
 
 
 private:
@@ -97,6 +98,7 @@ private:
 	// The description of this port. Shown when clicking on the
 	// port button on the planet panel.
 	Paragraphs description;
+	bool hasDescription = false;
 
 	// What is recharged when landing on this port.
 	int recharge = RechargeType::None;
