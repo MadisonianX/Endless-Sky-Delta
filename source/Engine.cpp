@@ -798,8 +798,16 @@ void Engine::Step(bool isActive)
 			info.SetCondition("flagship solar display");
 			info.SetString("flagship solar", to_string(flagshipSolar));
 		}
+		// Display "solar heat" intake from Solar Power relative to distance from system center
+		int flagshipHeat = flagship->DisplaySolarHeat() * 50;
+		if(flagshipHeat >= 0.05 && flagship->Attributes().Get("solar heat display"))
+		{
+			info.SetCondition("flagship heat display");
+			info.SetString("flagship heat", to_string(flagshipHeat));
+		}
+
 		// Display combined Solar Power for system
-		int displaySystemPower = flagship->DisplaySystemSolar(); // Multiplied to better display decimal inputs
+		int displaySystemPower = (flagship->DisplaySystemSolar() * 100); // Multiplied to better display decimal inputs
 		if(displaySystemPower >= 0.01 && flagship->Attributes().Get("solar power sensor"))
 		{
 			info.SetCondition("system solar display");
@@ -811,13 +819,6 @@ void Engine::Step(bool isActive)
 		{
 			info.SetCondition("system wind display");
 			info.SetString("system wind", to_string(displaySystemWind));
-		}
-		// Display "solar heat" intake from Solar Power relative to distance from system center
-		int flagshipHeat = flagship->DisplaySolarHeat() * 50;
-		if(flagshipHeat >= 0.05 && flagship->Attributes().Get("solar heat display"))
-		{
-			info.SetCondition("flagship heat display");
-			info.SetString("flagship heat", to_string(flagshipHeat));
 		}
 		// These check for the attribute to determine if the pilot has installed
 		// outfits that give a live display of ship mass and jump fuel costs.
