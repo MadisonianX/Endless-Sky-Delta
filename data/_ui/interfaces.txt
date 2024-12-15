@@ -142,7 +142,7 @@ color "radar anomalous" .7 0. 1. 0.
 color "radar blink" 1. 1. 1. 0.
 color "radar viewport" 0. .3 0. 0.
 color "radar star" 1 1 .6 0. 				# changed to yellow for better recognizability
-color "radar restricted" ..91 .42 .09 0. 	# changed from yellow to orange for radar star conflict
+color "radar restricted" .91 .42 .09 0. 	# changed from yellow to orange for radar star conflict
 
 # Colors used for the outline of the targeted ship.
 color "ship target outline player" .2 1. 0. 0.
