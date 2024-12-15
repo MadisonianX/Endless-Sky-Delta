@@ -785,15 +785,15 @@ void Engine::Step(bool isActive)
 		info.SetString("flagship turn", to_string(flagshipTurn));
 
 		// Display "ramscoop" collection from Solar Wind relative to distance from system center
-		int flagshipRamscoop = flagship->DisplayRamscoop() * 10;
-		if(flagshipRamscoop >= 0.05 && flagship->Attributes().Get("ramscoop display") && flagship->Attributes().Get("range finder power"))
+		int flagshipRamscoop = flagship->DisplayRamscoop() * 150;
+		if(flagshipRamscoop >= 0.05 && flagship->Attributes().Get("ramscoop display"))
 		{
 			info.SetCondition("flagship ramscoop display");
 			info.SetString("flagship ramscoop", to_string(flagshipRamscoop));
 		}
 		// Display "solar collection" from Solar Power relative to distance from system center
-		int flagshipSolar = flagship->DisplaySolarCollection() * 10;
-		if(flagshipSolar >= 0.05 && flagship->Attributes().Get("solar collection display") && flagship->Attributes().Get("range finder power"))
+		int flagshipSolar = flagship->DisplaySolarCollection();
+		if(flagshipSolar >= 0.05 && flagship->Attributes().Get("solar collection display"))
 		{
 			info.SetCondition("flagship solar display");
 			info.SetString("flagship solar", to_string(flagshipSolar));
@@ -813,8 +813,8 @@ void Engine::Step(bool isActive)
 			info.SetString("system wind", to_string(displaySystemWind));
 		}
 		// Display "solar heat" intake from Solar Power relative to distance from system center
-		int flagshipHeat = flagship->DisplaySolarHeat() * 100;
-		if(flagshipHeat >= 0.05 && flagship->Attributes().Get("solar heat display") && flagship->Attributes().Get("range finder power"))
+		int flagshipHeat = flagship->DisplaySolarHeat() * 50;
+		if(flagshipHeat >= 0.05 && flagship->Attributes().Get("solar heat display"))
 		{
 			info.SetCondition("flagship heat display");
 			info.SetString("flagship heat", to_string(flagshipHeat));

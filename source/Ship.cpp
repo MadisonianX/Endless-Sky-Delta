@@ -2938,7 +2938,7 @@ double Ship::DisplaySolarCollection() const
 // Calculate the ship's current ramscoop intake based on distance from system center.
 double Ship::DisplayRamscoop() const
 {
-	double solarRamscoop = currentSystem->SolarWind() * .03 * GetWindScale() * sqrt(attributes.Get("ramscoop") + .05 * GetWindScale());
+	double solarRamscoop = currentSystem->SolarWind() * .03 * GetWindScale() * sqrt(attributes.Get("ramscoop"));
 	return solarRamscoop;
 }
 
