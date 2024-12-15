@@ -612,6 +612,7 @@ mission "Gemini Shipyards Shipment [0]"
 	source
 		near Castor 2 10
 		attributes factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Geminus
 	on visit
 		dialog phrase "generic cargo on visit"
@@ -633,6 +634,7 @@ mission "Gemini Shipyards Shipment [1]"
 	source
 		near Castor 2 10
 		attributes factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Geminus
 	on visit
 		dialog phrase "generic cargo on visit"
@@ -651,6 +653,7 @@ mission "Lovelace Labs Shipment [0]"
 	source
 		near Aldebaran 2 10
 		attributes core factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Ada
 	on visit
 		dialog phrase "generic cargo on visit"
@@ -669,6 +672,7 @@ mission "Polymath Nanoinstruments Shipment [0]"
 	source
 		near Miaplacidus 2 10
 		attributes core factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Vinci
 	on visit
 		dialog phrase "generic cargo on visit"

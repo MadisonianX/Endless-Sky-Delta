@@ -1,0 +1,186 @@
+# Copyright (c) 2015 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+conversation "intro"
+	scene "scene/lobby"
+	`	The bank's architecture is what you would have called "futuristic"; a stark contrast to the somewhat squalid ancient colony on Uranus' only inhabited moon, Miranda. A doorman stands by each of the heavy glass doors. You are wearing your very best clothes, but you feel shabby next to them.`
+	`	The loan broker's office is equally intimidating. Large computer monitors fill the walls, with stock quotes and other information spilling down them almost too fast to read. You occasionally glimpse the names of places that you have only seen in movies: Aldebaran. Tarazed. Earth.`
+	`	The pen is heavy as lead but glides almost without friction as you print your initials on the bottom of page after page of ominous legal documents and sign several dozen statements, notices, and agreements. The banker, a balding middle-aged man in a suit that you suspect costs more than the spaceship you are about to purchase, flips the pages past you quickly, uttering a curt, "Sign here. Now here," as he points to each page. He moves swiftly, mechanically.`
+	`	The only moment when he becomes truly animated is when explaining the Truth in Lending statement to you. "You are borrowing 60,000 credits," he says, "to be repaid over the course of one year. Your daily interest rate is 0.4%, which means that your daily payments are 313 credits, and by the end of the year you will have paid... 54,245 credits in interest. Sign here." He grins.`
+	`	You sign your name one final time:`
+	name
+	`	The elevator is so well-tuned that you do not even realize it is moving until it has deposited you back in the lobby. But as you leave the bank, you are smiling. This crazy adventure suddenly feels real to you. You are going to do it. You are finally going to get off this moon.`
+	`	Compared to the bank, you feel much more at home at the used shuttle dealership, walking among the rusted out hulks. You smell grease and dirt and rocket fuel; wonderful smells. There's only one hunk of junk within your current price range, the classic Sol Shuttle.`
+	`	The old school shuttle may not be capable of hyperspace, but it's capable of low tonnage or single passenger jobs and came with a single mining laser installed, if you can find the right asteroids to harvest. It won't take long to pay off your loan, improve your credit, and buy another shuttle for your fleet, or to upgrade to a ship with hyperdrive so you can explore the stars beyond.`
+	`	"All I ask is a fast shuttle and a star to steer her by..."`
+
+
+start "Sol Start"
+	name "Sol Start"
+	date 11 9 3013
+	system "Sol"
+	planet "Miranda"
+	thumbnail "thumbnail/used shuttle"
+	conversation "intro"
+	description `	You grew up on Miranda, a bitterly cold moon of Uranus and a colony that was relegated to the dustbin of history after native son Charles Plot invented the hyperdrive.`
+	description `	You knew early on that your dream of owning a starship enterprise would never be realized without a lot of blood, sweat and tears, and today is the beginning of your journey into space as a captain of your very own Sol Shuttle, modest though it may be.`
+	account
+		credits 617700
+		score 420
+	ship "Used Shuttle"
+		name "Deus Ex Machina"
+		sprite "ship/shuttle"
+		thumbnail "thumbnail/shuttle"
+		attributes
+			category "Intrasolar"
+			"cost" 33000
+			"shields" 250
+			"hull" 250
+			"required crew" 1
+			"bunks" 2
+			"mass" 80
+			"drag" 1.8
+			"cargo space" 20       		# default 20
+			"outfit space" 60           # default 120
+#		    "weapon capacity" 10        # default 10
+#			"engine capacity" 40 		# default 60
+			"heat dissipation" .77
+			"overheat damage rate" .1
+			"hull plating" 1
+			"landing speed" .005
+			"steering slot" 1
+			"thruster slot" 1 
+			weapon
+				"blast radius" 12
+				"shield damage" 120
+				"hull damage" 60
+				"hit force" 180
+		outfits
+			"KP-6 Photovoltaic Array"
+			"Supercapacitor" 4
+			"X1050 Ion Engines"	
+		engine -6 30
+		engine 6 30
+		gun 0 -31
+		leak "leak" 60 50
+		explode "tiny explosion" 10
+		explode "small explosion" 5
+
+
+
+ship "Used Shuttle"
+	sprite "ship/shuttle"
+	thumbnail "thumbnail/shuttle"
+	attributes
+		category "Intrasolar"
+		"cost" 33000
+		"shields" 250
+		"hull" 250
+		"required crew" 1
+		"bunks" 2
+		"mass" 80
+		"drag" 1.8
+		# "fuel capacity" # none
+		"cargo space" 20       		# default 20
+		"outfit space" 60           # default 120
+#		"weapon capacity" 10        # default 10
+#		"engine capacity" 40 		# default 60
+		"heat dissipation" .77
+		"overheat damage rate" .1
+		"hull plating" 1
+		"landing speed" .005
+		"steering slot" 1
+		"thruster slot" 1 
+		weapon
+			"blast radius" 12
+			"shield damage" 120
+			"hull damage" 60
+			"hit force" 180	
+	outfits
+		"KP-6 Photovoltaic Array"
+		"Supercapacitor" 4
+		"X1050 Ion Engines"	
+	engine -6 30
+	engine 6 30
+	gun 0 -31
+	leak "leak" 60 50
+	explode "tiny explosion" 10
+	explode "small explosion" 5		
+	description "	This versatile shuttle can serve as a makeshift passenger transport or a cargo courier. It also happens to be the cheapest ship you can buy which is capable of hyperspace travel (Hyperdrive sold separately)."
+	description `	Although they are typically unarmed, they have enough space for one weapon, which is the origin of the popular phrase, "as useless as a blaster cannon on a shuttlecraft. Enterprising captains with a great amount of patience have been known to add a mining laser."`
+
+
+shipyard "All Ships"
+	"Used Shuttle"
+
+outfitter "Starter Outfits"
+	"X1050 Ion Engines"
+	"Fuel Canister"
+	"Pilot's License"
+	"Mining Laser"
+	"Cooling Ducts"
+	"Supercapacitor"
+	"KP-6 Photovoltaic Panel"
+	"KP-6 Photovoltaic Array"
+	"Local Map"
+
+mission "Leaving Sol"
+	landing
+	invisible
+	to offer
+		not "flagship system: Sol"
+	on offer
+		event "leaving sol"
+		fail
+
+event "leaving sol"
+	planet "Earth"
+		government "Republic"
+	planet "Luna"
+		government "Republic"
+	planet "Mars"
+		government "Republic"
+	planet "Phobos"
+		government "Republic"
+	planet "Ceres"
+		government "Republic"
+	planet "Titan"
+		government "Republic"
+	planet "Callisto"
+		government "Republic"
+	planet "Ganymede"
+		government "Republic"
+	planet "Miranda"
+		government "Republic"
+
+
+# Random shortcut once you hit 50,000 credits and have a valid pilot's license
+mission "Sol Intro"
+	invisible
+	landing
+	name "Inheritance from grandfather"
+	description "You receive an inheritance from your grandfather."
+	source 
+		system "Sol"
+	to offer
+		has "ships: Intrasolar"
+		has "license: Pilot's"
+		"net worth" > 150000
+		random < 10
+	on offer
+		conversation
+			`	"Upon landing, your receive a puzzling communication that says it's from your grandfather. As both of your grandfathers have been dead for years, this piques your curiosity. You play the message.`
+			`	The screen flickers on and it's your paternal grandfather who passed away several years ago. "Hey there kiddo, I bet you're surprised to see me from beyond the grave. I set up a trust fund in your name for when you finally decide to register for a Pilot's License to get out into the wild galactic yonder, which I suppose you just did if you're watching this. It might not be enough to get you into hyperspace, but it'll at least get you close. Go give the universe hell."`
+			`	A notification from the Bank lets you know that 307,423 credits have been deposited into your account from the trust fund.`
+			`	"I will gramps, I will."`
+				accept
+	on accept	
+		payment 307423
+		fail

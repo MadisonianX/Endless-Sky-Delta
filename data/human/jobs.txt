@@ -2864,6 +2864,7 @@ mission "Recycle garbage"
 	cargo "Garbage" 15 100
 	source
 		attributes station
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination
 		attributes "factory" "mining" "dirt belt"
 		distance 9 12

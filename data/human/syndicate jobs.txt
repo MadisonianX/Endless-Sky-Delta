@@ -568,6 +568,7 @@ mission "Syndicated Shipyards Shipment [0]"
 	source
 		near Achernar 2 10
 		attributes core factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Foundry
 	npc
 		government Pirate
@@ -590,6 +591,7 @@ mission "Syndicated Shipyards Shipment [1]"
 	source
 		near Achernar 2 10
 		attributes core mining
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Foundry
 	npc
 		government Pirate
@@ -612,6 +614,7 @@ mission "Syndicated Shipyards Shipment [2]"
 	source
 		near Achernar 2 10
 		attributes core factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Foundry
 	npc
 		government Pirate
@@ -634,6 +637,7 @@ mission "Syndicated Shipyards Shipment [3]"
 	source
 		near Achernar 2 10
 		attributes core factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Foundry
 	npc
 		government Pirate
@@ -656,6 +660,7 @@ mission "Syndicated Systems Shipment [0]"
 	source
 		near Markab 2 10
 		attributes core factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Hephaestus
 	npc
 		government Pirate
@@ -678,6 +683,7 @@ mission "Syndicated Systems Shipment [1]"
 	source
 		near Markab 2 10
 		attributes core mining factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Hephaestus
 	npc
 		government Pirate
@@ -700,6 +706,7 @@ mission "Megaparsec Shipment [0]"
 	source
 		near Mirfak 2 10
 		attributes core factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Sunracer
 	npc
 		government Pirate
@@ -722,6 +729,7 @@ mission "Megaparsec Shipment [1]"
 	source
 		near Mirfak 2 10
 		attributes core mining factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Sunracer
 	npc
 		government Pirate
@@ -744,6 +752,7 @@ mission "Megaparsec Shipment [2]"
 	source
 		near Mirfak 2 10
 		attributes core mining factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Sunracer
 	npc
 		government Pirate

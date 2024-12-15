@@ -11,6 +11,71 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
+hazard "Solar Gravity"		
+	"constant strength"
+	"range" 2500
+	weapon
+		"gravitational"
+		"damage dropoff" 100 420
+		"dropoff modifier" 0.01
+#		"slowing damage" 0.1
+#		"relative hull damage" 0.0005
+#		"piercing" .1
+		"hit force" -1
+
+hazard "Solar Flare" 
+	"strength" 0.5 5
+	"period" 3000
+	"range" 400 15000
+	"duration" 120 360
+	"environmental effect" "coronal plasma" 9
+	"environmental effect" "plasma cloud" 6
+	weapon
+		"damage dropoff" 420 5500
+		"dropoff modifier" .1
+		"scrambling damage" 20 	# weapon jamming
+		"disruption damage" 5   # shield penetration
+		"discharge damage" .5   # shield drain over time
+		"relative energy damage" .05
+		"ion damage" 0.1		
+		"relative shield damage" 0.0025
+		"hit effect" "bombardment impact" 4
+		"hit effect" "piercer fire" 3
+		"hit effect" "flame" 4
+
+effect "coronal plasma"
+	sprite "effect/flame"
+		"frame rate" 1
+		"random start frame"
+	"lifetime" 30
+	"random lifetime" 10
+	"random spin" 6
+	"random velocity" 2.5
+	"sound" "flamethrower"	
+
+effect "plasma cloud"
+	sprite "effect/minelayer split"
+		"frame rate" 1
+		"random start frame"
+	"lifetime" 30
+	"random lifetime" 10
+	"random spin" 0.5
+	"random velocity" 0.5
+
+
+hazard "Gas Giant Gravity"
+	"constant strength"
+	"range" 500
+	weapon
+		"gravitational"
+		"damage dropoff" 300 420
+		"dropoff modifier" 0.05
+		"hit force" -10
+		"relative hull damage" .0005
+		"piercing" 1
+
+
+
 hazard "Ember Waste Base Heat"
 	"duration" 1 200
 	"strength" 0.25 1.75

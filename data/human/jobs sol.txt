@@ -1,0 +1,560 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+disable mission "Transport seasonal workers to Earth"
+disable mission "Transport tourists to Luna"
+disable mission "Transport farmers to Mars"
+# disable mission "Transport workers to <planet>"
+
+
+# --------- SOL PASSENGERS ---------
+
+mission "Sol Passenger"
+	name "Passenger transport to <planet>"
+	job
+	repeat
+	description "A passenger needs a quick lift to <destination>. Payment is <payment>. Passenger License required."
+	passengers 1
+	to offer
+		random < 80
+	to accept
+		has "license: Passenger"
+	source
+		government "Republic (Sol)"
+	destination
+		government "Republic (Sol)"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 300 
+		dialog phrase "generic passenger dropoff payment"
+
+
+mission "Sol Passengers"
+	name "Passenger transport to <planet>"
+	job
+	repeat
+	description "Bring <fare> to <destination>. Payment is <payment>. Passenger License required."
+	passengers 2 6 .9
+	to offer
+		random < 70
+		"flagship bunks" > 1
+	to accept
+		has "license: Passenger"
+	source
+		government "Republic (Sol)"
+	destination
+		government "Republic (Sol)"	
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 700
+		dialog phrase "generic passenger dropoff payment"
+
+
+mission "Transport seasonal workers to Earth [Sol]"
+	name "Transport seasonal workers to Earth"
+	job
+	repeat
+	description "This group of <bunks> temporary farm workers are looking for transportation back home to Earth. They will pay you <payment> to take them there. Passenger License required."
+	passengers 2 2 .8
+	to offer
+		random < 50
+	source "Mars"
+	destination "Earth"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 2000
+		dialog "You wish the workers the best of luck on <planet>, and collect your payment of <payment>."
+
+mission "Transport tourists to Luna [Sol]"
+	name "Transport tourists to Luna"
+	job
+	repeat
+	description "This family of <bunks> would like to see the historic sights on Luna. They will pay you <payment> to take them there. Passenger License required."
+	passengers 2 2 .8
+	to offer
+		random < 50
+	to accept
+		has "license: Passenger"	
+	source "Earth"
+	destination "Luna"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 2000
+		dialog "You wish the tourists the best of luck on <planet>, and collect your payment of <payment>. "
+
+mission "Transport farmers to Mars [Sol]"
+	name "Transport farmers to Mars"
+	job
+	repeat
+	description "This group of <bunks> factory workers are hoping to start anew on <planet> as farmers. They will pay you <payment> to take them there. Passenger License required."
+	passengers 2 2 .8
+	to offer
+		random < 50
+	to accept
+		has "license: Passenger"	
+	source "Earth"
+	destination "Mars"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 2000
+		dialog "You wish the farmers the best of luck on <planet>, and collect your payment of <payment>."
+
+
+
+mission "Transport miners to <planet> [Sol]"
+	name "Transport miners to <planet>"
+	job
+	repeat
+	description "This groups of <bunks> miners is hoping to find work on <destination>, and they will pay you <payment> to take them there. Passenger License required."
+	passengers 2 2 .8
+	to offer
+		random < 50
+		"flagship bunks" > 1
+	to accept
+		has "license: Passenger"
+	source
+		government "Republic (Sol)"
+		not attributes "mining"
+	destination
+		government "Republic (Sol)"
+		attributes "mining"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 1200
+		dialog "You wish the miners the best of luck on <planet>, and collect your payment of <payment>."
+
+mission "Transport farmers to <planet> [Sol]"
+	name "Transport farmers to <planet>"
+	job
+	repeat
+	description "This group of <bunks> farmers is hoping to find work on <destination>, and they will pay you <payment> to take them there. Passenger License required."
+	passengers 2 2 .8
+	to offer
+		random < 50
+		"flagship bunks" > 1
+	to accept
+		has "license: Passenger"
+	source
+		government "Republic (Sol)"
+		not attributes "farming"
+	destination
+		government "Republic (Sol)"
+		attributes "farming"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 1200
+		dialog "You wish the farmers the best of luck on <planet>, and collect your payment of <payment>."
+
+mission "Transport mill workers to <planet> [Sol]"
+	name "Transport mill workers to <planet>"
+	job
+	repeat
+	description "This group of <bunks> mill workers is hoping to find work on <destination>, and they will pay you <payment> to take them there. Passenger License required."
+	passengers 2 2 .8
+	to offer
+		random < 50
+		"flagship bunks" > 1
+	to accept
+		has "license: Passenger"
+	source
+		government "Republic (Sol)"
+		not attributes "textiles"
+	destination
+		government "Republic (Sol)"
+		attributes "textiles"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 1200
+		dialog "You wish the workers the best of luck on <planet>, and collect your payment of <payment>."
+
+mission "Transport factory workers to <planet> [Sol]"
+	name "Transport factory workers to <planet>"
+	job
+	repeat
+	description "This group of <bunks> factory workers is hoping to find work on <destination>, and they will pay you <payment> to take them there. Passenger License required."
+	passengers 2 2 .8
+	to offer
+		random < 50
+		"flagship bunks" > 1
+	to accept
+		has "license: Passenger"
+	source
+		government "Republic (Sol)"
+		not attributes "factory"
+	destination
+		government "Republic (Sol)"
+		attributes "factory"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 1200
+		dialog "You wish the workers the best of luck on <planet>, and collect your payment of <payment>."
+
+
+
+mission "Tourist cruise of Sol"
+	name "Tourist cruise of Sol"
+	job
+	repeat
+	description "This group of <bunks> tourists would like to see the historic sights around Sol. They will pay you <payment> to take them on a cruise of the system with multiple stopover vists at key points of interest. Passenger License required."
+	passengers 2 8 .8
+	to offer
+		random < 90
+	to accept
+		has "license: Passenger"	
+	source
+		planet Earth
+	stopover
+		government "Republic (Sol)"
+		planet Luna Mercury "Icarus Station" Venus Mars Phobos Ceres Callisto Ganymede Titan Miranda Pluto
+	on stopover
+		payment 1000
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 10000
+		dialog "You wish the tourists the best of luck on <planet>, and collect your payment of <payment>. "
+
+
+mission "Wealthy tourist cruise of Sol"
+	name "Wealthy tourist cruise of Sol"
+	job
+	repeat
+	description "This group of <bunks> tourists would like to see the historic sights around Sol. They will pay you <payment> to take them on a cruise of the system with multiple stopover vists at key points of interest. Passenger License required."
+	passengers 2 6 .8
+	to offer
+		random < 80
+	to accept
+		has "license: Passenger"
+		has "outfit (installed): Luxury Accommodations" 1	
+	source
+		planet Earth
+	stopover
+		government "Republic (Sol)"
+		planet Luna Mercury "Icarus Station" Venus Mars Phobos Ceres Callisto Ganymede Titan Miranda Pluto
+	on stopover
+		payment 1500
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 15000
+		dialog "You wish the tourists the best of luck on <planet>, and collect your payment of <payment>. "
+
+
+# --------- SOL CARGO ---------
+
+mission "Intro Cargo [Intrasolar 1]"
+	job
+	name "Water Coolant System to <planet>"
+	description "Buy a Water Coolant System from the outfitter and deliver it to <planet>. Payment is <payment>."
+	source 
+		government "Republic (Sol)"
+		outfits "Water Coolant System"
+	destination "Icarus Station"
+	to offer
+		random < 30
+		not "Intro Cargo [Intrasolar 1]: done"
+	on accept
+		conversation
+			scene "outfit/water cooling"
+			scene "scene/scene-outfit to cargo"
+			`	Sometimes you may want to buy some outfits directly into your cargo hold instead of having them installed. To accomplish this, you need to switch out of installation mode into 'purchase to cargo' mode. This can be achieved by either checking the "show outfits in cargo" box at the bottom left, or Control+clicking on your selected ship to deselect it.`
+			`	When you are in 'purchase to cargo' mode, your ship information on the right hand side will be replaced by information on how much cargo space you currently have available.`
+			`	Outfits that are in your cargo hold can be (re)installed at any outfitter without cost.`
+	on complete
+		outfit "Water Coolant System" -1
+		payment 18400
+		dialog `You deliver the Water Coolant System to an ice cream shop. The owner pays you <payment> and gives you a free scoop of your favorite flavor.`
+
+
+
+mission "Intro Cargo [Intrasolar 2]"
+	job
+	name "Meteor Missiles to <planet>"
+	description "Buy 20 Meteor Missiles from the outfitter and deliver them to the shipyard on <planet>. Payment is <payment>."
+	source
+		government "Republic (Sol)" 
+		outfits "Meteor Missile"
+	destination
+		government "Republic (Sol)"
+		attributes shipyard
+	to offer
+		random < 30
+		has "Intro Cargo [Intrasolar 1]: done"
+		not "Intro Cargo [Intrasolar 2]: done"
+	on accept
+		conversation
+			scene "outfit/meteor"
+			scene "scene/scene-outfit to cargo"
+			`	Sometimes you may want to buy some outfits directly into your cargo hold instead of having them installed. To accomplish this, you need to switch out of installation mode into 'purchase to cargo' mode. This can be achieved by either checking the "show outfits in cargo" box at the bottom left, or Control+clicking on your selected ship to deselect it.`
+			`	When you are in 'purchase to cargo' mode, your ship information on the right hand side will be replaced by information on how much cargo space you currently have available.`
+			`	Outfits that are in your cargo hold can be (re)installed at any outfitter without cost.`
+	on complete
+		outfit "Meteor Missile" -20
+		payment 17000
+		dialog `You deliver the Meteor Missiles to the local shipyard. The officer in charge pays you <payment>.`
+
+
+
+
+mission "Intro Sol Mining [1]"
+	job
+	deadline 7
+	name "Mining: Lead to <planet>"
+	description "<planet> is looking to top off its water supplies. Bring 5 tons of Lead to them by <date>. Payment is <payment>, well above the usual market rate for Lead. Requires an Asteroid Mining License."
+	source 
+		government "Republic (Sol)"
+	to offer
+		random < 30
+		not "Intro Sol Mining [1]: done"
+	to accept
+		has "license: Asteroid Mining"
+	on accept
+		conversation
+			scene "asteroid/lead/spin"
+			`	Ore can be mined from lead asteroids if you shoot at them enough but mining lasers are specifically designed to get the job done better. These asteroids have a unique appearance, but an Asteroid Scanner will highlight these asteroids for you to target.`
+	on complete
+		outfit "Lead" -5
+		payment 4500
+		dialog `The municipal authorities on <planet> accept your delivery of Lead and pay you <payment>.`
+
+
+mission "Intro Sol Mining [2]"
+	job
+	deadline 7
+	name "Mining: Iron to <planet>"
+	description "The outfitter on <planet> has a shortage of Iron. Mine 4 tons of Iron from asteroids and deliver them by <date>. Payment is <payment>, well above the usual market rate for Iron. Requires an Asteroid Mining License."
+	source 
+		government "Republic (Sol)"
+		attributes outfitter
+	to offer
+		random < 30
+		has "Intro Sol Mining [1]: done"
+		not "Intro Sol Mining [2]: done"
+	to accept	
+		has "license: Asteroid Mining"
+	on accept
+		conversation
+			scene "asteroid/iron/spin"
+			`	Ore can be mined from certain asteroids if you shoot at them enough but mining lasers are specifically designed to get the job done better. These asteroids look slightly different from the common metal and rock asteroids. If you are having trouble telling them apart, an Asteroid Scanner will highlight these asteroids for you to target.`
+	on complete
+		outfit "Iron" -4
+		payment 6200
+		dialog `The outfitter on <planet> accepts your delivery of Iron and pay you <payment>.`
+
+
+
+mission "Intro Sol Mining [3]"
+	job
+	deadline 7
+	name "Mining: Copper to <planet>"
+	description "Jewelers on <planet> have a shortage of Copper. Bring 4 tons of Copper to them by <date>. Payment is <payment>, well above the usual market rate for Copper. Requires an Asteroid Mining License."
+	source 
+		government "Republic (Sol)" 
+	to offer
+		random < 30
+		has "Intro Mining [2]: done"
+		not "Intro Sol Mining [3]: done"
+	to accept	
+		has "license: Asteroid Mining"
+	on accept
+		conversation
+			scene "asteroid/gold/spin"
+			`	Valuable ore can be mined from certain asteroids if you shoot at them enough but mining lasers are specifically designed to get the job done better. These asteroids look slightly different from the common metal and rock asteroids. If you are having trouble telling them apart, an Asteroid Scanner will highlight these asteroids for you to target.`
+	on complete
+		outfit "Copper" -4
+		payment 9100
+		dialog `The jewelers on <planet> accept your delivery of Copper and pay you <payment>.`
+
+
+
+
+
+
+
+# --------- SOL DELIVERY ---------
+mission "Sol Delivery [1]"
+	name "Delivery to <planet>"
+	job
+	repeat
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo random 2 5 .5
+	source
+		government "Republic (Sol)"
+	destination
+		government "Republic (Sol)"	
+	to offer
+		random < 80
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 1500
+		dialog phrase "generic cargo delivery payment"
+
+mission "Sol Delivery [2]"
+	name "Delivery to <planet>"
+	job
+	repeat
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo random 2 7 .4
+	to offer
+		random < 70
+	source
+		government "Republic (Sol)"
+	destination
+		government "Republic (Sol)"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 1750
+		dialog phrase "generic cargo delivery payment"
+
+mission "Sol Delivery [3]"
+	name "Delivery to <planet>"
+	job
+	repeat
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo random 2 9 .3
+	source
+		government "Republic (Sol)"
+	destination
+		government "Republic (Sol)"	
+	to offer
+		random < 60
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 2000
+		dialog phrase "generic cargo delivery payment"
+
+mission "Sol Delivery [4]"
+	name "Delivery to <planet>"
+	job
+	repeat
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo random 2 12 .2
+	to offer
+		random < 50
+	source
+		government "Republic (Sol)"
+	destination
+		government "Republic (Sol)"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 2250
+		dialog phrase "generic cargo delivery payment"
+
+
+
+
+# --------- SOL RUSH DELIVERY ---------
+mission "Sol Rush Delivery [1]"
+	name "Rush delivery to <planet>"
+	job
+	repeat
+	deadline 1
+	description "This load of <cargo> is urgently needed at <destination> by tomorrow. Payment is <payment>."
+	cargo random 2 7 .5
+	to offer
+		random < 70
+	source
+		government "Republic (Sol)"
+	destination
+		government "Republic (Sol)"	
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment
+		payment 3000
+		dialog phrase "generic cargo delivery payment"
+
+mission "Sol Rush Delivery [2]"
+	name "Rush delivery to <planet>"
+	job
+	repeat
+	deadline 1
+	description "This load of <cargo> is urgently needed at <destination> by tomorrow. Payment is <payment>."
+	cargo random 2 8 .4
+	to offer
+		random < 60
+	source
+		government "Republic (Sol)"
+	destination
+		government "Republic (Sol)"	
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment
+		payment 3500
+		dialog phrase "generic cargo delivery payment"
+
+mission "Sol Rush Delivery [3]"
+	name "Rush delivery to <planet>"
+	job
+	repeat
+	deadline 1
+	description "This load of <cargo> is urgently needed at <destination> by tomorrow. Payment is <payment>."
+	cargo random 3 9 .3
+	to offer
+		random < 50
+	source
+		government "Republic (Sol)"
+	destination
+		government "Republic (Sol)"	
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment
+		payment 4000
+		dialog phrase "generic cargo delivery payment"
+
+mission "Sol Rush Delivery [4]"
+	name "Rush delivery to <planet>"
+	job
+	repeat
+	deadline 1
+	description "This load of <cargo> is urgently needed at <destination> by tomorrow. Payment is <payment>."
+	cargo random 4 10 .2
+	to offer
+		random < 30
+	source
+		government "Republic (Sol)"
+	destination
+		government "Republic (Sol)"	
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment
+		payment 4500
+		dialog phrase "generic cargo delivery payment"
+
+
+
+
