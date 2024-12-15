@@ -340,7 +340,6 @@ system Sol
 	# 9.5 AU * .5 = SATURN		
 	object "Saturn"
 		sprite planet/sol/saturn
-			scale 1.4
 		distance 19000
 		period 5379   # 10759
 		hazard "Gas Giant Gravity" 1
@@ -395,7 +394,6 @@ system Sol
 	# 19.8 AU * .3 = URANUS
 	object "Uranus"
 		sprite planet/sol/uranus
-			scale 2.5
 		distance 23760
 		period 9206   # 30687
 		hazard "Gas Giant Gravity" 1
@@ -427,7 +425,6 @@ system Sol
 	# 30 AU * .22 = NEPTUNE
 	object "Neptune"
 		sprite planet/sol/neptune
-			scale 2.5
 		distance 26400
 		period 13240   # 60182
 		hazard "Gas Giant Gravity" 1		
