@@ -2947,7 +2947,7 @@ double Ship::DisplayRamscoop() const
 // Calculate the ship's current solar heat intake based on distance from system center.
 double Ship::DisplaySolarHeat() const
 {
-	double solarHeat = currentSystem->SolarPower() * GetHeatScale() * attributes.Get("solar heat");
+	double solarHeat = currentSystem->SolarPower() * GetHeatScale() * (attributes.Get("solar heat") + SolarHeatByMass());
 	return solarHeat;
 }
 

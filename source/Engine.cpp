@@ -785,7 +785,7 @@ void Engine::Step(bool isActive)
 		info.SetString("flagship turn", to_string(flagshipTurn));
 
 		// Display "ramscoop" collection from Solar Wind relative to distance from system center
-		int flagshipRamscoop = flagship->DisplayRamscoop() * 150;
+		int flagshipRamscoop = flagship->DisplayRamscoop() * 500;
 		if(flagshipRamscoop >= 0.05 && flagship->Attributes().Get("ramscoop display"))
 		{
 			info.SetCondition("flagship ramscoop display");
@@ -799,7 +799,7 @@ void Engine::Step(bool isActive)
 			info.SetString("flagship solar", to_string(flagshipSolar));
 		}
 		// Display combined Solar Power for system
-		int displaySystemPower = (flagship->DisplaySystemSolar() * 100); // Multiplied to better display decimal inputs
+		int displaySystemPower = flagship->DisplaySystemSolar(); // Multiplied to better display decimal inputs
 		if(displaySystemPower >= 0.01 && flagship->Attributes().Get("solar power sensor"))
 		{
 			info.SetCondition("system solar display");
