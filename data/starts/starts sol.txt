@@ -51,8 +51,8 @@ start "Sol Start"
 			"drag" 1.8
 			"cargo space" 30       		# default 20
 			"outfit space" 120           # default 120
-		    "weapon capacity" 0        # default 10
-			"engine capacity" 60 		# default 60
+			"weapon capacity" 0        # default 10
+			"engine capacity" 40 		# default 60
 			"heat dissipation" .77
 			"overheat damage rate" .1
 			"landing speed" .005
@@ -88,11 +88,11 @@ ship "Used Shuttle"
 		"mass" 80
 		"drag" 1.8
 		"cargo space" 30       		# default 20
-		"outfit space" 120           # default 120
+		"outfit space" 100           # default 120
 		"weapon capacity" 0        # default 10
-		"engine capacity" 60 		# default 60
+		"engine capacity" 40 		# default 60
 		"heat dissipation" .77
-		"overheat damage rate" .1
+		"overheat damage rate" .2
 		"landing speed" .005
 		"steering slot" 1
 		"thruster slot" 1 

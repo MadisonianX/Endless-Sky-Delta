@@ -251,7 +251,7 @@ mission "Wealthy tourist cruise of Sol"
 		random < 80
 	to accept
 		has "license: Passenger"
-		has "outfit (installed): Luxury Accommodations" 1	
+		has "outfit (installed): Luxury Accommodations"
 	source
 		planet Earth
 	stopover
