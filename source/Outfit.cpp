@@ -213,6 +213,7 @@ void Outfit::Load(const DataNode &node)
 		trueName = node.Token(1);
 
 	isDefined = true;
+	description.clear();
 
 	for(const DataNode &child : node)
 	{
