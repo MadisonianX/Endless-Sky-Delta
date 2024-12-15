@@ -14,7 +14,7 @@
 outfit "In-flight Mass Display"
 	category "Software"
 	cost 5000
-	thumbnail "outfit/cockpit mass software"
+	thumbnail "outfit/software/cockpit mass software"
 	"mass" 0
 	"outfit space" 0
 	"mass display" 1
@@ -23,7 +23,7 @@ outfit "In-flight Mass Display"
 outfit "Hyperjump Fuel Display"
 	category "Software"
 	cost 11000
-	thumbnail "outfit/cockpit hyperjump software"
+	thumbnail "outfit/software/cockpit hyperjump software"
 	"mass" 0
 	"outfit space" 0
 	"hyperdrive fuel cost display" 1
@@ -32,7 +32,7 @@ outfit "Hyperjump Fuel Display"
 outfit "Scram Drive Fuel Display"
 	category "Software"
 	cost 17000
-	thumbnail "outfit/cockpit scramjump software"
+	thumbnail "outfit/software/cockpit scramjump software"
 	"mass" 0
 	"outfit space" 0
 	"scram drive fuel cost display" 1
@@ -41,7 +41,7 @@ outfit "Scram Drive Fuel Display"
 outfit "Jump Drive Fuel Display"
 	category "Software"
 	cost 23000
-	thumbnail "outfit/cockpit jumpdrive software"
+	thumbnail "outfit/software/cockpit jumpdrive software"
 	"mass" 0
 	"outfit space" 0
 	"jump drive fuel cost display" 1
@@ -50,7 +50,7 @@ outfit "Jump Drive Fuel Display"
 outfit "Fuel Bar Hyperjump Display"
 	category "Software"
 	cost 7000
-	thumbnail "outfit/cockpit software"
+	thumbnail "outfit/software/cockpit software"
 	"mass" 0
 	"outfit space" 0
 	"hyperdrive fuel bar scale" 1
@@ -60,7 +60,7 @@ outfit "Fuel Bar Hyperjump Display"
 outfit "Fuel Bar Scram Display"
 	category "Software"
 	cost 9000
-	thumbnail "outfit/cockpit software"
+	thumbnail "outfit/software/cockpit software"
 	"mass" 0
 	"outfit space" 0
 	"scram drive fuel bar scale" 1
@@ -70,7 +70,7 @@ outfit "Fuel Bar Scram Display"
 outfit "Fuel Bar Jump Display"
 	category "Software"
 	cost 11000
-	thumbnail "outfit/cockpit software"
+	thumbnail "outfit/software/cockpit software"
 	"mass" 0
 	"outfit space" 0
 	"jump drive fuel bar scale" 1
@@ -80,7 +80,7 @@ outfit "Fuel Bar Jump Display"
 outfit "Fuel Bar Fixed Display"
 	category "Software"
 	cost 2000
-	thumbnail "outfit/cockpit software"
+	thumbnail "outfit/software/cockpit software"
 	"mass" 0
 	"outfit space" 0
 	"fixed scale fuel bar scale" 100
@@ -105,7 +105,7 @@ outfit "Solar Heat Display"
 	series "Human: Software"
 	index 40
 	cost 125000
-	thumbnail "outfit/software/heat display"
+	thumbnail "outfit/software/solar heat display"
 	"mass" 0
 	"solar heat display" 1
 	"computing power" -1
