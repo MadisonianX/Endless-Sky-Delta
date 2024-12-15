@@ -94,10 +94,10 @@ outfit "Solar Wind Display"
 	cost 125000
 	thumbnail "outfit/software/ramscoop display"
 	"mass" 0
-	"solar wind display" 1
-	"computing power" -1
+	"ramscoop display" 1
 	"astronomical upgrade" -1
-	description "	Displays current ramscoop generation as a numerical value on the HUD based on ship distance from stars for more precise monitoring of solar wind intake. Works with regular ramscoops and velocity ramscoops."
+	"rangefinding upgrade" -1
+	description "Displays current ramscoop generation as a numerical value on the HUD based on ship distance from stars for more precise monitoring of solar wind intake. Requires "
 
 outfit "Solar Heat Display"
 	category "Software"
@@ -107,9 +107,9 @@ outfit "Solar Heat Display"
 	thumbnail "outfit/software/solar heat display"
 	"mass" 0
 	"solar heat display" 1
-	"computing power" -1
 	"astronomical upgrade" -1
-	description "	Displays current heat as a numerical value on the HUD based on ship distance from stars for more precise monitoring of danger from solar heat."
+	"rangefinding upgrade" -1
+	description "Displays current heat as a numerical value on the HUD based on ship distance from stars for more precise monitoring of danger from solar heat."
 
 outfit "Solar Power Display"
 	category "Software"
@@ -118,10 +118,10 @@ outfit "Solar Power Display"
 	cost 125000
 	thumbnail "outfit/software/solar power display"
 	"mass" 0
-	"solar power display" 1
-	"computing power" -1
+	"solar collection display" 1
 	"astronomical upgrade" -1
-	description "	Displays current solar power as a numerical value on the HUD based on ship distance from stars for more precise monitoring of solar collection."
+	"rangefinding upgrade" -1
+	description "Displays current solar power as a numerical value on the HUD based on ship distance from stars for more precise monitoring of solar collection."
 
 
 
