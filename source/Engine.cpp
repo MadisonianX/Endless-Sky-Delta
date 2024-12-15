@@ -787,7 +787,7 @@ void Engine::Step(bool isActive)
 			info.SetString("flagship ramscoop", to_string(flagshipRamscoop));
 		}
 		// Display "solar collection" from Solar Power relative to distance from system center
-		int flagshipSolar = flagship->DisplaySolarCollection() * 5;
+		int flagshipSolar = flagship->DisplaySolarCollection();
 		if(flagshipSolar >= 0.05 && flagship->Attributes().Get("solar collection display"))
 		{
 			info.SetCondition("flagship solar display");

@@ -87,7 +87,7 @@ outfit "Fuel Bar Fixed Display"
 	description "This innocuous device is so compact as to barely count as an outfit at all. Its sole purpose is to allow pilots to customize their heads-up display so that their fuel bar is segmented into sections where each full section is exactly the amount of fuel specified. It will be overridden by any other fuel display segmentation that is present; and due to display limitations, it will show a solid bar if 31 or more full fuel segments would be called for."
 
 
-outfit "Solar Wind Display"
+outfit "Ramscoop Display"
 	category "Software"
 	series "Human: Software"
 	index 40
@@ -111,7 +111,7 @@ outfit "Solar Heat Display"
 	description "Displays current heat as a numerical value on the HUD based on ship distance from stars for more precise monitoring of danger from solar heat."
 
 
-outfit "Solar Power Display"
+outfit "Solar Collection Display"
 	category "Software"
 	series "Human: Software"
 	index 40
