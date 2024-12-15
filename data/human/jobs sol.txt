@@ -283,7 +283,7 @@ mission "Intro Cargo [Intrasolar 1]"
 	on accept
 		conversation
 			scene "outfit/water cooling"
-			scene "scene/scene-outfit to cargo"
+			scene "scene/outfit to cargo"
 			`	Sometimes you may want to buy some outfits directly into your cargo hold instead of having them installed. To accomplish this, you need to switch out of installation mode into 'purchase to cargo' mode. This can be achieved by either checking the "show outfits in cargo" box at the bottom left, or Control+clicking on your selected ship to deselect it.`
 			`	When you are in 'purchase to cargo' mode, your ship information on the right hand side will be replaced by information on how much cargo space you currently have available.`
 			`	Outfits that are in your cargo hold can be (re)installed at any outfitter without cost.`
@@ -311,7 +311,7 @@ mission "Intro Cargo [Intrasolar 2]"
 	on accept
 		conversation
 			scene "outfit/meteor"
-			scene "scene/scene-outfit to cargo"
+			scene "scene/outfit to cargo"
 			`	Sometimes you may want to buy some outfits directly into your cargo hold instead of having them installed. To accomplish this, you need to switch out of installation mode into 'purchase to cargo' mode. This can be achieved by either checking the "show outfits in cargo" box at the bottom left, or Control+clicking on your selected ship to deselect it.`
 			`	When you are in 'purchase to cargo' mode, your ship information on the right hand side will be replaced by information on how much cargo space you currently have available.`
 			`	Outfits that are in your cargo hold can be (re)installed at any outfitter without cost.`
