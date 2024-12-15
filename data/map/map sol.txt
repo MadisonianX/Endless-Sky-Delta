@@ -512,6 +512,7 @@ planet "Earth"
 	outfitter "Syndicate Basics"
 	outfitter "Ammo North"
 	outfitter "Starter Outfits"
+	outfitter "Republic Capital"
 	"required reputation" 1
 	bribe 0.03
 	security 0.6
