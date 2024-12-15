@@ -344,6 +344,7 @@ public:
 	bool DisplayScramFuelCost() const;
 	bool DisplayJumpFuelCost() const;
 	double DisplaySolar() const;
+	double GetWindScale() const;
 	double DisplayRamScoop() const;
 	double DisplaySystemSolar() const;
 	double DisplaySystemWind() const;

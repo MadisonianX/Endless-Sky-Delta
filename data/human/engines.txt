@@ -95,6 +95,20 @@ effect "ionic afterburner"
 	"velocity scale" 1.
 
 
+outfit "Plasma Sails"
+	plural "Plasma Sails"
+	category "Engines"
+	series "Human: Ion"
+	index 1
+	"cost" 1000
+	thumbnail "outfit/solar sail"
+	"engine mod space" -0.5
+	"mass" 2
+	"outfit space" -2
+	"sail thrust" 17.25
+	"sail turn" 75.5
+	description `Considered too low tech by many, this ancient technology from the 22nd century still finds use among a small niche of captains who are deathly afraid of getting caught too close to a stellar object without enough power to achieve escape velocity.`
+	description `	Plasma sails only provide thrust while your ship faces directly towards or away from the system center, there's no thrust while perpendicular to the system center. Similarly, sails provide turning while your ship faces directly towards or against your current velocity and no turn while perpendicular to ship velocity.`
 
 outfit "X1050 Ion Engines"
 	plural "X1050 Ion Engines"
