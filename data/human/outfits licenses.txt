@@ -223,7 +223,7 @@ outfitter "Republic Capital"
 	"Passenger License"
 	"Prisoner License"
 
-outfitter "Free Worlds Capital"
+# outfitter "Free Worlds Capital"
 
 outfitter "Syndicate Capital"
 	"Bulk Freight License"
@@ -245,9 +245,9 @@ outfitter "Common Outfits"
 	"Freight License"
 	"Passenger License"
 
-outfitter "Ammo North"
+#outfitter "Ammo North"
 	
-outfitter "Ammo South"	
+#outfitter "Ammo South"	
 
 outfitter "Deep Sky Basics"
 	"Asteroid Mining License"

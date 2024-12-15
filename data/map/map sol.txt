@@ -512,8 +512,6 @@ planet "Earth"
 	outfitter "Syndicate Basics"
 	outfitter "Ammo North"
 	outfitter "Starter Outfits"
-	outfitter "Republic Capital"
-	outfitter "Majors"
 	"required reputation" 1
 	bribe 0.03
 	security 0.6
@@ -535,7 +533,6 @@ planet "Luna"
 	landscape land/sol/luna
 	description `	In the early days of space travel, back when engines were still so inefficient that escaping from a planet's gravity was costly and difficult, an enormous shipyard was built on the Moon where asteroids, harvested from the belt, were mined for raw materials for ships. The facility is still in operation, although it is now overshadowed by the far more advanced shipbuilding centers like Geminus in the Castor system.`
 	description `	Luna also boasts some of the highest real estate values in the known galaxy with its breathtaking views of Earth, which still holds a special place in the hearts of most humans.`
-	shipyard "Starter Ships"
 	shipyard "Basic Ships"
 	remove shipyard "Navy Basics"
 	remove shipyard "Betelgeuse Basics"
@@ -543,7 +540,6 @@ planet "Luna"
 	remove shipyard "Tycho Crater Advanced"
 	outfitter "Starter Outfits"
 	outfitter "Common Outfits"
-	outfitter "Advanced Outfits"
 	outfitter "Lovelace Basics"
 	outfitter "Syndicate Basics"
 	outfitter "Ammo North"
@@ -593,8 +589,7 @@ planet "Phobos"
 #	shipyard "Navy Advanced"
 	outfitter "Common Outfits"
 	outfitter "Starter Outfits"
-	outfitter "Basic Weapons"
-	outfitter "Navy Surplus"
+#	outfitter "Navy Surplus"
 	"required reputation" 0
 	bribe 0
 	security 0.8
@@ -652,7 +647,6 @@ planet "Callisto"
 	landscape land/sol/callisto
 	description `	Callisto's orbit is tidally locked with one side constantly facing Jupiter. It has a moderate subterranean population as the moon does not enjoy the same protection from Jupiter's radiation belts as Ganymede. The colony has a robust mining industry on the dark side and also boasts the only shipyard in the outer planets.`
 	description `	The Jovian Technical Institute is located on Callisto and is still regarded as the gold standard. The hemisphere facing Jupiter includes an observatory focused on Jovian research.`
-	shipyard "Starter Ships"
 	shipyard "Basic Ships"
 	shipyard "Navy Basics"
 	shipyard "Tycho Crater Advanced"

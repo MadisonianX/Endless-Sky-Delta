@@ -1,0 +1,229 @@
+# Copyright (c) 2014-2015 by Timothy Butterworth
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+
+
+######## PILOT'S LICENSE ########
+mission "Bought a Pilot's License"
+	invisible
+	description "Activate your Pilot's License"
+	source
+		government "Republic" "Syndicate" "Deep" "Republic (Sol)"
+	to offer
+		has "license: Pilot's"
+		has "license: No"
+	on offer
+		fail
+	on fail	
+		clear "license: No"
+		dialog `	After an excruciatingly long wait, the Space DMV finally notifies you that your Pilot's License is activated.`
+
+
+
+######## UNLICENSED FLYING ########
+mission "Unlicensed Flying [1]"
+	invisible
+	landing
+	source 
+		government "Republic" "Syndicate" "Deep" "Republic (Sol)"
+	description `You've been fined by authorities for unlicensed flying.`
+	to offer 
+		has "license: No" 
+		not "Unlicensed Flying [1]: failed"
+		not "license: Pilot's"
+		random < 75
+		"net worth" > 5000
+	on offer
+		fail
+	on fail
+		fine "2500"
+		dialog `	Republic authorities have fined you 2,500 credits for flying without a license. Better head over to the outfitters and purchase a Pilot's License or the fine will be even higher next time. Fines are paid over time and can be viewed at the Bank.`
+
+mission "Unlicensed Flying [2]"
+	invisible
+	landing
+	source 
+		government "Republic" "Syndicate" "Deep" "Republic (Sol)"
+	description `You've been fined by authorities for unlicensed flying.`
+	to offer 
+		has "license: No"
+		has "Unlicensed Flying [1]: failed"
+		not "Unlicensed Flying [2]: failed"
+		not "license: Pilot's"
+		random < 25
+		"net worth" > 15000
+	on offer
+		fail
+	on fail
+		fine "5000"
+		dialog `	Republic authorities have fined you 5,000 credits for flying without a license. Better head over to the outfitters and purchase a Pilot's License or the fine will be even higher next time and your ship will be impounded. Fines are paid over time and can be viewed at the Bank.`
+
+mission "Unlicensed Flying [3]"
+	invisible
+	landing
+	source 
+		government "Republic" "Syndicate" "Deep" "Republic (Sol)"
+	description `You've been fined by authorities for unlicensed flying.`
+	to offer 
+		has "license: No"
+		has "Unlicensed Flying [2]: failed"
+		not "Unlicensed Flying [3]: offered"
+		not "license: Pilot's"
+		random < 25
+		"net worth" > 25000
+	on offer
+		fail
+	on fail
+		fine "7500"
+		dialog `	Republic authorities have fined you 7,500 credits for flying without a license and are impounding your ship. Failure to purchase and register a Pilot's License within 7 days will result in a warrant for your arrest. The impound fee is 10,000 credits, due immediately.`
+		payment -10000
+		event "Warrant timer" 7 # Time delayed event
+
+# Time delayed event, 7 days
+event "Warrant timer"
+
+# Warrant cleared for caving
+mission "Pending Warrant Cleared"
+	invisible
+#	landing
+	source 
+		government "Republic" "Syndicate" "Deep" "Republic (Sol)"
+	description `The pending warrant has been cleared.`
+	to offer 
+		has "license: Pilot's"
+		has "Unlicensed Flying [3]: failed"
+		not "license: No"
+		not "event: Warrant timer"
+	on offer
+		fail
+	on fail
+		dialog `	The pending warrant for your arrest has been cleared due to your purchase of a Pilot's License. `
+
+
+
+# Warrant issued for defiance
+mission "Warrant Issued"
+	invisible
+	landing
+	clearance
+	source 
+		government "Republic" "Syndicate" "Deep" "Republic (Sol)"
+		not planet "Miranda"
+	destination "Miranda"
+	description `A warrant has been issued for your arrest.`
+	to offer 
+		has "license: No"
+		has "event: Warrant timer"
+		not "license: Pilot's"
+		not "Pending Warrant Cleared: failed"
+	on offer
+		conversation
+			scene "scene/warrant" 
+			`A warrant has been issued for your arrest for unlicensed flying.`
+			`	Turning yourself in will result in a large fine and likely some jail time. If you remain a fugitive, you'll be denied landing access in Republic space.`
+			choice 
+				`	Turn yourself in.`
+					goto cave
+				`	Flee from authorities.`
+					goto outlaw
+			label cave
+			scene "outfit/licenses/license" 
+			`	The warrant for your arrest has been cleared after the mandatory purchase of a Pilot's License, a hefty 75,000 credit fine, and a night in jail.`
+				decline
+
+			label outlaw
+			scene "planet/sol/miranda"
+			`	An outlaw life won't be easy, but you know your way around Miranda. You should be able to find a cheap, used Hyperdrive there to get out of Republic space.`
+				launch
+	on decline
+		fine 75000
+		set "license: Pilot's"
+		clear "license: No" 
+		payment -20000
+		"reputation: Republic" <?= 1 
+		"reputation: Republic (Sol)" <?= 1 
+	on accept
+		"reputation: Republic" <?= 0
+		"reputation: Republic (Sol)" <?= 0
+		"reputation: Syndicate" <?= 0
+		"reputation: Deep" <?= 0
+		"reputation: Pirate" <?= 1
+		event "used hyperdrive"
+	to complete
+		has "Warrant Issued: active"
+
+
+event "used hyperdrive"
+	planet "Miranda"
+		outfitter "Used Hyperdrive"
+
+mission "Used Hyperdrive"
+	invisible
+	outfitter
+	source "Miranda"
+	description `You inquire about a used hyperdrive from the outfitter.`
+	to offer
+		#has "event: used hyperdrive"
+		has "Warrant Issued: done"
+		not "Used Hyperdrive: failed"
+	on offer
+		fail
+	on fail
+		dialog `You inquire with the outfitter about any used Hyperdrives. He takes a minute to check his inventory and then escorts you to the back of the yard. The price tag is only 12,500 credits compared to a new one at 75,000, but it sure looks like it has some miles on it. With no other options, you hope it'll get you out of Republic space.`
+		
+
+
+
+# Turn yourself in without a license
+mission "Turn Yourself In"
+	invisible
+	landing
+	clearance
+	source 
+		government "Republic" "Syndicate" "Deep" "Republic (Sol)"
+	destination "Earth"
+	description `You turn yourself in.`
+	to offer 
+		has "Warrant Issued: done"
+		not "license: Pilot's"
+	on offer
+		conversation
+			scene "scene/warrant" 
+			`A warrant has been issued for your arrest for unlicensed flying.`
+			`	Turning yourself in will result in a large fine and likely some jail time. If you remain a fugitive, you'll be denied landing access in Republic space.`
+			choice 
+				`	Turn yourself in.`
+					goto cave
+				`	Flee from authorities.`
+					goto outlaw
+			label cave
+			scene "outfit/licenses/license" 
+			`	The warrant for your arrest has been cleared after the mandatory purchase of a Pilot's License, a hefty 100,000 credit fine, and a night in jail.`
+				decline
+
+			label outlaw
+			scene "planet/sol/miranda"
+			`	An outlaw life won't be easy, but you know your way around Miranda. You might be able to find a cheap, used Hyperdrive there to get out of Republic space.`
+				launch
+	on decline
+		fine 100000
+		set "license: Pilot's"
+		clear "license: No" 
+		payment -20000
+		"reputation: Republic" <?= 1 
+		"reputation: Republic (Sol)" <?= 1 
+	on accept
+		"reputation: Republic" <?= 0
+		"reputation: Republic (Sol)" <?= 0
+		"reputation: Syndicate" <?= 0
+		"reputation: Pirate" <?= 1
+		event "used hyperdrive"
+	to complete
+		has "Warrant Issued: active"
