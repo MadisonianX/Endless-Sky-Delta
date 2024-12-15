@@ -1,0 +1,89 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+galaxy "Milky Way"
+	pos 112 22
+	sprite "map/milky way"
+
+galaxy "label arachi"
+	pos -750 615
+
+galaxy "label umbral"
+	pos 1150 -500
+
+galaxy "label core"
+	pos -136 130
+	sprite label/core
+
+galaxy "label deep"
+	pos -658 -300
+	sprite label/deep
+
+galaxy "label dirt belt"
+	pos -515 260
+	sprite "label/dirt belt"
+
+galaxy "label earth"
+	pos -420 94
+	sprite label/earth
+
+galaxy "label gegno"
+	pos 854 -544
+
+galaxy "label graveyard"
+	pos 45 590
+
+galaxy "label hai"
+	pos -74 -497
+
+galaxy "label incipias"
+	pos 300 -870
+
+galaxy "label kimek"
+	pos -1250 215
+
+galaxy "label korath"
+	pos 165 -347
+
+galaxy "label north"
+	pos -324 -332
+	sprite label/north
+
+galaxy "label paradise"
+	pos -345 -136
+	sprite label/paradise
+
+galaxy "label rim"
+	pos -778 265
+	sprite label/rim
+
+galaxy "label saryds"
+	pos -1080 678
+
+galaxy "label south"
+	pos -566 501
+	sprite label/south
+
+galaxy "label successors"
+	pos -122 1385
+
+galaxy "label wanderers"
+	pos -145 -753
+
+galaxy "label waste"
+	pos 80 315
+
+galaxy "pug empty galaxy"
+	pos 10000 7000
+	sprite ui/pleiades
+

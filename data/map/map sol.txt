@@ -1,0 +1,816 @@
+# ======== HABITABLE DISTANCES ========
+# 1 AU = 4000  |  Combined star power * 1 AU = Habitable distance
+#						  		   (*1AU)  		(?)   	 (?)   	  (?)
+# Star  		   Power  Wind	   Habitable    Belt   Arrival  Depart   
+
+# o-supergiant     5.2    2.5		20800
+# o-giant  	 	   4.8    1.5		19200
+# o0  	 	       4.2    .46		16800	  							
+# o3			   3.9    .46		15600	  
+# o5 			   3.6    .47		14400	  
+# o8 			   3.3    .48		13200	  
+# o-dwarf  		   1.1    .5		4400
+
+# b-supergiant     4.1    2.6		16400
+# b-giant  		   3.7    1.6		14800
+# b0 			   3.1 	  .49		12400	  
+# b3 			   2.8	  .5		11200	  
+# b5 			   2.5	  .51		10000	  
+# b8 			   2.2    .52		8800 	  
+# b-dwarf  		   1      .6 		4000
+
+# a-supergiant     3      2.7 		12000
+# a-giant  		   2.6    1.7 		10400
+# a0 			   2      .53 		8000 	  
+# a3 			   1.85   .54 		7400 	  
+# a5 			   1.7    .55 		6800 	  
+# a8 			   1.5    .56 		6000 	  
+# a-dwarf  		   .9     .7 		3600
+
+# f-supergiant     2.4    2.8 		9600
+# f-giant  		   2.0    1.8 		8000
+# f0 			   1.4    .57 		5600 	  
+# f3 			   1.3    .59 		5200 	  
+# f5 		       1.2    .6 		4800 	  
+# f8 			   1.1    .62 		4400 	  
+# f-dwarf  		   .8     .8 		3200
+
+# g-supergiant     2      2.9 		8000
+# g-giant  		   1.6    1.9 		6400
+# g0 Sol		   1      .64 		4000 	7000-9000    11000    10000   
+# g3  			   .95    .66 		3800 	  
+# g5 			   .9     .69		3600 	  
+# g8 			   .85    .72		3400 	  
+# g-dwarf  		   .7     .9		2800
+
+# k-supergiant     1.8    3		 	7200
+# k-giant  		   1.4    2		 	5600
+# k0 			   .8     .75		3200 	  
+# k3 			   .76    .78 		3040 	  
+# k5 			   .72    .82		2880 	  
+# k8 			   .7     .86 		2800 	  
+# k-dwarf  		   .6     1		 	2400
+
+
+# Star  		   Power  Wind	
+
+# m-supergiant     1.6    3.1 		6400
+# m-giant  		   1.2    2.1	    4800
+# m0 			   .66    .9		2640 	  
+# m3 			   .64    .95		2560 	  
+# m5 			   .61    1.05		2440 	  
+# m8 			   .6     1.1		2400 	  
+# m-dwarf          .5     1.2	 	2000
+
+# l-dwarf          .4     1.3		1600
+
+# Brown Dwarves
+# bdwarf-l  	   .4     .5		1600
+# bdwarf-l-rogue   .4     .5	  	1600
+# bdwarf-t  	   .3     .4		1200
+# bdwarf-t-rogue   .3     .4		1200
+# bdwarf-y  	   .1     .3		400
+# bdwarf-y-rogue   .1     .3		400
+
+# carbon		   .1     10        400
+# nova  		   .2     8 	  	800       
+# nova-old		   .3     6 	 	1200
+# nova-small	   .2 	  4         800
+# wolf-rayet	   5      4         20000
+# proto-orange	   .5     3 		2000
+# proto-yellow	   .4     5 		1600
+# rogue-radiating  .2 	  .6   		800
+
+# neutron 		   4      .4	 	16000
+# neutron-core	   4      .4 		16000
+
+
+
+### POSITION -Left/+Right -Up/+Down
+
+
+
+
+#	port <name>
+#		news
+#		description <text>
+#		recharges <recharge type>
+# 			shields 			- recharges the shields of any ships that land. Outfitters only.
+# 			hull 	  			- recharges the hull of any ships that land. Shipyards only.
+# 			energy  			- recharges the energy of any ships that land.
+# 			fuel   			- recharges the fuel of any ships that land.
+# 			all     			- shorthand for all recharge types.
+#		services <service type>
+#			 trading           - the player can trade commodities here.
+#			 "job board"       - the player can access the job board here.
+#			 bank 	            - the player can access the bank here.
+#			 "hire crew" 	    - the player can hire crew here.
+#			 "offers missions" - missions can be offered when entering the port.
+#			 all     			- shorthand for all service types.
+
+#		recharges "shields" "energy" "fuel" "hull" "all"
+#		services "trading" "job board" "hire crew" "offers missions" "bank" "all"
+
+# If a port is given a name, then that will display on the spaceport button instead of the usual "Spaceport" text.
+
+# If a port has no recharges node, then it will not recharge anything on ships that land on the planet. 
+# Only those recharge types that are listed will be used, and they can be listed on the same line as recharges or as one children of the recharges node with one item per line. 
+
+# If a port has no services node, then it will not offer any services. 
+# As with recharges, only those service types that are listed are used, and they may be listed in the same ways. 
+
+# By default, ports don't display spaceport news when you enter them. To display news, add the news token.
+
+
+
+# ======================================================
+#    					SOL SYSTEM
+# ======================================================
+
+system Sol
+	pos -400 100
+	government Republic
+	habitable 4000
+	departure 10000
+	arrival 11000
+	attributes "near earth"
+	belt 7000 25
+	belt 7500 75
+	belt 8000 125
+	belt 8500 125
+	belt 9000 75
+	belt 9500 25
+	belt 35000 400
+	belt 38000 800
+	belt 41000 400
+	haze _menu/haze-67
+	link "Alpha Centauri"	# Added
+	link Altair
+	link Barnard  			# Added
+	link Denebola
+	link Sirius
+#	link Caph
+#	link Vega
+	asteroids "small rock" 0 # 8 0.691
+#	asteroids "large rock" 10 0.0508
+#	asteroids "small metal" 2 0.8566
+#	asteroids "large metal" 1 0.2356
+
+#	minables ice 9 1.1
+	minables "copper small" 50 3.5
+	minables copper 50 2.5
+	minables "copper large" 5 1.5
+
+	minables "aluminum small" 50 5
+	minables aluminum 50 4
+	minables "aluminum large" 5 3
+
+	minables "gold small" 50 5
+	minables gold 50 4
+	minables "gold large" 5 3
+
+	minables "silver small" 50 5
+	minables silver 50 4
+	minables "silver large" 5 3
+
+	minables "platinum small" 50 5
+	minables platinum 50 4
+	minables "platinum large" 5 3
+
+	minables "neodymium small" 50 5
+	minables neodymium 50 4
+	minables "neodymium large" 5 3
+
+	minables "lead small" 50 3
+	minables lead 50 2.5
+	minables "lead large" 5 2
+
+	minables "iron small" 50 3
+	minables iron 50 2
+	minables "iron large" 5 1
+
+	minables "titanium small" 50 5
+	minables titanium 50 4
+	minables "titanium large" 5 3
+
+	minables "tungsten small" 50 5
+	minables tungsten 50 4
+	minables "tungsten large" 5 3
+
+	minables "uranium small" 50 5
+	minables uranium 50 4
+	minables "uranium large" 5 3
+
+	minables "silicon small" 50 5
+	minables silicon 50 4
+	minables "silicon large" 5 3
+
+	minables "common minerals small" 50 1
+	minables "common minerals medium" 50 1
+	minables "common minerals large" 5 1
+	minables "uncommon minerals small" 50 2
+	minables "uncommon minerals medium" 50 2
+	minables "uncommon minerals large" 5 2
+	minables "precious minerals small" 50 3
+	minables "precious minerals medium" 50 3
+	minables "precious minerals large" 5 3
+	minables "rare minerals" 50 5
+
+
+	trade Clothing 282
+	trade Electronics 745
+	trade Equipment 491
+	trade Food 505
+	trade "Heavy Metals" 849
+	trade Industrial 635
+	trade "Luxury Goods" 1159
+	trade Medical 480
+	trade Metal 402
+	trade Plastic 272
+	trade Fuel 521
+	fleet "Small Northern Merchants" 1300
+	fleet "Large Northern Merchants" 1500
+	fleet "Paradise Merchants" 1800
+	fleet "Small Republic" 1500
+	fleet "Large Republic" 2800
+	fleet "Republic Logistics" 1600
+
+	fleet "Small Core Merchants" 700
+	fleet "Large Core Merchants" 1500
+	fleet "Small Deep Merchants" 2600
+	fleet "Large Deep Merchants" 3000
+	fleet "Small Syndicate" 2500
+#	fleet "Salvage Navy" 20000
+#	fleet "Salvage Merchant" 10000
+
+## 1 AU = the distance from the Sun to Earth (3000). 
+## Mercury, Venus, Earth and Mars are precise AU distance. Ceres and beyond are increasingly reduced distances for improved gameplay.
+
+	# THE SUN
+	object
+		sprite star/g0
+			scale 5
+			period 10
+		hazard "Solar Gravity" 1
+		hazard "Solar Flare" 10400
+
+	# .4 AU = MERCURCY
+	object "Mercury"
+			sprite planet/sol/mercury
+		distance 1600
+		period 88
+		object "Icarus Station"
+			sprite planet/station4
+				scale .35
+			distance 70
+			period 88
+			offset 180
+
+	# .7 AU = VENUS
+	object "Venus"
+		sprite planet/sol/venus
+		distance 2800
+		period 225
+		
+	# 1 AU = EARTH
+	object "Earth"
+		sprite planet/sol/earth
+		distance 4000
+		period 365.25
+
+		object "Luna"
+			sprite planet/sol/luna
+			distance 225
+			period 27.3
+			offset 225
+	#	object
+	#		sprite planet/orbital-defense
+	#		distance 420
+	#		period 31
+	#		offset 180
+
+
+	## 1 AU = 4000 (Earth distance)
+
+	# 1.5 AU = MARS (example: 4000 x 1.5 AU = 6000)
+	object "Mars"
+		sprite planet/sol/mars	
+		distance 6000
+		period 687
+
+		object "Phobos"
+			sprite planet/sol/phobos
+				scale .5
+			distance 100
+			period .3
+			offset 100
+
+		object
+			sprite planet/sol/deimos
+				scale .5
+			distance 200
+			period 1.2
+			offset 145
+		
+
+	# 2.8 AU * .75 = CERES
+	object "Ceres"
+		sprite planet/sol/ceres
+		distance 8400
+		period 1682
+
+	# 5.2 AU * .6 = JUPITER	
+	object "Jupiter"
+		sprite planet/sol/jupiter
+		distance 12480
+		period 2599.8   # 4333
+		hazard "Gas Giant Gravity" 1
+
+		object
+			sprite planet/sol/io
+			distance 666.343
+			period 54.0516
+			offset 319.843
+		object
+			sprite planet/sol/europa
+			distance 909.534
+			period 86.1966
+			offset 145.63
+		object "Ganymede"
+			sprite planet/sol/ganymede
+			distance 1042.9
+			period 105.833
+			offset 209.11
+		object "Callisto"
+			sprite planet/sol/callisto
+			distance 1151.9
+			period 122.852
+			offset 142.316
+
+	# 9.5 AU * .5 = SATURN		
+	object "Saturn"
+		sprite planet/sol/saturn
+			scale 1.4
+		distance 19000
+		period 5379   # 10759
+		hazard "Gas Giant Gravity" 1
+
+		object
+			sprite planet/sol/mimas
+			distance 290
+			period 27.5568
+			offset 125.607
+		object
+			sprite planet/sol/enceladus
+			distance 380
+			period 239.078
+			offset 272.181
+		object
+			sprite planet/sol/tethys
+			distance 458
+			period 316.346
+			offset 199.293
+		object
+			sprite planet/sol/dione
+			distance 536
+			period 400.508
+			offset 155.118
+		object
+			sprite planet/sol/rhea
+			distance 630.683
+			period 573.168
+			offset 139.572
+		object "Titan"
+			sprite planet/sol/titan
+			distance 787.683
+			period 713.497
+			offset 52.3043
+		object
+			sprite planet/sol/hyperion
+			distance 905.828
+			period 871.172
+			offset 108.341
+		object
+			sprite planet/sol/iapetus
+			distance 1002.12
+			period 1023.87
+			offset 252.262
+
+		object "Phoebe"
+			sprite planet/sol/phoebe
+			distance 1100
+			period 1100.5568
+			offset 125.607
+	
+	# 19.8 AU * .3 = URANUS
+	object "Uranus"
+		sprite planet/sol/uranus
+			scale 2.5
+		distance 23760
+		period 9206   # 30687
+		hazard "Gas Giant Gravity" 1
+
+		object "Miranda"
+			sprite planet/sol/miranda
+			distance 550
+			period 13.7824
+			offset 70.0776
+		object
+			sprite planet/sol/ariel
+			distance 625
+			period 31.363
+		object
+			sprite planet/sol/umbriel
+			distance 700
+			period 43.2159
+		object
+			sprite planet/sol/titania
+			distance 775
+			period 56.2718
+
+		object
+			sprite planet/sol/oberon
+			distance 825
+			period 68.4803
+			offset 180
+	
+	# 30 AU * .22 = NEPTUNE
+	object "Neptune"
+		sprite planet/sol/neptune
+			scale 2.5
+		distance 26400
+		period 13240   # 60182
+		hazard "Gas Giant Gravity" 1		
+		object
+			sprite planet/sol/triton
+			distance 310.824
+			period 27.3026
+			offset 262.625
+	
+	# 39.5 AU * .2 = PLUTO
+	
+	object "Pluto"
+		sprite planet/sol/pluto
+		distance 31600
+		period 18099   # 90498
+
+		object
+			sprite planet/sol/charon
+			distance 117.416
+			period 41.0636
+			offset 184.821
+
+
+# --------------------
+#     SOL PLANETS
+# --------------------
+
+
+
+# ------------------ MERCURY ------------------
+planet "Mercury"
+	attributes "near earth" uninhabited "inner sol" "sol"
+	landscape land/sol/mercury
+	description `	Mercury is one of the five classical planets visible with the naked eye and is named after the swift-footed Roman messenger god. Some old, abandoned robotic mining shafts are all that's left of humanity's presence on the closest planet to the sun.`
+	government Uninhabited
+	security 0
+	remove bribe 
+	remove spaceport
+	remove shipyard
+	remove outfitter
+	remove tribute
+
+planet "Icarus Station"
+	government "Republic (Sol)"
+	attributes "near earth" research "inner sol" tourism station "sol"
+	landscape land/sol/icarus
+	description `	An archaic research outpost from the early days of human colonization of the solar system, Icarus Station still provides ongoing study of humanity's birth star from a safe distance. Most of the station has been converted for sun-gazer tourism and only a small team of scientists staff the sectioned-off research facilities.`
+	description "	Although Icarus Station itself is shielded for protection from radiation and solar flares, the Republic Tourism Bureau recommends that captains traveling to the station equip adequate power and cooling systems in the event that their vessels are struck by a coronal mass ejection."
+	"required reputation" 1
+	bribe 0.01
+	security 0.2
+	#fleet "Large Republic" 2800
+	tribute 1000000
+		threshold 10000
+		fleet "Small Republic" 15
+	port
+		recharges energy
+		services "job board" "offers missions"
+		# news
+		description "	A uniquely popular spaceport with a vista is that is breathtaking. No matter how many stars humanity visits, there's something special about the yellow sun that gave rise to our species."
+		description "	An eclectic mix of tourists and avid stargazers roam the spaceport which is filled with souvenir shops and food vendors, along with an ample number of women in bikinis who've come to sunbathe in the warm glow of the sun."
+	
+# ------------------ VENUS ------------------
+planet "Venus"
+	attributes "near earth" uninhabited "inner sol" "sol"
+	landscape land/sol/venus
+	description `	The only planet named after a female figure, Venus is a celestial oddball thanks to its greenhouse gas effect making it the hottest planet in the solar system. It is sometimes called Earth's "sister" or "twin" planet as it is almost as large and has a similar composition. Although far too hot for colonization, Venus has long been a focal point of scientific study and research given its extreme environment.`
+	government Uninhabited
+	security 0
+	remove bribe
+	remove spaceport
+	remove shipyard
+	remove outfitter
+	remove tribute
+
+# ------------------ EARTH ------------------
+planet "Earth"
+	government "Republic (Sol)"
+	attributes "near earth" urban tourism rich outfitter "inner sol" "sol"
+	landscape land/sol/earth
+	description `	The ancestral home of humanity, Earth has a population twice that of any other inhabited planet. Sprawling cities cover large portions of its surface, many of them overcrowded and dangerous. Some people work to scrape together enough money to leave, while at the same time others, born on distant worlds, make a pilgrimage of sorts to see this planet that once cradled the entirety of the human species.`
+	description `	Earth is also the capital of the Republic. Representative government becomes complicated when one planet has a greater population than a hundred planets elsewhere. As a result, settlements of less than a million are grouped together into planetary districts that elect a single representative between them - a source of much frustration in the frontier worlds.`
+	outfitter "Common Outfits"
+	outfitter "Lovelace Basics"
+	outfitter "Syndicate Basics"
+	outfitter "Ammo North"
+	outfitter "Starter Outfits"
+	outfitter "Republic Capital"
+	outfitter "Majors"
+	"required reputation" 1
+	bribe 0.03
+	security 0.6
+	tribute 500000
+		threshold 20000
+		fleet "Large Republic" 40
+	port
+		news
+		recharges "shields" "energy" "fuel"
+		services all
+		description `	Earth's spaceport is a series of massive buildings; the gaps between them form narrow concrete canyons a hundred stories deep. From a distance it has the appearance of a bustling termite mound.`
+		description `	Inside the towers is a warren of dim hallways and dingy shops. Hitchhikers sleep in the corners of unused docking bays under old army blankets, a few uniformed cleaners try to keep the litter and dust in check, and rich tourists from other stars cling tightly to their expensive cameras.`
+	
+
+# ------------------ LUNA ------------------
+planet "Luna"
+	government "Republic (Sol)"
+	attributes "near earth" factory tourism moon shipping shipyard outfitter "inner sol" "sol"
+	landscape land/sol/luna
+	description `	In the early days of space travel, back when engines were still so inefficient that escaping from a planet's gravity was costly and difficult, an enormous shipyard was built on the Moon where asteroids, harvested from the belt, were mined for raw materials for ships. The facility is still in operation, although it is now overshadowed by the far more advanced shipbuilding centers like Geminus in the Castor system.`
+	description `	Luna also boasts some of the highest real estate values in the known galaxy with its breathtaking views of Earth, which still holds a special place in the hearts of most humans.`
+	shipyard "Starter Ships"
+	shipyard "Basic Ships"
+	remove shipyard "Navy Basics"
+	remove shipyard "Betelgeuse Basics"
+	remove shipyard "Syndicate Basics"
+	remove shipyard "Tycho Crater Advanced"
+	outfitter "Starter Outfits"
+	outfitter "Common Outfits"
+	outfitter "Advanced Outfits"
+	outfitter "Lovelace Basics"
+	outfitter "Syndicate Basics"
+	outfitter "Ammo North"
+	"required reputation" 1
+	bribe 0.05
+	security 0.7
+	tribute 10000
+		threshold 7500
+		fleet "Large Republic" 10
+	port
+		news
+		recharges all
+		services all
+		description `	The spaceport is rudimentary, and the main pressurized dome of the facility is probably at least half a millennium old. So many metal foil patches have been cemented to its outer wall to stop slow air leaks that in places they entirely cover the surface.`
+		description `	Everything is so ancient and ramshackle that it feels almost like you have stepped back in time to the early days of human space flight. Perhaps that's what the tourists come here to experience.`
+
+
+# ------------------ MARS ------------------
+planet "Mars"
+	government "Republic (Sol)"
+	attributes "near earth" factory urban outfitter "inner sol" "sol"
+	landscape land/sol/mars
+	description `	Mars was humanity's first attempt at large-scale colonization despite Luna's proximity, due to its more amiable gravity. With no breathable atmosphere to worry about polluting, it became a manufacturing powerhouse as materials from the belt and outer planets came sunward in the period before interstellar travel.`
+	description `	The red planet served as an early testing ground for planetary terraforming, attempts which mostly failed and were abandoned with the discovery of hyperspace travel that offered a plethora of livable planets within reach.` 
+	description `	In keeping with ancient mythology, the Republic Navy is headquartered on the planet named after the Roman god of war.`
+	outfitter "Common Outfits"
+	outfitter "Starter Outfits"
+	"required reputation" 0
+	security 0.5
+	tribute 50000
+		threshold 4500
+		fleet "Small Republic" 64
+	port
+		news
+		recharges "shields" "energy" "fuel"
+		services all
+		description `	The spaceport on Mars is situated next to the northern Polar Basin, one of the few places where, post-terraforming attempts, a natural lake exists. Here, a unique forest of imported Earth trees grows outside of the domes, and in the few warm months when the lake is not frozen, Mars almost looks like a friendly place.`
+
+
+planet "Phobos"
+	government "Republic (Sol)"
+	attributes "near earth" tourism moon military outfitter "inner sol" "sol"
+	landscape land/sol/phobos
+	description `	The naval shipyard on Phobos once produced generations of Republic warships, but the outmoded facilities no longer construct new vessels. Apart from the civilian refueling services, the Martian moon mostly serves as a military surplus depot for licensed Republic Navy captains and privateers.`
+	description `	Phobos is now home to the Republic Navy's Fleet Museum, featuring either retired or replica versions of the most famous vessels from humanity's past. Tourists still flock to see the charred remains of the R.N.S. Crusade, whose mysterious destruction remains a source of controversy and conspiracy theories over two hundred years later.` 
+#	shipyard "Navy Basics"
+#	shipyard "Navy Advanced"
+	outfitter "Common Outfits"
+	outfitter "Starter Outfits"
+	outfitter "Basic Weapons"
+	outfitter "Navy Surplus"
+	"required reputation" 0
+	bribe 0
+	security 0.8
+	tribute 2000
+		threshold 4500
+		fleet "Small Republic" 10
+	port
+		news
+		recharges "shields" "energy" "fuel"
+		services all
+		description `	The Phobos spaceport is a bit of a tourist trap for military aficionados and jarheads who come to visit the Fleet Museum or check out the latest naval hardware available to licensed captains.`
+
+
+planet "Canaveral Naval Yard"
+	landscape land/sol/spacedock
+	attributes station "inner sol" "sol"
+	description `	To further advance the Republic Navy and secure humanity's future, the government has begun building a new orbital naval yard to allow production of larger and more advanced ships. There isn't much yet to see beyond the hustle and bustle of the construction crews.`
+	security .8
+
+
+# ------------------ CERES ------------------
+planet "Ceres"
+	government "Republic (Sol)"
+	attributes "near earth" mining moon "inner sol" "sol"
+	landscape land/sol/ceres
+	description `	Half a generation after humanity first arrived on Ceres for mining operations, they managed to spin up the dwarf planet to give it a gravity of 0.3g, making it much more tolerable for habitation at almost one third of Earth's gravity. Though strip-mined long ago, it still serves as a stop over for intrasolar traffic to the outer planets.`
+	"required reputation" 1
+	security 0.1
+	tribute 2000
+		threshold 4500
+		fleet "Small Republic" 10
+	port
+		news
+		recharges "energy" "fuel"
+		services "job board" "offers missions" "hire crew" "trading"
+		description `	The spaceport on Ceres is a surreal blend of human technology and the stark, ancient landscape of the asteroid belt; a complex of interconnected domes, hangars, and high-tech docking platforms, all carefully designed to withstand the harsh conditions of Ceres' low gravity and constant bombardment from stray asteroid debris.` 
+		description	`	The central terminal--a sleek, silver structure with walls of reinforced transparent alloy--rises from the surface like a gleaming jewel amidst the endless barren plains of rock and ice. It's both a lifeline and a fortress, a hub for miners, traders, and researchers who call this isolated outpost home.`
+
+# ------------------ JUPITER------------------
+
+planet "Jupiter"
+	attributes "near earth" "gas giant" "requires: gaslining" uninhabited "outer sol"
+	landscape land/sol/jupiter
+	description `	Once called the King of the Solar System, Jupiter is just as impressive even considering the variety of gas giants in the galaxy. Its famous Great Red Spot is still well-known by most of humanity, and you make sure to steer clear of it while taking in the rich yellows and browns of the planet's atmosphere.`
+	description `	From your vantage point, deep below the furthest excursions of human probes, you can see the glint of a few sensor balloons and floating deuterium collectors high above you.`
+	description `	Uninhabited and unexplored by human eyes until now, the discovery of gaslining from The Remnant has opened up new frontiers for exploration and exploitation.`
+	government Uninhabited
+	security 0
+
+
+# ------------------ CALLISTO (JUPITER)------------------
+planet "Callisto"
+	government "Republic (Sol)"
+	attributes "near earth" mining shipyard outfitter "outer sol" "sol"
+	landscape land/sol/callisto
+	description `	Callisto's orbit is tidally locked with one side constantly facing Jupiter. It has a moderate subterranean population as the moon does not enjoy the same protection from Jupiter's radiation belts as Ganymede. The colony has a robust mining industry on the dark side and also boasts the only shipyard in the outer planets.`
+	description `	The Jovian Technical Institute is located on Callisto and is still regarded as the gold standard. The hemisphere facing Jupiter includes an observatory focused on Jovian research.`
+	shipyard "Starter Ships"
+	shipyard "Basic Ships"
+	shipyard "Navy Basics"
+	shipyard "Tycho Crater Advanced"
+	#shipyard "Betelgeuse Basics"
+	#shipyard "Syndicate Basics"	
+	outfitter "Basic Outfits"
+	outfitter "Starter Outfits"
+	outfitter "Common Outfits"
+	outfitter "Lovelace Basics"
+	outfitter "Syndicate Basics"
+	outfitter "Ammo North"
+	"required reputation" 1
+	security 0.4
+	tribute 5000
+		threshold 4500
+		fleet "Small Republic" 22
+	port
+		news
+		recharges all
+		services all
+		description `	The spaceport on Callisto sprawls across the icy surface of Jupiter's distant moon, nestled in the shadow of towering, ancient craters. A faint, dim light bathes the area, filtered through the swirling bands of gas from the massive planet above, casting long shadows over the port's gleaming metallic structures.`
+		description	`	The structure itself is a marvel of engineering, a blend of sleek, futuristic architecture and utilitarian design. Its main terminal, a colossal dome of reinforced glass and steel, rises like a crystal monolith from the ground, reflecting the cold, distant stars. A few hundred meters away, a cluster of landing pads stretch out in orderly rows, where ships of every size—from sleek commercial liners to rugged mining vessels—are docked and unloading cargo.`
+
+# ------------------ GANYMEDE (JUPITER) ------------------
+planet "Ganymede"
+	government "Republic (Sol)"
+	attributes "near earth" farming medical tourism "outer sol" "sol"
+	landscape land/sol/ganymede
+	description `	Ganymede is the only moon in the solar system with any magnetosphere, making it uniquely suited for dome-grown crops to stand a chance in Jupiter's harsh radiation belt. It was a place of harvest, a lynch pin of food economy in the outer planets in the era before interstellar travel. Large mirrors placed around the moon to supply the Sun's light to the surface for crop growth now enlighten tourists as they view the antiquated instruments of agricultural history.`
+	description `	Ganymede also claimed the lowest amount of birth defects and stillbirths in the outer planets, which is why many women came here to deliver in the early days of intrasolar colonization and why the University of Ganymede is still renowned for its Obstetrics program to this day.`
+	outfitter "Common Outfits"
+	"required reputation" 1
+	security 0.2
+	tribute 5000
+		threshold 4500
+		fleet "Small Republic" 12
+	port
+		news
+		recharges "shields" "energy" "fuel"
+		services all
+		description `	The spaceport on Ganymede stretches out like a vast, industrial city built on the frozen surface of Jupiter's largest moon. Beneath the endless shadow of the gas giant, the port gleams with a cold, metallic beauty, its sprawling complex of interconnected platforms, domes, and spires standing as a testament to human ingenuity and endurance.`
+		description `	The spaceport's heart is the central hub; a massive, cylindrical station anchored to the moon's surface by a network of reinforced pylons. This towering structure houses everything from civilian transports to high-tech research labs, and it hums with activity 24/7.`
+
+# ------------------ SATURN ------------------
+planet "Saturn"
+	attributes "near earth" "gas giant" "requires: gaslining" uninhabited "outer sol" rings "sol"
+	landscape land/sol/saturn
+	description `	For over a millennia the main attraction of Saturn has been the rings that encircle it. For some, however, the hexagonal storm cells hold a greater fascination and have been the source of countless theories. One popular idea posits that they are created by the force fields protecting an alien installation just under the surface.`
+	description `	While your sensors do not reveal any unusual energy fields or structures, the visual of the cloud formations whipping past and the vast storms are certainly impressive.`
+	government Uninhabited
+	security 0
+
+# ------------------ TITAN (SATURN)------------------
+planet "Titan"
+	government "Republic (Sol)"
+	attributes "near earth" tourism moon "outer sol" "sol" textiles
+	landscape land/sol/titan
+	description `	Titan is the largest moon of Saturn and is even bigger than the planet Mercury, and the only moon in the solar system that has clouds and a dense atmosphere. As the only world in Sol apart from Earth with liquids on its surface, Titan is known for its amazing seaside dome resorts and spas.`
+	outfitter "Starter Outfits"
+	outfitter "Basic Outfits"
+	"required reputation" 1
+	security 0.4
+	tribute 2000
+		threshold 4500
+		fleet "Small Republic" 10
+	port
+		news
+		recharges "shields" "energy" "fuel"
+		services all
+		description `	The Titan Horizon Spaceport rises out of the dense, methane-rich atmosphere of Saturn's largest moon like a gleaming city of steel and light, a shining jewel in the smoggy orange haze. Beyond the massive glass-domed observation towers, where civilians and visitors gather to watch the launchpads and the ever-shifting cloudscape of Titan, the seas stretch out in an endless expanse.`
+		description `	The docks themselves are a hive of activity. Cargo shuttles zip between ships and warehouses, their small craft skimming along the surface on magnetic pads, while roving service drones tend to ships, making repairs, delivering equipment, or unloading payloads. Towering cranes and automated platforms stretch across the bay, loading and unloading precious resources; methane, nitrogen, and heavy minerals mined from Titan's crust and sent back to Earth and beyond.`
+
+# ------------------ PHOEBE (SATURN) ------------------
+planet "Phoebe"
+	government "Republic Navy"
+	attributes "near earth" research moon military "outer sol" "sol"
+	landscape land/sol/phoebe
+	description `	Phoebe was initially surveyed for ice mining much like the rings of Saturn. But when core samples from the moon were investigated, extremely rare minerals were discovered which attracted military interests. The research labs on Phoebe date back to the early days of human space exploration, the deuterium ramscoop was invented.`
+	security 0.9
+	bribe 0
+	"required reputation" 25
+	tribute 2000
+		threshold 4500
+		fleet "Small Republic" 10
+		fleet "Republic Logistics" 10
+	port
+		recharges "shields" "energy" "fuel"
+		services "job board" "offers missions"
+		news
+		description `	The spaceport sprawls over the rugged, ice-encrusted terrain, constructed in part within the deep, ancient craters that scar Phoebe's surface. These craters have been hollowed out into massive underground hangars, where fleet ships and assault craft are docked and maintained.`
+		description `	A latticework of launch pylons, magnetic elevators, and service tunnels stretches across the barren landscape. Automated cargo shuttles glide along the rails, delivering supplies to the massive research labs and military command centers hidden below the surface.`
+
+
+# ------------------ URANUS ------------------
+planet "Uranus"
+	attributes "near earth" "requires: gaslining" uninhabited "outer sol" "ice giant" rings "sol"
+	landscape land/sol/uranus
+	description `	Uranus has long been an outlier in astronomy textbooks, noted for its axial tilt of roughly 90 degrees. As such, when most planets are presented as spinning around Sol like tops, Uranus rolls around like a ball. Despite this notoriety, it has little impact on stellar navigation or visible impact.`
+	description `	`
+	description `	The seventh planet from the Sun with the third largest diameter in our solar system, Uranus is bitterly cold and severely windy. The ice giant is surrounded by 13 faint rings and 27 small moons as it rotates at a nearly 90-degree angle from the plane of its orbit, possibly the result of a collision with an Earth-sized object long ago. This unique tilt makes Uranus appear to spin sideways, orbiting the Sun like a rolling ball and causing the most extreme seasons in the solar system.`
+	description `	Most of the planet's mass is made up of water, methane and ammonia, making it a desirable location for gas and ice harvesting. For the curious and the paranoid, the main attraction to Uranus is its low internal heat and erratic cloud formation. Both have stymied science's ability to explain or predict them for almost a millennia. Notably, Uranus has a dark spot very similar to the one found on Neptune.`
+	government Uninhabited
+	security 0
+
+
+# ------------------ MIRANDA (URANUS) ------------------
+planet "Miranda"
+	government "Republic (Sol)"
+	attributes "near earth" moon "outer sol" "sol"
+	landscape land/sol/miranda
+	description `	The only inhabited moon of Uranus, Miranda began as a remote mining colony but also attracted a niche group of settlers who wanted to get as far away from Earth as possible before the discovery of hyperspace travel.`
+	description `	Though Miranda doesn't have a large population, it is notable as the birthplace of Charles Plot, the physicist who discovered the gravitational slipstream between Sol and Alpha Centauri that led to the invention of the first hyperspace drive, which ironically allowed humans to move further away than ever before.`
+	port Spaceport
+		recharges fuel
+		services "job board" "offers missions"
+		# news
+	outfitter "Starter Outfits"
+	"required reputation" 1
+	security 0.1
+	tribute 2000
+		threshold 4500
+		fleet "Small Republic" 10
+	port
+		news
+		recharges "shields" "energy" "fuel"
+		services "trading" "job board" "offers missions"
+		description `	The air on Miranda is thin and almost entirely unbreathable, but the spaceport is a self-contained world of its own. Towers and domes of high-strength, transparent alloys stand against the moon's low gravity, reflecting the strange light from Uranus.`
+		description `	Solar arrays and ion engines, placed at strategic points across the station, power everything from the heated habitats to the giant orbital launch platforms. These platforms, suspended high above the craggy surface, serve as launch pads for spacecraft preparing to depart or arrive from deep space.`
+
+# ------------------ NEPTUNE ------------------
+planet "Neptune"
+	attributes "near earth" "requires: gaslining" uninhabited "outer sol" "ice giant" rings "sol"
+	landscape land/sol/neptune
+	description `	Dark, cold, and whipped by supersonic winds, ice giant Neptune is the eighth and most distant planet in our solar system. An untapped resource until recently, the planet is an abundant source of water from which the Navy can easily supply its ever growing fleet.`
+	government Uninhabited
+	security 0
+
+# ------------------ PLUTO ------------------
+planet "Pluto"
+	attributes "near earth" uninhabited "outer sol" tourism "sol" 
+	landscape land/sol/pluto
+	description `	At the distant end of the solar system, far from the Sun's warmth and light, a truly unique world drifts in the quiet darkness. This planet is best known for its eccentric and inclined orbit that takes it inside the orbit of Neptune. This, combined with the fact that it is considered to be a binary system, as the barycenter of its orbit does not lie within it, but instead is at a point in between Pluto and Charon's surfaces.`
+	description `	Pluto has been the subject of significant debate over the years. Originally termed a planet, it was reclassified as a dwarf planet back at the dawn of the third millennium. Over a thousand years later, there are still some who term it the ninth planet in the Sol system. Given that most navigational systems can track everything of gravitational significance in a system, what exactly the category of an object is has become a discussion without much interest to modern spacefarers.`
+	government Uninhabited
+	security 0
+
+
+	
