@@ -780,7 +780,7 @@ void Engine::Step(bool isActive)
 		info.SetString("flagship turn", to_string(flagshipTurn));
 
 		// Display "ramscoop" collection from Solar Wind relative to distance from system center
-		int flagshipRamscoop = flagship->DisplayRamscoop() * 10;
+		int flagshipRamscoop = flagship->DisplayRamscoop() * 100;
 		if(flagshipRamscoop >= 0.05 && flagship->Attributes().Get("ramscoop display") && flagship->Attributes().Get("range finder power"))
 		{
 			info.SetCondition("flagship ramscoop display");
