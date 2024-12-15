@@ -12,7 +12,7 @@
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
 outfit "In-flight Mass Display"
-	category "Heads Up Displays"
+	category "Software"
 	cost 5000
 	thumbnail "outfit/cockpit mass software"
 	"mass" 0
@@ -21,7 +21,7 @@ outfit "In-flight Mass Display"
 	description "This innocuous device is so compact as to barely count as an outfit at all. Some pilots find it useful to know what their ship's current mass is while in-flight, and this little display adds that information to their Heads Up Display."
 
 outfit "Hyperjump Fuel Display"
-	category "Heads Up Displays"
+	category "Software"
 	cost 11000
 	thumbnail "outfit/cockpit hyperjump software"
 	"mass" 0
@@ -30,7 +30,7 @@ outfit "Hyperjump Fuel Display"
 	description "This innocuous device is so compact as to barely count as an outfit at all. Its sole purpose is to allow pilots to customize their heads-up display to provide their flight computer's current estimate of the amount of fuel they need to make a hyperjump."
 
 outfit "Scram Drive Fuel Display"
-	category "Heads Up Displays"
+	category "Software"
 	cost 17000
 	thumbnail "outfit/cockpit scramjump software"
 	"mass" 0
@@ -39,7 +39,7 @@ outfit "Scram Drive Fuel Display"
 	description "This innocuous device is so compact as to barely count as an outfit at all. Its sole purpose is to allow pilots to customize their heads-up display to provide their flight computer's current estimate of the amount of fuel they need to make a hyperjump with a scram drive."
 
 outfit "Jump Drive Fuel Display"
-	category "Heads Up Displays"
+	category "Software"
 	cost 23000
 	thumbnail "outfit/cockpit jumpdrive software"
 	"mass" 0
@@ -48,7 +48,7 @@ outfit "Jump Drive Fuel Display"
 	description "This innocuous device is so compact as to barely count as an outfit at all. Its sole purpose is to allow pilots to customize their heads-up display to provide their flight computer's current estimate of the amount of fuel they need to make a hyperjump with a jump drive."
 
 outfit "Fuel Bar Hyperjump Display"
-	category "Heads Up Displays"
+	category "Software"
 	cost 7000
 	thumbnail "outfit/cockpit software"
 	"mass" 0
@@ -58,7 +58,7 @@ outfit "Fuel Bar Hyperjump Display"
 	description "	Just like the HUD display, the amount of fuel represented by each segment of the bar is automatically calculated in flight, and while landed it uses the ship's fully outfitted but otherwise empty mass. Given how standardized hyperdrives are, this is the default segmentation most ships use, and it will override other fuel segmentation customizations. Due to limitations of the display, if you have 31 or more hyper jumps worth of fuel, the display will show as a solid bar."
 
 outfit "Fuel Bar Scram Display"
-	category "Heads Up Displays"
+	category "Software"
 	cost 9000
 	thumbnail "outfit/cockpit software"
 	"mass" 0
@@ -68,7 +68,7 @@ outfit "Fuel Bar Scram Display"
 	description "	Just like the HUD display, the amount of fuel represented by each segment of the bar is automatically calculated in flight, and while landed it uses the ship's fully outfitted but otherwise empty mass. Given how standardized hyperdrives are, this display modification will be overridden by the hyperdrive fuel segmentation, but will override other fuel display segmentations. Due to limitations of the display, if you have 31 or more scram jumps worth of fuel, the display will show as a solid bar."
 
 outfit "Fuel Bar Jump Display"
-	category "Heads Up Displays"
+	category "Software"
 	cost 11000
 	thumbnail "outfit/cockpit software"
 	"mass" 0
@@ -78,10 +78,52 @@ outfit "Fuel Bar Jump Display"
 	description "	Just like the HUD display, the amount of fuel represented by each segment of the bar is automatically calculated in flight, and while landed it uses the ship's fully outfitted but otherwise empty mass. Given how standardized hyperdrives are, this display modification will be overridden by the hyperdrive fuel segmentation as well as the scram drive fuel segmentation, but will override other fuel display segmentations. Due to limitations of the display, if you have 31 or more jump drive jumps worth of fuel, the display will show as a solid bar."
 
 outfit "Fuel Bar Fixed Display"
-	category "Heads Up Displays"
+	category "Software"
 	cost 2000
 	thumbnail "outfit/cockpit software"
 	"mass" 0
 	"outfit space" 0
 	"fixed scale fuel bar scale" 100
 	description "This innocuous device is so compact as to barely count as an outfit at all. Its sole purpose is to allow pilots to customize their heads-up display so that their fuel bar is segmented into sections where each full section is exactly the amount of fuel specified. It will be overridden by any other fuel display segmentation that is present; and due to display limitations, it will show a solid bar if 31 or more full fuel segments would be called for."
+
+
+outfit "Solar Wind Display"
+	category "Software"
+	series "Human: Software"
+	index 40
+	cost 125000
+	thumbnail "outfit/software/ramscoop display"
+	"mass" 0
+	"solar wind display" 1
+	"computing power" -1
+	"astronomical upgrade" -1
+	description "	Displays current ramscoop generation as a numerical value on the HUD based on ship distance from stars for more precise monitoring of solar wind intake. Works with regular ramscoops and velocity ramscoops."
+
+
+outfit "Solar Heat Display"
+	category "Software"
+	series "Human: Software"
+	index 40
+	cost 125000
+	thumbnail "outfit/software/heat display"
+	"mass" 0
+	"solar heat display" 1
+	"computing power" -1
+	"astronomical upgrade" -1
+	description "	Displays current heat as a numerical value on the HUD based on ship distance from stars for more precise monitoring of danger from solar heat."
+
+
+outfit "Solar Power Display"
+	category "Software"
+	series "Human: Software"
+	index 40
+	cost 125000
+	thumbnail "outfit/software/solar power display"
+	"mass" 0
+	"solar power display" 1
+	"computing power" -1
+	"astronomical upgrade" -1
+	description "	Displays current solar power as a numerical value on the HUD based on ship distance from stars for more precise monitoring of solar collection."
+
+
+

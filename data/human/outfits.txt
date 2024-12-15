@@ -302,7 +302,8 @@ outfit "Astronomical Scanner"
 	"ramscoop display" 1
 	"solar heat display" 1
 	"solar collection display" 1
-	description "Astronomical scanners provide data on the system's total solar power and wind output, as well as their impact on ship systems relative to your position within the system. This allows precise distance-based monitoring of solar collection, solar heat, and ramscoop when such outfits are installed." 
+	"astronomical upgrade" 3
+	description "Astronomical scanners provide data on the system's total solar power and wind output, as well as their impact on ship systems relative to your position within the system when combined with a range finder. This allows precise distance-based monitoring of solar collection, solar heat, and ramscoop when applicable outfits are installed." 
 
 outfit "Surveillance Pod"
 	category "Systems"
