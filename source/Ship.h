@@ -346,6 +346,7 @@ public:
 	double DisplaySolar() const;
 	double GetWindScale() const;
 	double DisplayRamScoop() const;
+	double SolarHeatByMass() const;
 	double DisplaySystemSolar() const;
 	double DisplaySystemWind() const;
 	// These are for the thruster activity bars
