@@ -768,6 +768,72 @@ tip "velocity scan power:"
 tip "weapon scan power:"
 	`Weapon scanners allow you to view your current target's weapons' maximum range when it is within scanner range. Specifically, it shows the longest range of all weapons in a gun hardpoint; and the longest range of all weapons in a turret hardpoint. These ranges include the weapon offset and thus show the maximum range from the center of the ship its shots can reach. The scaner range is proportional to the square root of this value.`
 
+tip "asteroid scan range:"
+	`The range at which you can scan for minable asteroids based on your asteroid scan power.`
+
+tip "cargo scan range:"
+	`The range at which you can scan for cargo on another ship based on your cargo scan power.`
+
+tip "outfit scan range:"
+	`The range at which you can scan for outfits on another ship based on your outfit scan power.`
+
+tip "tactical scan range:"
+	`The range at which you can scan your current target's crew complement, fuel, heat, and energy levels based on your tactical scan power.`
+
+tip "crew scan range:"
+	`The range at which you can scan your current target's crew complement based on your crew scan power.`
+
+tip "energy scan range:"
+	`The range at which you can scan your current target's energy level based on your energy scan power.`
+
+tip "fuel scan range:"
+	`The range at which you can scan your current target's fuel level based on your fuel scan power.`
+
+tip "thermal scan range:"
+	`The range at which you can scan your current target's heat level based on your thermal scan power.`
+
+tip "    crew scan range:"
+	`The range at which you can scan your current target's crew complement based on your crew scan power (including any tactical scan power).`
+
+tip "    energy scan range:"
+	`The range at which you can scan your current target's energy level based on your energy scan power (including any tactical scan power).`
+
+tip "    fuel scan range:"
+	`The range at which you can scan your current target's fuel level based on your fuel scan power (including any tactical scan power).`
+
+tip "    thermal scan range:"
+	`The range at which you can scan your current target's heat level based on your thermal scan power (including any tactical scan power).`
+
+tip "strategic scan range:"
+	`The range at which you can scan your current target's range, velocity, maximum acceleration, turning speed, maximum gun range, and maximum turret range based on your strategic scan power.`
+
+tip "acceleration scan range:"
+	`The range at which you can scan your current target's maximum acceleration based on your acceleration scan power.`
+
+tip "maneuver scan range:"
+	`The range at which you can scan your current target's turning speed based on your maneuver scan power.`
+
+tip "velocity scan range:"
+	`The range at which you can scan your current target's speed based on your velocity scan power.`
+
+tip "weapon scan range:"
+	`The range at which you can scan your current target's maximum gun range and maximum turret range based on your weapon scan power.`
+
+tip "    acceleration scan range:"
+	`The range at which you can scan your current target's maximum acceleration based on your acceleration scan power (including any strategic scan power).`
+
+tip "    maneuver scan range:"
+	`The range at which you can scan your current target's turning speed based on your maneuver scan power (including any strategic scan power).`
+
+tip "    velocity scan range:"
+	`The range at which you can scan your current target's speed based on your velocity scan power (including any strategic scan power).`
+
+tip "    weapon scan range:"
+	`The range at which you can scan your current target's maximum gun range and maximum turret range based on your weapon scan power (including any strategic scan power).`
+
+tip "chance to evade scan:"
+	`Chance to evade detection of illegal outfits or cargo upon being successfully scanned based on your scan interference.`
+
 tip "thrust:"
 	`Thrust produced by engines. Higher thrust increases a ship's acceleration and top speed. The more mass a ship has, the more thrust is needed to achieve the same acceleration.`
 

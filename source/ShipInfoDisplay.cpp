@@ -32,6 +32,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "text/Table.h"
 
 #include <algorithm>
+#include <cmath>
 #include <map>
 #include <sstream>
 
@@ -339,6 +340,150 @@ void ShipInfoDisplay::UpdateAttributes(const Ship &ship, const PlayerInfo &playe
 			attributeValues.emplace_back(to_string(totalBays));
 			attributesHeight += 20;
 		}
+	}
+
+	attributeLabels.push_back(string());
+	attributeValues.push_back(string());
+	attributesHeight += 10;
+
+	// Scanning ranges
+	if(attributes.Get("acceleration scan power") && !attributes.Get("strategic scan power"))
+	{
+		attributeLabels.push_back("acceleration scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("acceleration scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("asteroid scan power"))
+	{
+		attributeLabels.push_back("asteroid scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("asteroid scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("cargo scan power"))
+	{
+		attributeLabels.push_back("cargo scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("cargo scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("crew scan power") && !attributes.Get("tactical scan power"))
+	{
+		attributeLabels.push_back("crew scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("crew scan power") + attributes.Get("tactical scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("energy scan power") && !attributes.Get("tactical scan power"))
+	{
+		attributeLabels.push_back("energy scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("energy scan power") + attributes.Get("tactical scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("fuel scan power") && !attributes.Get("tactical scan power"))
+	{
+		attributeLabels.push_back("fuel scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("fuel scan power") + attributes.Get("tactical scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("maneuver scan power") && !attributes.Get("strategic scan power"))
+	{
+		attributeLabels.push_back("maneuver scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("maneuver scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("outfit scan power"))
+	{
+		attributeLabels.push_back("outfit scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("outfit scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("strategic scan power"))
+	{
+		attributeLabels.push_back("strategic scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("strategic scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("acceleration scan power") && attributes.Get("strategic scan power"))
+	{
+		attributeLabels.push_back("    acceleration scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("acceleration scan power") + attributes.Get("strategic scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("maneuver scan power") && attributes.Get("strategic scan power"))
+	{
+		attributeLabels.push_back("    maneuver scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("maneuver scan power") + attributes.Get("strategic scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("velocity scan power") && attributes.Get("strategic scan power"))
+	{
+		attributeLabels.push_back("    velocity scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("velocity scan power") + attributes.Get("strategic scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("weapon scan power") && attributes.Get("strategic scan power"))
+	{
+		attributeLabels.push_back("    weapon scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("weapon scan power") + attributes.Get("strategic scan power"))));
+		attributesHeight += 20;
+	}
+
+	if(attributes.Get("tactical scan power"))
+	{
+		attributeLabels.push_back("tactical scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("tactical scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("crew scan power") && attributes.Get("tactical scan power"))
+	{
+		attributeLabels.push_back("    crew scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("crew scan power") + attributes.Get("tactical scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("energy scan power") && attributes.Get("tactical scan power"))
+	{
+		attributeLabels.push_back("    energy scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("energy scan power") + attributes.Get("tactical scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("fuel scan power") && attributes.Get("tactical scan power"))
+	{
+		attributeLabels.push_back("    fuel scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("fuel scan power") + attributes.Get("tactical scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("thermal scan power") && attributes.Get("tactical scan power"))
+	{
+		attributeLabels.push_back("    thermal scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("thermal scan power") + attributes.Get("tactical scan power"))));
+		attributesHeight += 20;
+	}
+
+	if(attributes.Get("thermal scan power") && !attributes.Get("tactical scan power"))
+	{
+		attributeLabels.push_back("thermal scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("thermal scan power") + attributes.Get("tactical scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("velocity scan power") && !attributes.Get("strategic scan power"))
+	{
+		attributeLabels.push_back("velocity scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("velocity scan power"))));
+		attributesHeight += 20;
+	}
+	if(attributes.Get("weapon scan power") && !attributes.Get("strategic scan power"))
+	{
+		attributeLabels.push_back("weapon scan range:");
+		attributeValues.push_back(Format::Number(100. * sqrt(attributes.Get("weapon scan power"))));
+		attributesHeight += 20;
+	}
+
+	if(attributes.Get("scan interference"))
+	{
+		attributeLabels.push_back(string());
+		attributeValues.push_back(string());
+		attributesHeight += 5;
+		attributeLabels.push_back("chance to evade scan:");
+		attributeValues.push_back(Format::Number(100. - 100. / (1. + attributes.Get("scan interference"))) + "%");
+		attributesHeight += 20;
 	}
 
 	tableLabels.clear();
