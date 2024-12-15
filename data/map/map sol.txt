@@ -240,7 +240,7 @@ system Sol
 	object
 		sprite star/g0
 			scale 5
-			period 10
+		period 10
 		hazard "Solar Gravity" 1
 		hazard "Solar Flare" 10400
 
