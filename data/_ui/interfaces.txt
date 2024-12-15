@@ -602,7 +602,7 @@ interface "preferences"
 interface "hud"
 	# Player status.
 	anchor top right
-	
+
 	sprite "ui/status"
 		from 0 0
 		align top right
@@ -621,7 +621,22 @@ interface "hud"
 		from -20 65
 		color "medium"
 		align right
-	
+	# Shields and Hull HUD
+	ring "shields"
+		center -75 155
+		dimensions 120 120
+		color "shields"
+		size 1.5
+	ring "hull"
+		center -75 155
+		dimensions 110 110
+		color "hull"
+		size 1.5
+	ring "disabled hull"
+		center -75 155
+		dimensions 110 110
+		color "disabled hull"
+		size 1.5
 	visible if "!fast hud sprites"
 	outline "player sprite"
 		center -75 155
@@ -638,47 +653,64 @@ interface "hud"
 	image "player sprite"
 		center -75 155
 		dimensions 70 70
+	
+	# Fuel / Energy / Heat gauges
+	visible if "flagship ramscoop display"
+	string "flagship ramscoop"
+		from -55 240.5
+		color "medium"
+		align center
+		color "fuel"
+
+	visible if "flagship solar display"
+	string "flagship solar"
+		from -34 228
+		color "medium"
+		align center
+		color "energy"
+
+	visible if "flagship heat display"
+	string "flagship heat"
+		from -15 215.5
+		color "medium"
+		align center
+		color "heat"
+
 	visible
-	ring "shields"
-		center -75 155
-		dimensions 120 120
-		color "shields"
-		size 1.5
-	ring "hull"
-		center -75 155
-		dimensions 110 110
-		color "hull"
-		size 1.5
-	ring "disabled hull"
-		center -75 155
-		dimensions 110 110
-		color "disabled hull"
-		size 1.5
+	sprite "ui/gauges"
+		from 0 220
+		align top right
 	bar "fuel"
-		from -53.5 425
+		from -53.5 445
 		dimensions 0 -192
 		color "fuel"
 		size 2
 	bar "energy"
-		from -33.5 415
+		from -33.5 435
 		dimensions 0 -192
 		color "energy"
 		size 2
 	bar "heat"
-		from -13.5 403
+		from -13.5 423
 		dimensions 0 -192
 		color "heat"
 		size 2
 	bar "overheat"
-		from -13.5 403
+		from -13.5 423
 		dimensions 0 -192
 		color "overheat"
 		size 2
 	bar "overheat blink"
-		from -13.5 403
+		from -13.5 423
 		dimensions 0 -192
 		color "dim"
 		size 2
+
+	string "incoming"
+		from -70 320
+		color "medium"
+		align right
+			
 	visible if "flagship data display"
 	sprite "ui/tactical/velocity"
 		from -114 230
@@ -702,20 +734,20 @@ interface "hud"
 		color "medium"
 		align left
 	sprite "ui/thrust bar frame"
-		from -2 454
+		from -2 474
 		align top right
 	bar "thrust"
-		from -89 460
+		from -89 480
 		dimensions 40 0
 		color "heat"
 		size 2
 	bar "turn"
-		from -89 477
+		from -89 497
 		dimensions 40 0
 		color "heat"
 		size 2
 	bar "lateralthrust"
-		from -89 494
+		from -89 514
 		dimensions 40 0
 		color "heat"
 		size 2

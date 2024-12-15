@@ -839,6 +839,14 @@ tip "    weapon scan range:"
 
 tip "chance to evade scan:"
 	`Chance to evade detection of illegal outfits or cargo upon being successfully scanned based on your scan interference.`
+tip "ramscoop display:"
+	`Displays current "ramscoop" generation based on distance from system center as a numerical value on the HUD for more precise monitoring of solar wind intake.`
+
+tip "solar collection display:"
+	`Displays current "solar collection" based on distance from system center as a numerical value on the HUD for more precise monitoring of power generation.`
+
+tip "solar heat display:"
+	`Displays current "solar heat" based on distance from system center as a numerical value on the HUD for more precise monitoring of overheat danger.`
 
 tip "thrust:"
 	`Thrust produced by engines. Higher thrust increases a ship's acceleration and top speed. The more mass a ship has, the more thrust is needed to achieve the same acceleration.`
