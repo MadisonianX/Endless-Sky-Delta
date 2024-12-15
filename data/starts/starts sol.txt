@@ -24,10 +24,12 @@ conversation "intro"
 
 start "Sol Start"
 	name "Sol Start"
-	date 11 9 3013
+	set "species: human"
+	set "human space start"
+	date 16 5 3013
 	system "Sol"
 	planet "Miranda"
-	thumbnail "thumbnail/used shuttle"
+	thumbnail "scene/sol system"
 	conversation "intro"
 	description `	You grew up on Miranda, a bitterly cold moon of Uranus and a colony that was relegated to the dustbin of history after native son Charles Plot invented the hyperdrive.`
 	description `	You knew early on that your dream of owning a starship enterprise would never be realized without a lot of blood, sweat and tears, and today is the beginning of your journey into space as a captain of your very own Sol Shuttle, modest though it may be.`
@@ -47,13 +49,12 @@ start "Sol Start"
 			"bunks" 2
 			"mass" 80
 			"drag" 1.8
-			"cargo space" 20       		# default 20
-			"outfit space" 60           # default 120
-#		    "weapon capacity" 10        # default 10
-#			"engine capacity" 40 		# default 60
+			"cargo space" 30       		# default 20
+			"outfit space" 120           # default 120
+		    "weapon capacity" 0        # default 10
+			"engine capacity" 60 		# default 60
 			"heat dissipation" .77
 			"overheat damage rate" .1
-			"hull plating" 1
 			"landing speed" .005
 			"steering slot" 1
 			"thruster slot" 1 
@@ -68,7 +69,6 @@ start "Sol Start"
 			"X1050 Ion Engines"	
 		engine -6 30
 		engine 6 30
-		gun 0 -31
 		leak "leak" 60 50
 		explode "tiny explosion" 10
 		explode "small explosion" 5
@@ -87,14 +87,12 @@ ship "Used Shuttle"
 		"bunks" 2
 		"mass" 80
 		"drag" 1.8
-		# "fuel capacity" # none
-		"cargo space" 20       		# default 20
-		"outfit space" 60           # default 120
-#		"weapon capacity" 10        # default 10
-#		"engine capacity" 40 		# default 60
+		"cargo space" 30       		# default 20
+		"outfit space" 120           # default 120
+		"weapon capacity" 0        # default 10
+		"engine capacity" 60 		# default 60
 		"heat dissipation" .77
 		"overheat damage rate" .1
-		"hull plating" 1
 		"landing speed" .005
 		"steering slot" 1
 		"thruster slot" 1 
@@ -109,7 +107,6 @@ ship "Used Shuttle"
 		"X1050 Ion Engines"	
 	engine -6 30
 	engine 6 30
-	gun 0 -31
 	leak "leak" 60 50
 	explode "tiny explosion" 10
 	explode "small explosion" 5		
@@ -159,28 +156,3 @@ event "leaving sol"
 		government "Republic"
 	planet "Miranda"
 		government "Republic"
-
-
-# Random shortcut once you hit 50,000 credits and have a valid pilot's license
-mission "Sol Intro"
-	invisible
-	landing
-	name "Inheritance from grandfather"
-	description "You receive an inheritance from your grandfather."
-	source 
-		system "Sol"
-	to offer
-		has "ships: Intrasolar"
-		has "license: Pilot's"
-		"net worth" > 150000
-		random < 10
-	on offer
-		conversation
-			`	"Upon landing, your receive a puzzling communication that says it's from your grandfather. As both of your grandfathers have been dead for years, this piques your curiosity. You play the message.`
-			`	The screen flickers on and it's your paternal grandfather who passed away several years ago. "Hey there kiddo, I bet you're surprised to see me from beyond the grave. I set up a trust fund in your name for when you finally decide to register for a Pilot's License to get out into the wild galactic yonder, which I suppose you just did if you're watching this. It might not be enough to get you into hyperspace, but it'll at least get you close. Go give the universe hell."`
-			`	A notification from the Bank lets you know that 307,423 credits have been deposited into your account from the trust fund.`
-			`	"I will gramps, I will."`
-				accept
-	on accept	
-		payment 307423
-		fail
