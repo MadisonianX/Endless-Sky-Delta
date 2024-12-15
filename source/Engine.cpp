@@ -778,17 +778,27 @@ void Engine::Step(bool isActive)
 		info.SetString("flagship acceleration", to_string(flagshipAcceleration));
 		int flagshipTurn = round(flagship->TrueTurnRate() * 60);
 		info.SetString("flagship turn", to_string(flagshipTurn));
-		int flagshipRamscoop = (flagship->DisplayRamScoop() * 100);
-		if(flagshipRamscoop >= 0.05 && Preferences::Has("Show flagship data in HUD"))
+
+		// Display "ramscoop" collection from Solar Wind relative to distance from system center
+		int flagshipRamscoop = flagship->DisplayRamscoop() * 10;
+		if(flagshipRamscoop >= 0.05 && flagship->Attributes().Get("ramscoop display") && flagship->Attributes().Get("range finder power"))
 		{
 			info.SetCondition("flagship ramscoop display");
 			info.SetString("flagship ramscoop", to_string(flagshipRamscoop));
 		}
-		int flagshipSolar = (flagship->DisplaySolar() * 100);
-		if(flagshipSolar >= 0.05 && Preferences::Has("Show flagship data in HUD"))
+		// Display "solar collection" from Solar Power relative to distance from system center
+		int flagshipSolar = flagship->DisplaySolarCollection() * 10;
+		if(flagshipSolar >= 0.05 && flagship->Attributes().Get("solar collection display") && flagship->Attributes().Get("range finder power"))
 		{
 			info.SetCondition("flagship solar display");
 			info.SetString("flagship solar", to_string(flagshipSolar));
+		}
+		// Display "solar heat" intake from Solar Power relative to distance from system center
+		int flagshipHeat = flagship->DisplaySolarHeat() * 100;
+		if(flagshipHeat >= 0.05 && flagship->Attributes().Get("solar heat display") && flagship->Attributes().Get("range finder power"))
+		{
+			info.SetCondition("flagship heat display");
+			info.SetString("flagship heat", to_string(flagshipHeat));
 		}
 		// These check for the attribute to determine if the pilot has installed
 		// outfits that give a live display of ship mass and jump fuel costs.

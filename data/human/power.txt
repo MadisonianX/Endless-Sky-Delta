@@ -73,6 +73,7 @@ outfit "KP-6 Photovoltaic Panel"
 	"mass" 3
 	"outfit space" -2
 	"solar collection" .1
+	"solar heat" .1
 	description "This early commercial photovoltaic system was the driving force behind humanity's first interplanetary trade network. Rugged and modular, it can be bolted to the hull of any ship and has seen even the most remote parts of human space."
 
 outfit "KP-6 Photovoltaic Array"
@@ -82,6 +83,7 @@ outfit "KP-6 Photovoltaic Array"
 	"mass" 24
 	"outfit space" -16
 	"solar collection" 1.1
+	"solar heat" 1.1
 	description "The compact modularity of the KP-6 lent itself well to the creation of larger solar collection arrays. This original Korunak Photovoltaics model is equipped with a solar tracker, allowing it to make better use of available light."
 
 
