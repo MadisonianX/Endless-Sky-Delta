@@ -144,78 +144,71 @@ system Sol
 	belt 38000 800
 	belt 41000 400
 	haze _menu/haze-67
-	link "Alpha Centauri"	# Added
+	link "Alpha Centauri"
 	link Altair
-	link Barnard  			# Added
+#	link Barnard  			
 	link Denebola
 	link Sirius
-#	link Caph
-#	link Vega
-	asteroids "small rock" 0 # 8 0.691
-#	asteroids "large rock" 10 0.0508
-#	asteroids "small metal" 2 0.8566
-#	asteroids "large metal" 1 0.2356
-
-#	minables ice 9 1.1
-	minables "copper small" 50 3.5
+	link Caph
+	
+#	minables "copper small" 50 3.5
 	minables copper 50 2.5
-	minables "copper large" 5 1.5
+#	minables "copper large" 5 1.5
 
-	minables "aluminum small" 50 5
+#	minables "aluminum small" 50 5
 	minables aluminum 50 4
-	minables "aluminum large" 5 3
+#	minables "aluminum large" 5 3
 
-	minables "gold small" 50 5
+#	minables "gold small" 50 5
 	minables gold 50 4
-	minables "gold large" 5 3
+#	minables "gold large" 5 3
 
-	minables "silver small" 50 5
+#	minables "silver small" 50 5
 	minables silver 50 4
-	minables "silver large" 5 3
+#	minables "silver large" 5 3
 
-	minables "platinum small" 50 5
+#	minables "platinum small" 50 5
 	minables platinum 50 4
-	minables "platinum large" 5 3
+#	minables "platinum large" 5 3
 
-	minables "neodymium small" 50 5
+#	minables "neodymium small" 50 5
 	minables neodymium 50 4
-	minables "neodymium large" 5 3
+#	minables "neodymium large" 5 3
 
-	minables "lead small" 50 3
+#	minables "lead small" 50 3
 	minables lead 50 2.5
-	minables "lead large" 5 2
+#	minables "lead large" 5 2
 
-	minables "iron small" 50 3
+#	minables "iron small" 50 3
 	minables iron 50 2
-	minables "iron large" 5 1
+#	minables "iron large" 5 1
 
-	minables "titanium small" 50 5
+#	minables "titanium small" 50 5
 	minables titanium 50 4
-	minables "titanium large" 5 3
+#	minables "titanium large" 5 3
 
-	minables "tungsten small" 50 5
+#	minables "tungsten small" 50 5
 	minables tungsten 50 4
-	minables "tungsten large" 5 3
+#	minables "tungsten large" 5 3
 
-	minables "uranium small" 50 5
+#	minables "uranium small" 50 5
 	minables uranium 50 4
-	minables "uranium large" 5 3
+#	minables "uranium large" 5 3
 
-	minables "silicon small" 50 5
+#	minables "silicon small" 50 5
 	minables silicon 50 4
-	minables "silicon large" 5 3
+#	minables "silicon large" 5 3
 
-	minables "common minerals small" 50 1
-	minables "common minerals medium" 50 1
-	minables "common minerals large" 5 1
-	minables "uncommon minerals small" 50 2
-	minables "uncommon minerals medium" 50 2
-	minables "uncommon minerals large" 5 2
-	minables "precious minerals small" 50 3
-	minables "precious minerals medium" 50 3
-	minables "precious minerals large" 5 3
-	minables "rare minerals" 50 5
-
+#	minables "common minerals small" 50 1
+#	minables "common minerals medium" 50 1
+#	minables "common minerals large" 5 1
+#	minables "uncommon minerals small" 50 2
+#	minables "uncommon minerals medium" 50 2
+#	minables "uncommon minerals large" 5 2
+#	minables "precious minerals small" 50 3
+#	minables "precious minerals medium" 50 3
+#	minables "precious minerals large" 5 3
+#	minables "rare minerals" 50 5
 
 	trade Clothing 282
 	trade Electronics 745
@@ -227,21 +220,18 @@ system Sol
 	trade Medical 480
 	trade Metal 402
 	trade Plastic 272
-	trade Fuel 521
+#	trade Fuel 521
 	fleet "Small Northern Merchants" 1300
 	fleet "Large Northern Merchants" 1500
 	fleet "Paradise Merchants" 1800
 	fleet "Small Republic" 1500
 	fleet "Large Republic" 2800
 	fleet "Republic Logistics" 1600
-
 	fleet "Small Core Merchants" 700
 	fleet "Large Core Merchants" 1500
 	fleet "Small Deep Merchants" 2600
 	fleet "Large Deep Merchants" 3000
 	fleet "Small Syndicate" 2500
-#	fleet "Salvage Navy" 20000
-#	fleet "Salvage Merchant" 10000
 
 ## 1 AU = the distance from the Sun to Earth (3000). 
 ## Mercury, Venus, Earth and Mars are precise AU distance. Ceres and beyond are increasingly reduced distances for improved gameplay.

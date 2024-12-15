@@ -1,0 +1,300 @@
+# Copyright (c) 2014-2015 by Timothy Butterworth
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+
+outfitter "All Outfits" 
+	"Pilot's License"
+	"Freight License"
+	"Bulk Freight License"
+	"Asteroid Mining License"
+	"Passenger License"
+	"Prisoner License"
+	"Gas Hauling License"
+	"Passenger License"
+	"Holo License"
+	"Casino License"
+	"Syndicate Platinum License"
+	"Forged Pilot's License"
+	"Forged Freight License"
+	"Forged Bulk Freight License"
+	"Navy License"
+	"Navy Auxiliary License"
+	"Navy Cruiser License"
+	"Navy Carrier License"
+	"City-Ship License"
+
+# ------------------------
+#    STANDARD LICENSES
+# ------------------------
+
+outfit "No License"
+	thumbnail "outfit/licenses/unlicensed"
+	cost 0
+	illegal 5000
+	"scan interference" 1
+	description `	Unlicensed ships will receive a fine if discovered by Republic authorities. To remove your unlicensed status, purchase a Pilot's License and activate at a Spaceport the following day.`
+
+outfit "Pilot's License"	
+	thumbnail "outfit/licenses/license"
+	category "Licenses"
+	cost 15000
+	description `	Flying an unlicensed ship can result in fines by Republic authorities, and with enough fines, impound of your ship.`
+	description `Requires visiting a Spaceport in Republic territory to activate your license (usually takes a day or two as the Space DMV is notoriously slow).`
+
+outfit "Freight License"
+	thumbnail "outfit/licenses/freight license"
+	category "Licenses"
+	licenses
+		"Pilot's"
+	cost 25000
+	description `	Without a Freight License, you cannot purchase a light freighter capable of hauling 55 tons or more in Republic space; if you acquire an unlicensed ship elsewhere, you can be fined by Republic authorities when landing and eventually have your ship impounded until you cough up the money for a license.`
+
+outfit "Bulk Freight License"
+	thumbnail "outfit/licenses/bulk freight license"
+	category "Licenses"
+	licenses
+		"Freight"
+	cost 150000
+	description `	Bulk cargo hauling is more strictly regulated, and inspected, by governments. Without a Bulk Freight License, you cannot purchase a heavy freighter in human space; if you acquire an unlicensed ship elsewhere, your ship will very likely be impounded at the spaceport until you pay for the license. Available at Capital planets.`
+
+
+outfit "Asteroid Mining License"
+	thumbnail "outfit/licenses/asteroid mining license"
+	category "Licenses"
+	licenses
+		"Pilot's"
+	cost 30000
+	description `	Asteroid mining isn't the wild west it used to be; the Republic regulates licensing for the mining of asteroids and oversees which of its systems are harvestable to ensure a good astro-ecological balance. Required for specialized mining vessels and outfits.` 
+	description	`	Allows Asteroid Mining missions to be accepted from the Job Board.`
+
+
+outfit "Gas Hauling License"
+	thumbnail "outfit/licenses/gas transport license"
+	category "Licenses"
+	licenses
+		"Bulk Freight"
+	cost 250000
+	description `	Gas hauling is a dangerous business that is strictly regulated by the Republic. Training and certification courses are required before captains may be licensed to carry compressed gas. Required for specialized gas hauling outfits.`
+	description	`	Allows Gas Hauling missions to be accepted from the Job Board.`
+
+
+outfit "Passenger License"
+	thumbnail "outfit/licenses/transport license"
+	category "Licenses"
+	licenses
+		"Pilot's"
+	cost 75000
+	description `	Passenger transport is heavily regulated by the Republic due to the threat of human trafficking. Bio-metric identifiers must be submitted by captains to become licensed to carry passengers.`
+	description	`	Allows Passenger Transport missions to be accepted from the Job Board.`
+
+outfit "Prisoner License"
+	thumbnail "outfit/licenses/transport license"
+	category "Licenses"
+	licenses
+		"Passenger"
+	cost 175000
+	description `	Prisoner transport is heavily regulated by the Republic due to the security requirements needed to ensure no escapes of violent criminals occur.`
+	description	`	Allows Prisoner Transport missions to be accepted from the Job Board.`
+
+# outfit "Salvage License"   
+#	thumbnail "outfit/licenses/salvage license"
+#	category "Licenses"
+#	licenses
+#		"Freight"
+#	cost 150000
+#	description `	Whether from space hazards, battle, or poor maintenance, ships occasionally become derelict in the deeps of space and salvaging what remains can be a lucrative business. However, strict anti-piracy laws in the Republic call for zero tolerance towards unlicensed salvage operations on derelict ships and Navy ships will open fire on captains who are caught illegally boarding derelicts.`
+#	description `	Licensed salvage operators are required by law to provide humanitarian assistance if survivors are found aboard the derelict.`
+
+outfit "Holo License"
+	thumbnail "outfit/licenses/holo license"
+	category "Licenses"
+	cost 1000000
+	description `	License for owning a holosuite or holodeck, which is strictly regulated due to the potential for misuse. Comes with a massive 600 page manual about the laws and guidelines for operating the equipment safely.`
+	
+outfit "Casino License"
+	thumbnail "outfit/licenses/casino license"
+	category "Licenses"
+	cost 3000000
+	"maintenance cost" 500
+	description `	License for operating a casino. Comes with a large 200 page manual about the laws and guidelines for operation a gambling establishment.`
+
+outfit "Syndicate Platinum License"
+	thumbnail "outfit/licenses/platinum license"
+	category "Licenses"
+	cost 20000000
+	"maintenance cost" 5000
+	description `	A Syndicate membership card that allows you to buy certain outfits and ships from the Syndicate. The tiny fine print on the license mentions a 5,000 credit per day upkeep fee. May only be cancelled from a Syndicate job board.` 
+	description `	Cancellation before one year will incur fine of 9% of the registration cost and cancellation after one year will incur fine of 4.55% of the registration cost.`
+	
+# ------------------------
+#    NAVY LICENSES
+# ------------------------
+
+outfit "Navy License"
+	thumbnail "outfit/licenses/navy license"
+	category "Licenses"
+
+outfit "Navy Auxiliary License"
+	thumbnail "outfit/licenses/navy auxiliary license"
+	category "Licenses"
+
+outfit "Navy Cruiser License"
+	thumbnail "outfit/licenses/navy cruiser license"
+	category "Licenses"
+
+outfit "Navy Carrier License"
+	thumbnail "outfit/licenses/navy carrier license"
+	category "Licenses"
+
+
+# ------------------------
+#    FREE WORLDS LICENSES
+# ------------------------
+
+outfit "Militia License"
+	cost 300000
+	thumbnail "outfit/licenses/militia license"
+	category "Licenses"
+
+
+# ------------------------
+#    DEEP LICENSES
+# ------------------------
+
+outfit "City-Ship License"
+	thumbnail "outfit/licenses/city-ship license"
+	category "Licenses"
+
+
+
+# ------------------------
+#    FORGED LICENSES
+# ------------------------
+
+outfit "Forged Pilot's License"
+	thumbnail "outfit/licenses/forged license"
+	category "Licenses"
+	cost 1000
+	illegal 5000
+	"scan brightness" 1
+	description `	The shady merchant assures you that it will most likely... probably... maybe get you past spaceport security, but makes no guarantees as to whether it will pass muster with the Republic Navy.`
+	description `	If caught using a forged license in Republic space, authorities will impound of your ship - it might be wise to invest in a real license if you want to conduct legitimate business.`
+	description `Required for all smuggling missions into Republic space.`
+
+
+outfit "Forged Freight License"
+	thumbnail "outfit/licenses/forged freight license"
+	category "Licenses"
+	cost 5000
+	illegal 25000
+	"scan brightness" 1
+	description `	Piracy and law enforcement is a constant cat-and-mouse game; with ever increasing government regulations, more captains are resorting to forged licenses from unsavory sources. It might not always hold up to scrutiny, but not having one in Republic space when hauling freight is a dead giveaway.`
+	description `Required for basic cargo smuggling jobs and missions in Republic space.`
+
+outfit "Forged Bulk Freight License"
+	thumbnail "outfit/licenses/forged bulk freight license"
+	category "Licenses"
+	cost 20000
+	illegal 100000
+	"scan brightness" 1
+	description `	Piracy and law enforcement is a constant cat-and-mouse game; with ever increasing government regulations, more captains are resorting to forged licenses from unsavory sources. It might not always hold up to scrutiny, but not having one in Republic space is a dead giveaway.`
+	description `Required for advanced cargo smuggling jobs and missions in Republic space.`
+
+
+
+
+
+
+# ===========================================================================
+#        		********* SALES *********
+# ===========================================================================
+
+outfitter "Republic Capital"
+	"Bulk Freight License"
+	"Asteroid Mining License"
+	"Gas Hauling License"
+	"Passenger License"
+	"Prisoner License"
+
+outfitter "Free Worlds Capital"
+
+outfitter "Syndicate Capital"
+	"Bulk Freight License"
+	"Asteroid Mining License"
+	"Gas Hauling License"
+
+outfitter "Deep Capital"
+	"Bulk Freight License"
+	"Asteroid Mining License"
+	"Gas Hauling License"
+	"Prisoner License"
+	
+
+outfitter "Basic Outfits"
+	"Pilot's License"
+
+outfitter "Common Outfits"
+	"Pilot's License"
+	"Freight License"
+	"Passenger License"
+
+outfitter "Ammo North"
+	
+outfitter "Ammo South"	
+
+outfitter "Deep Sky Basics"
+	"Asteroid Mining License"
+
+outfitter "Deep Sky Advanced"
+	"Casino License"
+	"Holo License"
+	"Passenger License"
+
+# outfitter "Lovelace Basics"
+
+outfitter "Lovelace Advanced"
+	"Holo License"
+
+# outfitter "Delta V Basics"
+
+# outfitter "Delta V Advanced"
+
+outfitter "Syndicate Basics"
+	"Asteroid Mining License"
+	"Passenger License"
+
+outfitter "Syndicate Advanced"
+	"Holo License"
+	"Casino License"
+	"Syndicate Platinum License"
+	"Passenger License"
+	
+# outfitter "Kraz Basics"
+
+# outfitter "Kraz Advanced"
+
+
+# ---------------
+#     PIRATES
+# ---------------
+
+outfitter "Pirate Outfits"
+	"Forged Pilot's License"
+	"Forged Freight License"
+
+outfitter "Pirate Advanced"
+	"Forged Bulk Freight License"
+
+outfitter "Northern Pirate Outfits"
+	"Forged Pilot's License"
+
+# outfitter "Southern Pirate Outfits" 
+
+

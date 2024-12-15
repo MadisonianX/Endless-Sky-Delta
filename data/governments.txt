@@ -11,6 +11,25 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
+color "governments: Free" .06 .68 0				# green
+color "governments: Republic" 0 .41 .71  		# blue
+color "governments: Republic Navy" .91 .42 .09  # orange
+color "governments: Syndicate" .6 .33 .9 		# purple
+color "governments: Gegno Scin" .67 .73 .44
+color "governments: Gegno Vi" .68 .4 .4
+color "governments: Hai" .86 .48 .79
+color "governments: Hai (Unfettered)" .55 .27 .76
+color "governments: Korath Exiles" .8 .5 .1
+color "governments: Neutral" .84 .61 .37
+color "governments: New Houses" .8 0 0.4
+color "governments: Old Houses" 0.375 0.316 1
+color "governments: Pirate" .78 0. 0.
+color "governments: Pug" .99 .89 .70
+color "governments: Remnant" .89 .38 .62
+color "governments: Independent" .1 .85 .85     #.78 .36 .36
+color "governments: Ungoverned" .4 .4 .4
+
+
 government "Alpha"
 	swizzle 1
 	"crew attack" 1.5
@@ -302,8 +321,6 @@ government "Forest (Prey)"
 		destroy 0
 		atrocity 0
 
-color "governments: Free" .06 .68 0.
-
 government "Free Worlds"
 	swizzle 2
 	color "governments: Free"
@@ -364,8 +381,6 @@ government "Gegno"
 		provoke 10
 		destroy 10
 
-color "governments: Gegno Scin" .67 .73 .44
-
 government "Gegno Scin"
 	swizzle 18
 	language "Gegno"
@@ -383,7 +398,6 @@ government "Gegno Scin"
 		board 0.5
 		destroy 0.3
 
-color "governments: Gegno Vi" .68 .4 .4
 
 government "Gegno Vi"
 	swizzle 0
@@ -515,7 +529,6 @@ government "Gegno Scin (Combative)"
 	"penalty for"
 		assist 0
 
-color "governments: Hai" .86 .48 .79
 
 government "Hai"
 	swizzle 0
@@ -641,7 +654,6 @@ government "Hai Merchant (Human)"
 	"hostile hail" "hostile civilian"
 	"hostile disabled hail" "hostile disabled"
 
-color "governments: Hai (Unfettered)" .55 .27 .76
 
 government "Hai (Unfettered)"
 	swizzle 4
@@ -892,7 +904,6 @@ government "Incipias Civilian"
 	"friendly disabled hail" "incipias friendly disabled"
 	"hostile disabled hail" "incipias hostile disabled"
 
-color "governments: Independent" .78 .36 .36
 
 government "Independent"
 	swizzle 6
@@ -952,6 +963,7 @@ government "Independent (Korath-Allied) Port"
 		"Syndicate" -.01
 		"Syndicate (Extremist)" -.01
 		"Republic" -.01
+		"Republic Navy" -.01
 		"Republic that won't enter wormhole" -.01
 		"Navy Intelligence" -.01
 		"Independent (Korath-Allied)" 1
@@ -978,6 +990,7 @@ government "Independent (Korath-Allied) Restricted"
 		"Merchant" -.01
 		"Pirate" -.01
 		"Republic" -.01
+		"Republic Navy" -.01
 		"Republic that won't enter wormhole" -.01
 		"Hai" -.01
 		"Hai (Wormhole Access)" -.01
@@ -1068,7 +1081,6 @@ government "Ka'sei"
 		capture 0
 	"player reputation" 1
 
-color "governments: Korath Exiles" .8 .5 .1
 
 government "Korath"
 	swizzle 0
@@ -1250,6 +1262,7 @@ government "Kor Sestor"
 		"Kor Mereti" -.01
 		"Wanderer" -.01
 		"Republic" -.01
+		"Republic Navy" -.01
 		"Merchant" -.01
 		"Navy (Oathkeeper)" -.01
 		"Syndicate" -.01
@@ -1368,12 +1381,13 @@ government "Navy (Oathkeeper)"
 		"Kor Mereti" -.01
 		"Navy Intelligence" 1
 		"Republic Intelligence" 1
+		"Republic" 1
+		"Republic Navy" 1
 	"friendly hail" "friendly navy"
 	"friendly disabled hail" "friendly disabled"
 	"hostile hail" "hostile navy"
 	"hostile disabled hail" "hostile disabled"
 
-color "governments: Neutral" .84 .61 .37
 
 government "Neutral"
 	swizzle 0
@@ -1392,7 +1406,6 @@ government "Neutral"
 	"hostile disabled hail" "hostile disabled"
 	raid "pirate raid"
 
-color "governments: New Houses" .8 0 0.4
 
 government "New Houses"
 	swizzle 3
@@ -1413,7 +1426,6 @@ government "New Houses"
 	language "Successor"
 	raid "People's Houses Raiders"
 
-color "governments: Old Houses" 0.375 0.316 1
 
 government "Old Houses"
 	swizzle 5
@@ -1471,8 +1483,6 @@ government "People's Houses (Hostile)"
 	"hostile hail" "people's houses hostile hail"
 	"hostile disabled hail" "high houses hostile disabled hail"
 	language "Successor"
-
-color "governments: Pirate" .78 0. 0.
 
 government "Pirate"
 	swizzle 6
@@ -1541,7 +1551,6 @@ government "Pirate (Rival)"
 government Predecessor
 	color .7 .7 .7
 
-color "governments: Pug" .99 .89 .70
 
 government "Pug"
 	swizzle 0
@@ -1745,7 +1754,6 @@ government "Quarg (Gegno)"
 		ship "Quarg Skylark"
 		ship "Quarg Wardragon"
 
-color "governments: Remnant" .89 .38 .62
 
 government "Remnant"
 	swizzle 0
@@ -1805,7 +1813,6 @@ government "Remnant (Research)"
 	"hostile hail" "remnant uncontacted hostile"
 	"hostile disabled hail" "hostile disabled"
 
-color "governments: Republic" .91 .42 .09
 
 government "Republic"
 	swizzle 0
@@ -1826,11 +1833,68 @@ government "Republic"
 		"Republic Intelligence" 1
 		"Navy (Oathkeeper)" 1
 		"Neutral" .1
+		"Republic Navy" 1
+		"Republic (Sol)" 1
+	"travel restrictions"
+		planet "Phoebe"
 	"friendly hail" "friendly navy"
 	"friendly disabled hail" "friendly disabled"
 	"hostile hail" "hostile navy"
 	"hostile disabled hail" "hostile disabled"
 	raid "pirate raid"
+
+government "Republic (Sol)"
+	"display name" "Republic"
+	swizzle 5
+	color "governments: Republic"
+	"crew attack" 1
+	"crew defense" 2
+	"player reputation" 2
+	"attitude toward"
+		"Alpha" -.3
+		"Merchant" .25
+		"Militia" .1
+		"Pirate" -.3
+		"Pirate (Devil-Run Gang)" -.3
+		"Republic that won't enter wormhole" 1
+		"Smuggler (Hai Trafficker)" .05
+		"Navy Intelligence" 1
+		"Republic Intelligence" 1
+		"Navy (Oathkeeper)" 1
+		"Neutral" .1
+		"Republic" 1
+		"Republic Navy" 1
+	"travel restrictions"
+		planet "Phoebe"
+	"friendly hail" "friendly navy"
+	"friendly disabled hail" "friendly disabled"
+	"hostile hail" "hostile navy"
+	"hostile disabled hail" "hostile disabled"
+
+government "Republic Navy"
+	swizzle 0  # orange
+	color "governments: Republic Navy"
+		"crew attack" 1.5
+		"crew defense" 2.5
+		"player reputation" 0
+	"attitude toward"
+		"Alpha" -.3
+		"Merchant" .25
+		"Militia" .1
+		"Pirate" -.3
+		"Pirate (Devil-Run Gang)" -.3
+		"Republic that won't enter wormhole" 1
+		"Smuggler (Hai Trafficker)" .05
+		"Navy Intelligence" 1
+		"Republic Intelligence" 1
+		"Navy (Oathkeeper)" 1
+		"Neutral" .1
+		"Republic (Sol)" 1
+		"Republic" 1
+	"friendly hail" "friendly navy"
+	"hostile hail" "hostile navy"
+	raid "pirate raid"
+
 
 government "Republic Intelligence"
 	swizzle 0
@@ -1862,6 +1926,8 @@ government "Republic that won't enter wormhole"
 		"Republic Intelligence" 1
 		"Navy (Oathkeeper)" 1
 		"Neutral" .1
+		"Republic Navy" 1
+		"Republic (Sol)" 1
 	"friendly hail" "friendly navy"
 	"friendly disabled hail" "friendly disabled"
 	"hostile hail" "hostile navy"
@@ -1884,6 +1950,9 @@ government "Republic (Friendly)"
 		"Republic Intelligence" .01
 		"Navy (Oathkeeper)" .01
 		"Neutral" .01
+		"Republic" 1
+		"Republic Navy" 1
+		"Republic (Sol)" 1
 	"friendly hail" "friendly navy"
 	"friendly disabled hail" "friendly disabled"
 	"hostile hail" "hostile navy"
@@ -1903,6 +1972,7 @@ government "Scar's Legion"
 	"attitude toward"
 		"Merchant" -0.01
 		"Republic" -0.01
+		"Republic Navy" -0.01
 		"Hai" -0.01
 	bribe 0
 	fine 0
@@ -1972,7 +2042,6 @@ government Successor
 	"hostile hail" "successor hostile hail"
 	"hostile disabled hail" "successor hostile disabled hail"
 
-color "governments: Syndicate" 0. .41 .71
 
 government "Syndicate"
 	swizzle 4
@@ -2002,6 +2071,7 @@ government "Syndicate (Extremist)"
 		"Syndicate" -.01
 		"Republic" -.01
 		"Free Worlds" -.01
+		"Republic Navy" -.01
 	"bribe" 0
 	"fine" 0
 	"hostile hail" "hostile syndicate"
@@ -2027,7 +2097,6 @@ government "Test Dummy"
 	"bribe" 0
 	"fine" 0
 
-color "governments: Ungoverned" .4 .4 .4
 
 # For space objects of unknown origin, to ensure the player can't land:
 government "Unknown"

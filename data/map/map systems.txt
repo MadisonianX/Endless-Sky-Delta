@@ -35351,7 +35351,6 @@ system Vega
 	link Altair
 	link Menkent
 	link Nocte
-	link Sol
 	asteroids "small rock" 2 5.7596
 	asteroids "medium rock" 1 6.4736
 	asteroids "large rock" 1 6.5688

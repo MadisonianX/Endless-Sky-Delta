@@ -1105,6 +1105,7 @@ mission "Lionheart Shipment [0]"
 	source
 		near "Epsilon Leonis" 2 10
 		attributes factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Valhalla
 	on visit
 		dialog phrase "generic cargo on visit"
@@ -1123,6 +1124,7 @@ mission "Lionheart Shipment [1]"
 	source
 		near "Epsilon Leonis" 2 10
 		attributes factory research
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Valhalla
 	on visit
 		dialog phrase "generic cargo on visit"
@@ -1141,6 +1143,7 @@ mission "Lionheart Shipment [2]"
 	source
 		near "Epsilon Leonis" 2 10
 		attributes factory mining
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Valhalla
 	on visit
 		dialog phrase "generic cargo on visit"
@@ -1159,6 +1162,7 @@ mission "Deep Sky Shipment [0]"
 	source
 		near Naos 2 15
 		attributes factory
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Asgard
 	on visit
 		dialog phrase "generic cargo on visit"
@@ -1177,6 +1181,7 @@ mission "Deep Sky Shipment [1]"
 	source
 		near Naos 2 15
 		attributes factory research
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Asgard
 	on visit
 		dialog phrase "generic cargo on visit"
