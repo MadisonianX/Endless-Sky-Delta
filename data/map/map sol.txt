@@ -307,13 +307,14 @@ system Sol
 	object "Ceres"
 		sprite planet/sol/ceres
 		distance 8400
-		period 1682
+		period 1261.5 # 1682 * .75
 
 	# 5.2 AU * .6 = JUPITER	
 	object "Jupiter"
 		sprite planet/sol/jupiter
+			scale 2
 		distance 12480
-		period 2599.8   # 4333
+		period 2599.8   # 4333 * .6
 		hazard "Gas Giant Gravity" 1
 
 		object
@@ -340,8 +341,9 @@ system Sol
 	# 9.5 AU * .5 = SATURN		
 	object "Saturn"
 		sprite planet/sol/saturn
+			scale 2.5
 		distance 19000
-		period 5379   # 10759
+		period 5379   # 10759 * .5
 		hazard "Gas Giant Gravity" 1
 
 		object
@@ -394,8 +396,9 @@ system Sol
 	# 19.8 AU * .3 = URANUS
 	object "Uranus"
 		sprite planet/sol/uranus
+			scale 3
 		distance 23760
-		period 9206   # 30687
+		period 9206   # 30687 * .3
 		hazard "Gas Giant Gravity" 1
 
 		object "Miranda"
@@ -425,8 +428,9 @@ system Sol
 	# 30 AU * .22 = NEPTUNE
 	object "Neptune"
 		sprite planet/sol/neptune
+			scale 4
 		distance 26400
-		period 13240   # 60182
+		period 13240   # 60182 * .22
 		hazard "Gas Giant Gravity" 1		
 		object
 			sprite planet/sol/triton
@@ -439,7 +443,7 @@ system Sol
 	object "Pluto"
 		sprite planet/sol/pluto
 		distance 31600
-		period 18099   # 90498
+		period 18099   # 90498 * .2
 
 		object
 			sprite planet/sol/charon

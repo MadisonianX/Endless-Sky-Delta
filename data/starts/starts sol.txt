@@ -130,6 +130,7 @@ mission "Leaving Sol"
 	landing
 	invisible
 	to offer
+		not "Leaving Sol: failed"
 		not "flagship system: Sol"
 	on offer
 		event "leaving sol"
