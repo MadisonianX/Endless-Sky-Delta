@@ -201,6 +201,10 @@ color "map orbits fleet destination" 1. 1. 1. 1.
 color "map danger none" .1 .6 0. .4
 color "map system ring" .4 .4 .4 .6
 
+# Colors used for commodity prices.
+color "map trade price positive" .44 .78 .35 1
+color "map trade price negative" .90 .1 .1 1
+
 # Colors used for the routing issue text in the map panel when
 # a route to the selected system cannot be determined.
 color "map route error text" 1. 0. 0. 1.
