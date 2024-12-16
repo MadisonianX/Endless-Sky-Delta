@@ -703,7 +703,6 @@ void PreferencesPanel::DrawSettings()
 		"Landing zoom",
 		SCROLL_SPEED,
 		DATE_FORMAT,
-		"Show parenthesis",
 		NOTIFY_ON_DEST
 	};
 
