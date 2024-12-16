@@ -69,7 +69,6 @@ outfit "Solar Heat Display"
 	"astronomical upgrade" -1
 	description "Displays current heat as a numerical value on the HUD based on ship distance from stars for more precise monitoring of danger from solar heat."
 
-
 outfit "Solar Collection Display"
 	category "Software"
 	series "Human: Software"
