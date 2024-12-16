@@ -480,6 +480,7 @@ void PreferencesPanel::DrawControls()
 		Command::AFTERBURNER,
 		Command::AUTOSTEER,
 		Command::LAND,
+		Command::SELECT_PLANET,
 		Command::JUMP,
 		Command::NONE,
 		Command::DEPLOY,
