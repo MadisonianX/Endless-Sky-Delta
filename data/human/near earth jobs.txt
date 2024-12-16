@@ -157,7 +157,9 @@ mission "From Earth Day celebration [0]"
 				random < 30
 				month == 6
 				day <= 22
-	source "Earth"
+	source 
+		planet "Earth"
+		government "Republic"
 	destination
 		distance 1 15
 		government "Republic" "Free Worlds" "Syndicate" "Neutral"
@@ -188,7 +190,9 @@ mission "From Earth Day celebration [1]"
 				random < 10
 				month == 6
 				day <= 22
-	source "Earth"
+	source 
+		planet "Earth"
+		government "Republic"
 	destination
 		distance 1 15
 		government "Republic" "Free Worlds" "Syndicate" "Neutral"
@@ -220,7 +224,9 @@ mission "From Earth Day celebration [2]"
 				random < 10
 				month == 6
 				day <= 22
-	source "Earth"
+	source 
+		planet "Earth"
+		government "Republic"
 	destination
 		distance 1 15
 		government "Republic" "Free Worlds" "Syndicate" "Neutral"

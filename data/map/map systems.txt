@@ -4706,6 +4706,7 @@ system "Alpha Centauri"
 	belt 16500
 	haze _menu/haze-67
 	link Sol
+	link Muphrid
 	asteroids "small rock" 1 1.944
 	asteroids "medium rock" 1 5.04
 	asteroids "large rock" 1 1.8
@@ -24985,6 +24986,7 @@ system Muphrid
 	belt 1759
 	link Menkent
 	link Porrima
+	link "Alpha Centauri"
 	asteroids "small rock" 10 4.7348
 	asteroids "medium rock" 7 3.192
 	asteroids "large rock" 8 3.4048
