@@ -748,12 +748,6 @@ interface "hud"
 		color "medium"
 		align left
 
-	string "incoming"
-		from -70 320
-		color "medium"
-		align right
-
-
 	# If the player has the relevant fuel cost calculator display, this will show that element in the HUD.
 	visible if "flagship hyper fuel display"
 	sprite "ui/tactical/hyperjump"
