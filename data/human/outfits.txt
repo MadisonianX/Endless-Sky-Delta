@@ -173,6 +173,7 @@ outfit "Hyperdrive"
 	"jump mass cost" 4
 	"jump base mass" 900
 	"hyperdrive" 1
+	"hypderdrive fuel bar scale" 1
 	"hyperdrive fuel bar scale" 1
 	description "This mysterious box sits quietly at the heart of your ship, thinking its own inscrutable thoughts. When it comes time to travel between the stars it sets off a nuclear fusion reaction powerful enough to level an entire city, and then somehow tucks the resulting explosion in between the folds of regular space-time like a wasp stinging an oak leaf to lay her eggs inside. Your ship rides the resulting ripple in the fabric of space."
 	description "	The fuel required to power hyperdrives varies depending on the size of the ship. So long as the ship's total mass including cargo is less than 900, then each hyperjump will cost less than 100 fuel. How much less depends on how light the ship is. Ships that have more than 900 total mass will see the fuel per jump increase significantly."

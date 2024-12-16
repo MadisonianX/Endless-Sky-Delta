@@ -2824,7 +2824,7 @@ double Ship::Energy() const
 // their respective type. The fourth lets content creators and players force bar segments of a specific length.
 bool Ship::HyperDriveFuelBar() const
 {
-	bool displayHyperFuelBar = attributes.Get("hyperdrive");
+	bool displayHyperFuelBar = attributes.Get("hyperdrive fuel bar scale");
 	return displayHyperFuelBar;
 }
 
@@ -2832,7 +2832,7 @@ bool Ship::HyperDriveFuelBar() const
 
 bool Ship::ScramDriveFuelBar() const
 {
-	bool displayScramFuelBar = attributes.Get("scram drive");
+	bool displayScramFuelBar = attributes.Get("scram drive fuel bar scale");
 	return displayScramFuelBar;
 }
 
@@ -2840,7 +2840,7 @@ bool Ship::ScramDriveFuelBar() const
 
 bool Ship::JumpDriveFuelBar() const
 {
-	bool displayJumpFuelBar = attributes.Get("jump drive");
+	bool displayJumpFuelBar = attributes.Get("jump drive fuel bar scale");
 	return displayJumpFuelBar;
 }
 
