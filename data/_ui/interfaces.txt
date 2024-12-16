@@ -651,11 +651,27 @@ interface "hud"
 
 	# Shields / Hull rings
 	visible
+	ring "shields"
+		center -75 155
+		dimensions 120 120
+		color "shields"
+		size 1.5
+	ring "hull"
+		center -75 155
+		dimensions 110 110
+		color "hull"
+		size 1.5
+	ring "disabled hull"
+		center -75 155
+		dimensions 110 110
+		color "disabled hull"
+		size 1.5
+
+	# Fuel / Energy / Heat gauges
 	sprite "ui/gauges"
 		from 0 220
 		align top right
 
-	# Fuel / Energy / Heat gauges
 	bar "fuel"
 		from -53.5 445
 		dimensions 0 -192
