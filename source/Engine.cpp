@@ -805,7 +805,6 @@ void Engine::Step(bool isActive)
 		bool flagshipHyperFuelBar = flagship->HyperDriveFuelBar();
 		bool flagshipScramFuelBar = flagship->ScramDriveFuelBar();
 		bool flagshipJumpFuelBar = flagship->JumpDriveFuelBar();
-		double flagshipFixedFuelBar = flagship->FixedScaleFuelBar();
 		// Transfers that information into the info setconditions.
 		if(flagshipMassDisplay)
 			info.SetCondition("flagship mass display");
@@ -853,10 +852,6 @@ void Engine::Step(bool isActive)
 		else if(flagshipJumpFuelBar)
 		{
 			fuelToEvaluate = flagshipJumpDriveFuel;
-		}
-		else if(flagshipFixedFuelBar)
-		{
-			fuelToEvaluate = flagshipFixedFuelBar;
 		}
 		if((fuelCap / fuelToEvaluate) < 31.)
 			info.SetBar("fuel", flagship->Fuel(), fuelCap / fuelToEvaluate);
