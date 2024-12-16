@@ -158,8 +158,8 @@ mission "From Earth Day celebration [0]"
 				month == 6
 				day <= 22
 	source 
-		planet "Earth"
-		government "Republic"
+		attributes "earth"
+		not government "Republic (Sol)"
 	destination
 		distance 1 15
 		government "Republic" "Free Worlds" "Syndicate" "Neutral"
@@ -191,8 +191,8 @@ mission "From Earth Day celebration [1]"
 				month == 6
 				day <= 22
 	source 
-		planet "Earth"
-		government "Republic"
+		attributes "earth"
+		not government "Republic (Sol)"
 	destination
 		distance 1 15
 		government "Republic" "Free Worlds" "Syndicate" "Neutral"
@@ -225,8 +225,8 @@ mission "From Earth Day celebration [2]"
 				month == 6
 				day <= 22
 	source 
-		planet "Earth"
-		government "Republic"
+		attributes "earth"
+		not government "Republic (Sol)"
 	destination
 		distance 1 15
 		government "Republic" "Free Worlds" "Syndicate" "Neutral"
