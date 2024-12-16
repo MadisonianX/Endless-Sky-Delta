@@ -667,11 +667,33 @@ interface "hud"
 		color "disabled hull"
 		size 1.5
 
+	# Ramscoop / Solar Collection / Solar Heat
+	visible if "flagship ramscoop display"
+	string "flagship ramscoop"
+		from -55 240.5
+		color "medium"
+		align center
+		color "fuel"
+
+	visible if "flagship solar display"
+	string "flagship solar"
+		from -34 228
+		color "medium"
+		align center
+		color "energy"
+
+	visible if "flagship heat display"
+	string "flagship heat"
+		from -15 215.5
+		color "medium"
+		align center
+		color "heat"
+
 	# Fuel / Energy / Heat gauges
+	visible
 	sprite "ui/gauges"
 		from 0 220
 		align top right
-
 	bar "fuel"
 		from -53.5 445
 		dimensions 0 -192
