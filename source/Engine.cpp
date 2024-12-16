@@ -1012,11 +1012,10 @@ void Engine::Step(bool isActive)
 			// have strategic or weapon range info, use normal display.
 			// If they do, then use strategic range display.
 			if(tacticalRange || strategicScanRange || rangeFinder)
+			{
 				info.SetString("target range", to_string(static_cast<int>(round(targetRange))));
-			if((tacticalRange || rangeFinder) && !strategicScanRange)
 				info.SetCondition("range display");
-			else if(strategicScanRange)
-				info.SetCondition("strategic range display");
+			}
 			// Actual information requires a scrutable target
 			// that is within the relevant scanner range.
 			bool scrutable = !target->Attributes().Get("inscrutable");
