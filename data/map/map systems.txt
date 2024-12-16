@@ -4707,6 +4707,7 @@ system "Alpha Centauri"
 	haze _menu/haze-67
 	link Sol
 	link Muphrid
+	link Vega
 	asteroids "small rock" 1 1.944
 	asteroids "medium rock" 1 5.04
 	asteroids "large rock" 1 1.8
@@ -35353,6 +35354,7 @@ system Vega
 	link Altair
 	link Menkent
 	link Nocte
+	link "Alpha Centauri"
 	asteroids "small rock" 2 5.7596
 	asteroids "medium rock" 1 6.4736
 	asteroids "large rock" 1 6.5688
