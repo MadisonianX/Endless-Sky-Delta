@@ -696,6 +696,7 @@ interface "hud"
 		color "heat"		
 
 	# Fuel / Energy / Heat gauges
+	visible
 	sprite "ui/gauges"
 		from 0 220
 		align top right
