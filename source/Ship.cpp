@@ -2882,6 +2882,15 @@ bool Ship::DisplayJumpFuelCost() const
 
 
 
+// Calculate solar heat by ship mass
+double Ship::SolarHeatByMass() const
+{
+	double currentMass = Mass();
+	return 10 + (.01 * currentMass);
+}
+
+
+
 // Create system scale for solar power based on ship position
 double Ship::GetSolarScale() const
 {
