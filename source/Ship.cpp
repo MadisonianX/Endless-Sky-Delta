@@ -2963,8 +2963,9 @@ double Ship::DisplaySolarCollection() const
 double Ship::DisplaySolarHeat() const
 {
 	double scale = GetSolarScale();
+	double power = currentSystem->SolarPower();
 	double totalRamscoopHeat = TotalRamscoopHeat();
-	double solarHeat = currentSystem->RamscoopHeat(totalRamscoopHeat, scale);
+	double solarHeat = (scale * power * attributes.Get("solar heat")) + currentSystem->RamscoopHeat(totalRamscoopHeat, scale);
 	return solarHeat;
 }
 

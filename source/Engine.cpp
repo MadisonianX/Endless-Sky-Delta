@@ -792,14 +792,14 @@ void Engine::Step(bool isActive)
 			info.SetString("flagship ramscoop", to_string(flagshipRamscoop));
 		}
 		// Display "solar collection" from Solar Power relative to distance from system center
-		int flagshipSolar = flagship->DisplaySolarCollection();
+		int flagshipSolar = flagship->DisplaySolarCollection() * 5;
 		if(flagshipSolar >= 0.05 && flagship->Attributes().Get("solar collection display"))
 		{
 			info.SetCondition("flagship solar display");
 			info.SetString("flagship solar", to_string(flagshipSolar));
 		}
 		// Display "solar heat", "ramscoop heat", and "velocity ramscoop heat" intake relative to distance from system center.
-		int flagshipHeat = flagship->DisplaySolarHeat() * 100;
+		int flagshipHeat = flagship->DisplaySolarHeat() * 5;
 		if(flagshipHeat >= 0.05 && flagship->Attributes().Get("solar heat display"))
 		{
 			info.SetCondition("flagship heat display");
