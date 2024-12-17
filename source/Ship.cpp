@@ -2952,6 +2952,22 @@ double Ship::DisplaySolarHeat() const
 
 
 
+// Display combined solar power for the system.
+double Ship::DisplaySystemSolar() const
+{
+	return currentSystem->SolarPower();
+}
+
+
+
+// Display combined solar wind for the system.
+double Ship::DisplaySystemWind() const
+{
+	return currentSystem->SolarWind();
+}
+
+
+
 // These are for the thruster activity bars
 double Ship::DisplayThrust() const
 {
