@@ -2881,6 +2881,32 @@ bool Ship::DisplayJumpFuelCost() const
 }
 
 
+
+// Create system scale for solar power based on ship position
+double Ship::GetSolarScale() const
+{
+	return 1 + 2 / (.001 * position.Length() + 1);
+}
+
+
+
+// Create separate scale for solar wind that is higher near stars
+// but tapers off more quickly than solar power.
+double Ship::GetWindScale() const
+{
+	return .5 + 1000 / (1 * position.Length() + .1);
+}
+
+
+
+// Create separate scale for solar heat that is dramatically higher near stars
+// but tapers off much more quickly than both solar power and solar wind.
+double Ship::GetHeatScale() const
+{
+	return .0001 + 1000 / (1 * position.Length() + .1);
+}
+
+
 // Calculate solar heat by ship mass
 double Ship::SolarHeatByMass() const
 {
