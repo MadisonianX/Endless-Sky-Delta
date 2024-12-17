@@ -2917,6 +2917,28 @@ double Ship::GetHeatScale() const
 
 
 
+// Calculate the ship's total ramscoop including velocity ramscoop.
+double Ship::TotalRamscoop() const
+{
+	double velocityRamscoop = attributes.Get("velocity ramscoop") * velocity.Length() / 1.66;
+	double totalRamscoop = attributes.Get("ramscoop");
+	totalRamscoop += IsHyperspacing() ? 0. : velocityRamscoop; // Ensure velocity ramscoop is not gained when hyperspacing.
+	return totalRamscoop;
+}
+
+
+
+// Calculate the ship's total ramscoop including velocity ramscoop.
+double Ship::TotalRamscoopHeat() const
+{
+	double velocityRamscoopHeat = attributes.Get("velocity ramscoop heat") * velocity.Length() / 1.66;
+	double totalRamscoopHeat = attributes.Get("ramscoop heat");
+	totalRamscoopHeat += IsHyperspacing() ? 0. : velocityRamscoopHeat; // Ensure velocity ramscoop heat is not gained when hyperspacing.
+	return totalRamscoopHeat;
+}
+
+
+
 // Calculate the ship's current ramscoop intake based on distance from system center.
 double Ship::DisplayRamscoop() const
 {
@@ -4498,11 +4520,10 @@ void Ship::DoGeneration()
 			double power = currentSystem->SolarPower();
 			double totalRamscoop = TotalRamscoop();
 			double totalRamscoopHeat = TotalRamscoopHeat();
+
 			fuel += currentSystem->RamscoopFuel(totalRamscoop, scale);
-
 			energy += scale * power * attributes.Get("solar collection");
-			heat += scale * power * attributes.Get("solar heat") + currentSystem->RamscoopHeat(totalRamscoopHeat, scale);
-
+			heat += (scale * power * attributes.Get("solar heat")) + (GetHeatScale() * SolarHeatByMass()) + currentSystem->RamscoopHeat(totalRamscoopHeat, scale);
 		}
 
 		double coolingEfficiency = CoolingEfficiency();
