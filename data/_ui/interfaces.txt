@@ -600,18 +600,15 @@ interface "preferences"
 interface "hud"
 	anchor top right
 
-<<<<<<< HEAD
 	sprite "ui/status"
 		from 0 0
 		align top right
 	string "location"
-=======
 	# Player HUD
 	sprite "ui/status"
 		from 0 0
 		align top right
 	string "flagship name"
->>>>>>> HUD-positioning-tweaks
 		from -160 25
 		color "medium"
 		align right
@@ -625,7 +622,6 @@ interface "hud"
 		from -20 65
 		color "medium"
 		align right
-<<<<<<< HEAD
 	# Shields and Hull HUD
 	ring "shields"
 		center -75 155
@@ -642,10 +638,9 @@ interface "hud"
 		dimensions 110 110
 		color "disabled hull"
 		size 1.5
-=======
+
 
 	# Flagship HUD
->>>>>>> HUD-positioning-tweaks
 	visible if "!fast hud sprites"
 	outline "player sprite"
 		center -75 155
@@ -662,7 +657,6 @@ interface "hud"
 	image "player sprite"
 		center -75 155
 		dimensions 70 70
-<<<<<<< HEAD
 	
 	# Fuel / Energy / Heat gauges
 	visible if "flagship ramscoop display"
@@ -684,13 +678,7 @@ interface "hud"
 		from -15 215.5
 		color "medium"
 		align center
-		color "heat"
-
-	visible
-	sprite "ui/gauges"
-		from 0 220
-		align top right
-=======
+		color "heat"		
 
 	# Flagship speed
 	visible if "flagship data display"
@@ -721,7 +709,10 @@ interface "hud"
 		size 1.5
 
 	# Fuel / Energy / Heat gauges
->>>>>>> HUD-positioning-tweaks
+	visible
+	sprite "ui/gauges"
+		from 0 220
+		align top right
 	bar "fuel"
 		from -53.5 445
 		dimensions 0 -192
@@ -748,15 +739,12 @@ interface "hud"
 		color "dim"
 		size 2
 
-<<<<<<< HEAD
 	string "incoming"
 		from -70 320
 		color "medium"
 		align right
 			
-=======
 	# Thrust / Lateral / Turn bars
->>>>>>> HUD-positioning-tweaks
 	visible if "flagship data display"
 	sprite "ui/thrust bar frame"
 		from -2 474
@@ -806,9 +794,7 @@ interface "hud"
 		color "medium"
 		align left
 
-<<<<<<< HEAD
 	
-=======
 	# Flagship Ramscoop 
 	visible if "flagship ramscoop display"
 	sprite "ui/tactical/ramscoop"
@@ -833,7 +819,6 @@ interface "hud"
 		from -70 320
 		color "medium"
 		align right
->>>>>>> HUD-positioning-tweaks
 
 	
 
