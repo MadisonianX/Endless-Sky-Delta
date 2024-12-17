@@ -759,6 +759,11 @@ void Engine::Step(bool isActive)
 			info.SetOutlineColor(Radar::GetColor(1));
 		}
 	}
+	if(player.Flagship())
+		{
+			const Ship &flagship = *player.Flagship();
+			info.SetString("flagship name", flagship.Name());
+		}
 	if(currentSystem)
 		info.SetString("location", currentSystem->Name());
 	info.SetString("date", player.GetDate().ToString());
@@ -965,8 +970,17 @@ void Engine::Step(bool isActive)
 			info.SetString("target government", target->GetGovernment()->GetName());
 		info.SetString("mission target", target->GetPersonality().IsTarget() ? "(mission target)" : "");
 
+		// Only update the "active" state shown for the target if it is
+		// in the current system and targetable, or owned by the player.
 		int targetType = RadarType(*target, step);
-		info.SetOutlineColor(GetTargetOutlineColor(targetType));
+		const bool blinking = targetType == Radar::BLINK;
+		if(!blinking && ((target->GetSystem() == player.GetSystem() && target->IsTargetable()) || target->IsYours()))
+			lastTargetType = targetType;
+		if(blinking)
+			info.SetOutlineColor(GetTargetOutlineColor(Radar::BLINK));
+		else
+			info.SetOutlineColor(GetTargetOutlineColor(lastTargetType));
+
 		if(target->GetSystem() == player.GetSystem() && target->IsTargetable())
 		{
 			info.SetBar("target shields", target->Shields());
@@ -1008,11 +1022,10 @@ void Engine::Step(bool isActive)
 			// have strategic or weapon range info, use normal display.
 			// If they do, then use strategic range display.
 			if(tacticalRange || strategicScanRange || rangeFinder)
+			{
 				info.SetString("target range", to_string(static_cast<int>(round(targetRange))));
-			if((tacticalRange || rangeFinder) && !strategicScanRange)
 				info.SetCondition("range display");
-			else if(strategicScanRange)
-				info.SetCondition("strategic range display");
+			}
 			// Actual information requires a scrutable target
 			// that is within the relevant scanner range.
 			bool scrutable = !target->Attributes().Get("inscrutable");
@@ -1103,8 +1116,14 @@ void Engine::Step(bool isActive)
 	{
 		double width = max(target->Width(), target->Height());
 		Point pos = target->Position() - center;
-		statuses.emplace_back(pos, flagship->OutfitScanFraction(), flagship->CargoScanFraction(),
-			0., 10. + max(20., width * .5), Status::Type::SCAN, 1.f, Angle(pos).Degrees() + 180.);
+		const bool outfitInRange = pos.LengthSquared() <= (flagship->Attributes().Get("outfit scan power") * 10000);
+		const Status::Type outfitOverlayType = outfitInRange ? Status::Type::SCAN : Status::Type::SCAN_OUT_OF_RANGE;
+		statuses.emplace_back(pos, flagship->OutfitScanFraction(), 0.,
+			0., 10. + max(20., width * .5), outfitOverlayType, 1.f, Angle(pos).Degrees() + 180.);
+		const bool cargoInRange = pos.LengthSquared() <= (flagship->Attributes().Get("cargo scan power") * 10000);
+		const Status::Type cargoOverlayType = cargoInRange ? Status::Type::SCAN : Status::Type::SCAN_OUT_OF_RANGE;
+		statuses.emplace_back(pos, 0., flagship->CargoScanFraction(),
+			0., 10. + max(20., width * .5), cargoOverlayType, 1.f, Angle(pos).Degrees() + 180.);
 	}
 	// Handle any events that change the selected ships.
 	if(groupSelect >= 0)
@@ -1269,17 +1288,19 @@ void Engine::Draw() const
 
 	for(const auto &it : statuses)
 	{
-		static const Color color[14] = {
+		static const Color color[16] = {
 			*colors.Get("overlay flagship shields"),
 			*colors.Get("overlay friendly shields"),
 			*colors.Get("overlay hostile shields"),
 			*colors.Get("overlay neutral shields"),
 			*colors.Get("overlay outfit scan"),
+			*colors.Get("overlay outfit scan out of range"),
 			*colors.Get("overlay flagship hull"),
 			*colors.Get("overlay friendly hull"),
 			*colors.Get("overlay hostile hull"),
 			*colors.Get("overlay neutral hull"),
 			*colors.Get("overlay cargo scan"),
+			*colors.Get("overlay cargo scan out of range"),
 			*colors.Get("overlay flagship disabled"),
 			*colors.Get("overlay friendly disabled"),
 			*colors.Get("overlay hostile disabled"),
@@ -1500,7 +1521,7 @@ void Engine::EnterSystem()
 
 	doEnter = true;
 	doEnterLabels = true;
-	player.IncrementDate();
+	player.AdvanceDate();
 	const Date &today = player.GetDate();
 
 	const System *system = flagship->GetSystem();
