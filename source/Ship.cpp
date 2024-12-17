@@ -2953,8 +2953,8 @@ double Ship::DisplayRamscoop() const
 // Calculate the ship's current solar collection intake based on distance from system center.
 double Ship::DisplaySolarCollection() const
 {
-	double solarPower = currentSystem->SolarPower() * GetSolarScale() * attributes.Get("solar collection");
-	return solarPower;
+	double solarCollection = currentSystem->SolarPower() * GetSolarScale() * attributes.Get("solar collection");
+	return solarCollection;
 }
 
 
@@ -2963,9 +2963,25 @@ double Ship::DisplaySolarCollection() const
 double Ship::DisplaySolarHeat() const
 {
 	double scale = GetSolarScale();
-	double totalRamscoopHeat = TotalRamscoop();
-	double ramscoop = currentSystem->RamscoopHeat(totalRamscoopHeat, scale);
-	return ramscoop;
+	double totalRamscoopHeat = TotalRamscoopHeat();
+	double solarHeat = currentSystem->RamscoopHeat(totalRamscoopHeat, scale);
+	return solarHeat;
+}
+
+
+
+// Display combined solar power for the system.
+double Ship::DisplaySystemSolar() const
+{
+	return currentSystem->SolarPower();
+}
+
+
+
+// Display combined solar wind for the system.
+double Ship::DisplaySystemWind() const
+{
+	return currentSystem->SolarWind();
 }
 
 
