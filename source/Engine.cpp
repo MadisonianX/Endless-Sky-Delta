@@ -783,7 +783,7 @@ void Engine::Step(bool isActive)
 		info.SetString("flagship acceleration", to_string(flagshipAcceleration));
 		int flagshipTurn = round(flagship->TrueTurnRate() * 60);
 		info.SetString("flagship turn", to_string(flagshipTurn));
-		int flagshipRamscoop = (flagship->DisplayRamScoop() * 100);
+		int flagshipRamscoop = (flagship->DisplayRamscoop() * 100);
 		if(flagshipRamscoop >= 0.05 && Preferences::Has("Show flagship data in HUD"))
 		{
 			info.SetCondition("flagship ramscoop display");
