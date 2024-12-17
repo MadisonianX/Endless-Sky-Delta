@@ -622,6 +622,7 @@ interface "hud"
 		from -20 65
 		color "medium"
 		align right
+
 	# Shields and Hull HUD
 	ring "shields"
 		center -75 155
@@ -638,7 +639,6 @@ interface "hud"
 		dimensions 110 110
 		color "disabled hull"
 		size 1.5
-
 
 	# Flagship HUD
 	visible if "!fast hud sprites"
@@ -657,28 +657,6 @@ interface "hud"
 	image "player sprite"
 		center -75 155
 		dimensions 70 70
-	
-	# Fuel / Energy / Heat gauges
-	visible if "flagship ramscoop display"
-	string "flagship ramscoop"
-		from -55 240.5
-		color "medium"
-		align center
-		color "fuel"
-
-	visible if "flagship solar display"
-	string "flagship solar"
-		from -34 228
-		color "medium"
-		align center
-		color "energy"
-
-	visible if "flagship heat display"
-	string "flagship heat"
-		from -15 215.5
-		color "medium"
-		align center
-		color "heat"		
 
 	# Flagship speed
 	visible if "flagship data display"
@@ -708,8 +686,29 @@ interface "hud"
 		color "disabled hull"
 		size 1.5
 
+	# Ramscoop, Solar Collection, Solar Heat display
+	visible if "flagship ramscoop display"
+	string "flagship ramscoop"
+		from -55 240.5
+		color "medium"
+		align center
+		color "fuel"
+
+	visible if "flagship solar display"
+	string "flagship solar"
+		from -34 228
+		color "medium"
+		align center
+		color "energy"
+
+	visible if "flagship heat display"
+	string "flagship heat"
+		from -15 215.5
+		color "medium"
+		align center
+		color "heat"		
+
 	# Fuel / Energy / Heat gauges
-	visible
 	sprite "ui/gauges"
 		from 0 220
 		align top right
@@ -738,11 +737,6 @@ interface "hud"
 		dimensions 0 -192
 		color "dim"
 		size 2
-
-	string "incoming"
-		from -70 320
-		color "medium"
-		align right
 			
 	# Thrust / Lateral / Turn bars
 	visible if "flagship data display"
@@ -764,8 +758,6 @@ interface "hud"
 		dimensions 40 0
 		color "heat"
 		size 2
-
-
 
 	# If the player has a ship mass display, then this will display their flagship's mass in the HUD.
 	visible if "flagship mass display"
@@ -793,7 +785,6 @@ interface "hud"
 		from -100 277
 		color "medium"
 		align left
-
 	
 	# Flagship Ramscoop 
 	visible if "flagship ramscoop display"
@@ -819,8 +810,6 @@ interface "hud"
 		from -70 320
 		color "medium"
 		align right
-
-	
 
 	# If the player has the relevant fuel cost calculator display, this will show that element in the HUD.
 	visible if "flagship hyper fuel display"
