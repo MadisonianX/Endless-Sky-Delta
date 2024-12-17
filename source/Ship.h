@@ -345,8 +345,8 @@ public:
 	bool DisplayHyperFuelCost() const;
 	bool DisplayScramFuelCost() const;
 	bool DisplayJumpFuelCost() const;
-	double DisplaySolarCollection() const;
 	double DisplayRamscoop() const;
+	double DisplaySolarCollection() const;
 	double DisplaySolarHeat() const;
 	double GetSolarScale() const;
 	double GetWindScale() const;

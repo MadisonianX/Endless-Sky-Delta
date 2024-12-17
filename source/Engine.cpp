@@ -786,7 +786,7 @@ void Engine::Step(bool isActive)
 
 		// Display "ramscoop" collection from Solar Wind relative to distance from system center
 		int flagshipRamscoop = flagship->DisplayRamscoop() * 150;
-		if(flagshipRamscoop >= 0.05 && flagship->Attributes().Get("ramscoop display"))
+		if(flagshipRamscoop >= 0.05 && flagship->Attributes().Get("ramscoop display") && (flagship->Attributes().Get("ramscoop") || flagship->Attributes().Get("velocity ramscoop"))) // Requires ramscoop display to display
 		{
 			info.SetCondition("flagship ramscoop display");
 			info.SetString("flagship ramscoop", to_string(flagshipRamscoop));
