@@ -2942,28 +2942,9 @@ double Ship::DisplaySolarCollection() const
 // Calculate the ship's current solar heat intake based on distance from system center.
 double Ship::DisplaySolarHeat() const
 {
-	double scale = GetWindScale();
-	double velocityRamscoopHeat = attributes.Get("velocity ramscoop heat") * velocity.Length() / 1.66;
-	double totalRamscoopHeat = attributes.Get("ramscoop heat");
-	totalRamscoopHeat += IsHyperspacing() ? 0. : velocityRamscoopHeat; // Ensure velocity ramscoop heat is not gained when hyperspacing.
-	double solarHeat = (currentSystem->SolarPower() * GetHeatScale() * (attributes.Get("solar heat") + SolarHeatByMass()) + currentSystem->RamscoopFuel(totalRamscoopHeat, scale));
-	return solarHeat;
-}
-
-
-
-// Display combined solar power for the system.
-double Ship::DisplaySystemSolar() const
-{
-	return currentSystem->SolarPower();
-}
-
-
-
-// Display combined solar wind for the system.
-double Ship::DisplaySystemWind() const
-{
-	return currentSystem->SolarWind();
+	double scale = GetSolarScale();
+	double ramscoop = currentSystem->RamscoopFuel(attributes.Get("ramscoop"), scale);
+	return ramscoop;
 }
 
 
@@ -4515,7 +4496,6 @@ void Ship::DoGeneration()
 		{
 			double scale = GetSolarScale();
 			double power = currentSystem->SolarPower();
-			double wind = currentSystem->SolarWind();
 
 			double velocityRamscoop = attributes.Get("velocity ramscoop") * velocity.Length() / 1.66;
 			double totalRamscoop = attributes.Get("ramscoop");
@@ -4523,11 +4503,7 @@ void Ship::DoGeneration()
 			fuel += currentSystem->RamscoopFuel(totalRamscoop, scale);
 
 			energy += scale * power * attributes.Get("solar collection");
-
-			double velocityHeat = attributes.Get("velocity ramscoop heat") * velocity.Length() / 1.66;
-			double totalRamscoopHeat = attributes.Get("ramscoop heat");
-			totalRamscoopHeat += IsHyperspacing() ? 0. : velocityHeat; // Ensure velocity ramscoop heat is not gained when hyperspacing.
-			heat += scale * power * attributes.Get("solar heat") + currentSystem->RamscoopFuel(totalRamscoopHeat, scale);
+			heat += scale * power * attributes.Get("solar heat") + currentSystem->RamscoopHeat(attributes.Get("ramscoop heat"), scale);
 
 		}
 
