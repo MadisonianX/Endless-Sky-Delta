@@ -2916,24 +2916,83 @@ double Ship::GetHeatScale() const
 
 
 
-// Calculate the ship's current solar energy.
-double Ship::DisplaySolar() const
+// Create system scale for solar power based on ship position
+double Ship::GetSolarScale() const
 {
-	double scale = GetSolarScale();
-	double solarScaling = currentSystem->SolarPower() * scale;
-	double solarPower = solarScaling * attributes.Get("solar collection");
+	return 1 + 2 / (.001 * position.Length() + 1);
+}
+
+
+
+// Create separate scale for solar wind that is higher near stars
+// but tapers off more quickly than solar power.
+double Ship::GetWindScale() const
+{
+	return .5 + 1000 / (1 * position.Length() + .1);
+}
+
+
+
+// Create separate scale for solar heat that is dramatically higher near stars
+// but tapers off much more quickly than both solar power and solar wind.
+double Ship::GetHeatScale() const
+{
+	return .0001 + 1000 / (1 * position.Length() + .1);
+}
+
+
+
+// Create system scale for solar based attributes based on ship position
+double Ship::GetSolarScale() const
+{
+	double solarScale = GetSolarScale();
+	return solarScale;
+}
+
+
+
+// Create separate scale for solar wind that is higher near stars
+// but tapers off more quickly than solar power.
+double Ship::GetWindScale() const
+{
+	return .2 + 2 / (.001 * position.Length() + .5);
+}
+
+
+
+// Create separate scale for solar heat that is dramatically higher near stars
+// and tapers off much more quickly than both solar power and solar wind.
+double Ship::GetHeatScale() const
+{
+	double heatScale = .0001 + 50 / (1 * position.Length() + .1);
+	return heatScale;
+}
+
+
+
+// Calculate the ship's current solar collection intake based on distance from system center.
+double Ship::DisplaySolarCollection() const
+{
+	double solarPower = currentSystem->SolarPower() * GetSolarScale() * attributes.Get("solar collection");
 	return solarPower;
 }
 
 
 
-// Calculate the ship's current ramscooop.
+// Calculate the ship's current ramscoop intake based on distance from system center.
 double Ship::DisplayRamscoop() const
 {
-	double scale = GetSolarScale();
-	double velocityRamscoop = sqrt(attributes.Get("velocity ramscoop")) * velocity.Length() / 1.66;
-	double ramscoop = currentSystem->SolarWind() * .03 * scale * (sqrt(attributes.Get("ramscoop")) + velocityRamscoop + .05 * scale);
-	return ramscoop;
+	double solarRamscoop = currentSystem->SolarWind() * .03 * GetWindScale() * sqrt(attributes.Get("ramscoop"));
+	return solarRamscoop;
+}
+
+
+
+// Calculate the ship's current solar heat intake based on distance from system center.
+double Ship::DisplaySolarHeat() const
+{
+	double solarHeat = currentSystem->SolarPower() * GetHeatScale() * attributes.Get("solar heat");
+	return solarHeat;
 }
 
 

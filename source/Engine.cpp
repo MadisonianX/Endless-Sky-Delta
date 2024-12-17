@@ -783,17 +783,27 @@ void Engine::Step(bool isActive)
 		info.SetString("flagship acceleration", to_string(flagshipAcceleration));
 		int flagshipTurn = round(flagship->TrueTurnRate() * 60);
 		info.SetString("flagship turn", to_string(flagshipTurn));
-		int flagshipRamscoop = (flagship->DisplayRamscoop() * 100);
-		if(flagshipRamscoop >= 0.05 && Preferences::Has("Show flagship data in HUD"))
+
+		// Display "ramscoop" collection from Solar Wind relative to distance from system center
+		int flagshipRamscoop = flagship->DisplayRamscoop() * 150;
+		if(flagshipRamscoop >= 0.05 && flagship->Attributes().Get("ramscoop display"))
 		{
 			info.SetCondition("flagship ramscoop display");
 			info.SetString("flagship ramscoop", to_string(flagshipRamscoop));
 		}
-		int flagshipSolar = (flagship->DisplaySolar() * 100);
-		if(flagshipSolar >= 0.05 && Preferences::Has("Show flagship data in HUD"))
+		// Display "solar collection" from Solar Power relative to distance from system center
+		int flagshipSolar = flagship->DisplaySolarCollection();
+		if(flagshipSolar >= 0.05 && flagship->Attributes().Get("solar collection display"))
 		{
 			info.SetCondition("flagship solar display");
 			info.SetString("flagship solar", to_string(flagshipSolar));
+		}
+		// Display "solar heat" intake from Solar Power relative to distance from system center
+		int flagshipHeat = flagship->DisplaySolarHeat() * 50;
+		if(flagshipHeat >= 0.05 && flagship->Attributes().Get("solar heat display"))
+		{
+			info.SetCondition("flagship heat display");
+			info.SetString("flagship heat", to_string(flagshipHeat));
 		}
 		// These check for the attribute to determine if the pilot has installed
 		// outfits that give a live display of ship mass and jump fuel costs.
@@ -1012,11 +1022,10 @@ void Engine::Step(bool isActive)
 			// have strategic or weapon range info, use normal display.
 			// If they do, then use strategic range display.
 			if(tacticalRange || strategicScanRange || rangeFinder)
+			{
 				info.SetString("target range", to_string(static_cast<int>(round(targetRange))));
-			if((tacticalRange || rangeFinder) && !strategicScanRange)
 				info.SetCondition("range display");
-			else if(strategicScanRange)
-				info.SetCondition("strategic range display");
+			}
 			// Actual information requires a scrutable target
 			// that is within the relevant scanner range.
 			bool scrutable = !target->Attributes().Get("inscrutable");
