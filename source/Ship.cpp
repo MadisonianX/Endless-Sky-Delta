@@ -2890,10 +2890,36 @@ bool Ship::DisplayJumpFuelCost() const
 
 
 
+// Create system scale for solar power based on ship position
+double Ship::GetSolarScale() const
+{
+	return 1 + 2 / (.001 * position.Length() + 1);
+}
+
+
+
+// Create separate scale for solar wind that is higher near stars
+// but tapers off more quickly than solar power.
+double Ship::GetWindScale() const
+{
+	return .5 + 1000 / (1 * position.Length() + .1);
+}
+
+
+
+// Create separate scale for solar heat that is dramatically higher near stars
+// but tapers off much more quickly than both solar power and solar wind.
+double Ship::GetHeatScale() const
+{
+	return .0001 + 1000 / (1 * position.Length() + .1);
+}
+
+
+
 // Calculate the ship's current solar energy.
 double Ship::DisplaySolar() const
 {
-	double scale = .2 + 1.8 / (.001 * position.Length() + 1);
+	double scale = GetSolarScale();
 	double solarScaling = currentSystem->SolarPower() * scale;
 	double solarPower = solarScaling * attributes.Get("solar collection");
 	return solarPower;
@@ -2902,11 +2928,11 @@ double Ship::DisplaySolar() const
 
 
 // Calculate the ship's current ramscooop.
-double Ship::DisplayRamScoop() const
+double Ship::DisplayRamscoop() const
 {
-	double scale = .2 + 1.8 / (.001 * position.Length() + 1);
-	double ramScoop = currentSystem->SolarWind() * .03 * scale * (sqrt(attributes.Get("ramscoop")) + .05 * scale);
-	return ramScoop;
+	double scale = GetSolarScale();
+	double ramscoop = currentSystem->SolarWind() * .03 * scale * (sqrt(attributes.Get("ramscoop")) + .05 * scale);
+	return ramscoop;
 }
 
 
@@ -4454,7 +4480,7 @@ void Ship::DoGeneration()
 		// Carried fighters can't collect fuel or energy this way.
 		if(currentSystem)
 		{
-			double scale = .2 + 1.8 / (.001 * position.Length() + 1);
+			double scale = GetSolarScale();
 			fuel += currentSystem->RamscoopFuel(attributes.Get("ramscoop"), scale);
 
 			double solarScaling = currentSystem->SolarPower() * scale;
