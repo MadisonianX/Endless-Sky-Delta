@@ -344,13 +344,13 @@ public:
 	bool DisplayHyperFuelCost() const;
 	bool DisplayScramFuelCost() const;
 	bool DisplayJumpFuelCost() const;
+	double GetSolarScale() const;
+	double GetWindScale() const;
+	double GetHeatScale() const;
 	double SolarHeatByMass() const;
 	double DisplaySolarCollection() const;
 	double DisplayRamscoop() const;
 	double DisplaySolarHeat() const;
-	double GetSolarScale() const;
-	double GetWindScale() const;
-	double GetHeatScale() const;
 	double DisplaySystemSolar() const;
 	double DisplaySystemWind() const;
 	// These are for the thruster activity bars
