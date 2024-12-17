@@ -2931,7 +2931,7 @@ double Ship::DisplaySolar() const
 double Ship::DisplayRamscoop() const
 {
 	double scale = GetSolarScale();
-	double ramscoop = currentSystem->SolarWind() * .03 * scale * (sqrt(attributes.Get("ramscoop")) + .05 * scale);
+	double ramscoop = currentSystem->RamscoopFuel(attributes.Get("ramscoop"), scale);
 	return ramscoop;
 }
 
@@ -4486,7 +4486,7 @@ void Ship::DoGeneration()
 			fuel += currentSystem->RamscoopFuel(attributes.Get("ramscoop"), scale);
 
 			energy += scale * power * attributes.Get("solar collection");
-			heat += scale * power * attributes.Get("solar heat") + currentSystem->RamscoopFuel(attributes.Get("ramscoop heat"), scale);
+			heat += scale * power * attributes.Get("solar heat") + currentSystem->RamscoopHeat(attributes.Get("ramscoop heat"), scale);
 
 		}
 
