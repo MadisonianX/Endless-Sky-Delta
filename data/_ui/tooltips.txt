@@ -579,6 +579,12 @@ tip "ramscoop:"
 tip "ramscoop heat:"
 	`Heat produced by a ramscoop as it generates fuel. The amount of heat generated scales based on distance to a star and the power of its solar wind.`
 
+tip "velocity ramscoop:"
+	`Replenishes fuel by harvesting the stellar wind. Velocity ramscoops are more effective when closer to a star and when flying at higher speeds. Like regular ramscoops each one becomes less effective as more are added, and the bonus grows more slowly with increasingly higher speeds; to double the amount of fuel produced at a given speed, a ship must fly four times faster than that velocity.`
+
+tip "velocity ramscoop heat:"
+	`Heat produced by a velocity ramscoop as it generates fuel. The amount of heat generated scales based on distance to a star, the power of its solar wind, and the velocity of the ship.`
+
 tip "required crew / bunks:"
 	`Crew members required to operate this ship, and the total number bunks available. Extra bunks can be used for passengers or extra crew.`
 

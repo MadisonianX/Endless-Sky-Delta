@@ -348,8 +348,8 @@ public:
 	double GetWindScale() const;
 	double GetHeatScale() const;
 	double SolarHeatByMass() const;
-	double DisplaySolarCollection() const;
 	double DisplayRamscoop() const;
+	double DisplaySolarCollection() const;
 	double DisplaySolarHeat() const;
 	double DisplaySystemSolar() const;
 	double DisplaySystemWind() const;

@@ -351,6 +351,9 @@ outfitter "Deep Sky Advanced"
 	"Hyperjump Fuel Display"
 	"Astronomical Scanner"
 
+	"Fuel Bar Hyperjump Display"
+	"Velocity Ramscoop"
+	
 outfitter "Lovelace Basics"
 	"Anti-Missile Turret"
 	"Sidewinder Missile"
