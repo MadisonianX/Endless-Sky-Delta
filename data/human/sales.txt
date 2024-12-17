@@ -349,7 +349,8 @@ outfitter "Deep Sky Advanced"
 	"In-flight Mass Display"
 	"Hyperjump Fuel Display"
 	"Fuel Bar Hyperjump Display"
-
+	"Velocity Ramscoop"
+	
 outfitter "Lovelace Basics"
 	"Anti-Missile Turret"
 	"Sidewinder Missile"
