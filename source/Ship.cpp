@@ -4487,7 +4487,6 @@ void Ship::DoGeneration()
 			fuel += currentSystem->RamscoopFuel(attributes.Get("ramscoop"), scale);
 
 			energy += scale * power * attributes.Get("solar collection");
-			energy -= scale * wind * attributes.Get("ramscoop energy");
 			heat += (scale * power * attributes.Get("solar heat")) + (scale * wind * attributes.Get("ramscoop heat"));
 
 		}
