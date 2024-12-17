@@ -2942,17 +2942,12 @@ double Ship::DisplaySolarCollection() const
 // Calculate the ship's current solar heat intake based on distance from system center.
 double Ship::DisplaySolarHeat() const
 {
-	double scaleWind = GetWindScale();
-	double scaleHeat = GetHeatScale();
-
+	double scale = GetWindScale();
 	double velocityRamscoopHeat = attributes.Get("velocity ramscoop heat") * velocity.Length() / 1.66;
 	double totalRamscoopHeat = attributes.Get("ramscoop heat");
 	totalRamscoopHeat += IsHyperspacing() ? 0. : velocityRamscoopHeat; // Ensure velocity ramscoop heat is not gained when hyperspacing.
-
-	double solarHeat = (currentSystem->SolarPower() * scaleHeat * (attributes.Get("solar heat")) + currentSystem->RamscoopFuel(totalRamscoopHeat, scaleWind) + SolarHeatByMass());
+	double solarHeat = (currentSystem->SolarPower() * GetHeatScale() * (attributes.Get("solar heat") + SolarHeatByMass()) + currentSystem->RamscoopFuel(totalRamscoopHeat, scale));
 	return solarHeat;
-
-
 }
 
 
