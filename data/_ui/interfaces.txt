@@ -821,7 +821,7 @@ interface "hud"
 
 	visible if "system solar display"
 	sprite "ui/tactical/solar"
-		from 252 67
+		from 251 67
 		align top left
 	string "system solar"
 		from 269 76
