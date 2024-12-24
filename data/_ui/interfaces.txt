@@ -830,7 +830,7 @@ interface "hud"
 
 	visible if "system wind display"
 	sprite "ui/tactical/wind"
-		from 258 90
+		from 256 90
 		align top left
 	string "system wind"
 		from 275 99
