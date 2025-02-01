@@ -294,7 +294,7 @@ outfit "Thermal Scanner"
 outfit "Astronomical Scanner"
 	category "Systems"
 	cost 18000
-	thumbnail "outfit/astronomical scanner"
+	thumbnail "outfit/tactical scanner"
 	"mass" 2
 	"outfit space" -2
 	"energy consumption" .1
